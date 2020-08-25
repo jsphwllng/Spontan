@@ -20,8 +20,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.find(event_params)
+    @event = Event.new(event_params)
     @event.user_id = current_user.id
+    @event.save
 
   end
 
