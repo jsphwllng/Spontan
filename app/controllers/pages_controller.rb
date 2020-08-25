@@ -1,6 +1,13 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+	skip_before_action :authenticate_user!, only: [ :home ]
 
-  def home
-  end
+	def home
+		@events = Event.geocoded
+		@markers = @events.map do |event|
+			{
+				lat: event.latitude,
+				lng: event.longitude
+			}
+		end
+	end
 end
