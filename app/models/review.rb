@@ -1,3 +1,3 @@
 class Review < ApplicationRecord
-  has_many :participations
+  belongs_to :participation
 end
