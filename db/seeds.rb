@@ -35,10 +35,10 @@ puts "now saving #{user_4.id}"
 
 puts "now generating 4 events (one per user)"
 
-event_1 = Event.new(category: "food", description: "a very cool event", location: "treptower park", date: "2020-08-25", user: user_1)
-event_2 = Event.new(category: "spiritual", description: "a very cool event", location: "mustafas gemuse", date: "2020-08-25", user: user_2)
-event_3 = Event.new(category: "political", description: "a very cool event", location: "berghain", date: "2020-08-25", user: user_3)
-event_4 = Event.new(category: "sport", description: "a very cool event", location: "about blank, berlin", date: "2020-08-25", user: user_4)
+event_1 = Event.new(category: "food", description: "a very cool event", location: "treptower park", date: "2020-08-25", user: user_1, title: "it's food time")
+event_2 = Event.new(category: "spiritual", description: "a very cool event", location: "alt tegel berlin", date: "2020-08-25", user: user_2, title: "let's do yoga!")
+event_3 = Event.new(category: "political", description: "a very cool event", location: "berghain", date: "2020-08-25", user: user_3, title: "clubbing!")
+event_4 = Event.new(category: "sports", description: "a very cool event", location: "about blank, berlin", date: "2020-08-25", user: user_4, title: "techno fitness")
 
 event_1.save
 puts "now saving #{event_1.id}"
