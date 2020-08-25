@@ -1,2 +1,4 @@
-<h1>Spontan baby</h1>
-<p>oh YEAH!</p>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
