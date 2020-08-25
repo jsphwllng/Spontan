@@ -1,2 +1,7 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<h1 style="color: white">Events#new</h1>
+<p style="color: white">Find me in app/views/events/new.html.erb</p>
+
+ <%= simple_form_for(@event) do |f| %>
+            <%= f.input :description %>
+            <%= f.submit "Book me!" %>
+          <% end %>
