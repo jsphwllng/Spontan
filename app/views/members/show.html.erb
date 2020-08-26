@@ -1,7 +1,24 @@
-<h1 style="color:white">User: <%= @user.username %></h1>
-<p style="color:white"> User since: <%=@user.created_at %></p>
+<div class="text-white">
+	<h1>User: <%= @user.username %></h1>
+	<p> User since: <%=@user.created_at %></p>
 
- <p style="color:white">Name: <%= @user.first_name %> <%= @user.last_name %></p>
- <p style="color:white">Gender: <%= @user.gender %></p>
- <p style="color:white">Location: <%= @user.location %></p>
+	<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+	<p>Gender: <%= @user.gender %></p>
+	<p>Location: <%= @user.location %></p>
 
+
+	<p>You have attended the following events:</p>
+<% @participations.each do |participation| %>
+	<p><%= participation.event.title %></p>
+	<% if participation.review %>
+	<%= participation.review.score %>
+	<% else %>
+		<%= simple_form_for [participation, @review = Review.new] do |f| %>
+		<%= f.input :review %>
+		<%= f.input :score  %>
+		<%= f.submit %>
+		<% end %>
+	<% end %>
+<% end %>
+
+</div>
