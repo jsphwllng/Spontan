@@ -5,28 +5,18 @@ CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dan
 <h1 style="color:white">Index for all events</h1>
 <br>
 
-<%#= select_tag(:column, options_for_select(Model::Category), class:"xy") %>
-
-<!-- search from -->
 <%= form_tag events_path, method: :get do %>
-
-
   <%= text_field_tag :query_event,
     params[:query_event],
     class: "form-control",
     placeholder: "Find Events"
   %>
-   <%= select_tag(:query_category, options_for_select(Event::CATEGORIES))
-
-     %>
+   <%= select_tag :query_category, options_for_select((Event::CATEGORIES),
+  params[:query_category]), {class: 'form-control'}
+ %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-<!--
-   params[:query_category],
-    class: "form-control",
-    placeholder: "Choose Category" -->
 
-<!-- options_for_select(Event::CATEGORIES) -->
 	<!-- map -->
 	<br>
 	<div id="map"
