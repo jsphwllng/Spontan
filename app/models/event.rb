@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-	CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]
+	CATEGORIES = ["", "sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]
 	validates :location, presence: true
 	validates :description, presence: true
 	validates :title, presence: true
