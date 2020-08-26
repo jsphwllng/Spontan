@@ -1,9 +1,15 @@
-<h1 style="color: white">Events#new</h1>
-<p style="color: white">Find me in app/views/events/new.html.erb</p>
 
- <%= simple_form_for(@event) do |f| %>
-            <%= f.input :description %>
-            <%= f.input :photo, as: :file %>
-            <%= f.submit "Book me!" %>
+  <div class="container" style="color: white">
+    <h1 style="color: white">Create a new event</h1>
+    <%= simple_form_for(@event) do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :title %>
+                <%= f.input :description %>
+                <%= f.input :maximum_users %>
+                <%= f.input :location %>
+                <%= f.input :photo, as: :file %>
+                <%= f.submit "Create", class: "btn btn-primary" %>
+              <% end %>
+  </div>
 
-          <% end %>
+
