@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.find(event_params)
+    @event = Event.new(event_params)
     @event.user_id = current_user.id
 
   end
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:category, :description, :location, :maximum_users, :date, :latitude, :longitude)
+    params.require(:event).permit(:category, :description, :location, :maximum_users, :date, :latitude, :longitude, :photo)
   end
 end
 
