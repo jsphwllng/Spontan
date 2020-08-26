@@ -7,6 +7,6 @@ class Event < ApplicationRecord
 	after_validation :geocode, if: :will_save_change_to_location?
 	belongs_to :user
 	validates :category, inclusion: { in: CATEGORIES }
-	has_many :participations
+	has_many :participations, dependent: :destroy
 	has_one_attached :photo
 end
