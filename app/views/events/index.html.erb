@@ -5,13 +5,25 @@
 <% end %>
 
 <!-- do a search from -->
+<!--
+CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"] -->
 
+<%#= select_tag(:column, options_for_select(Model::Category), class:"xy") %>
 
 <%= form_tag events_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
+  <%= text_field_tag :query_event,
+    params[:query_event],
     class: "form-control",
     placeholder: "Find Events"
   %>
+   <%= select_tag(:query_category, options_for_select(Event::CATEGORIES))
+
+     %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+<!--
+   params[:query_category],
+    class: "form-control",
+    placeholder: "Choose Category" -->
+
+<!-- options_for_select(Event::CATEGORIES) -->
