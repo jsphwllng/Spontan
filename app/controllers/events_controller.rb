@@ -2,10 +2,11 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR description ILIKE :query"
-      @events= Event.where(sql_query, query: "%#{params[:query]}%")
-      # @events = Event.where("title ILIKE ?", "%#{params[:query]}%")
+    if params[:query_event].present? || params[:query_category].present?
+      sql_query = "title ILIKE :query_event OR description ILIKE :query_event"
+        sql_query_category = "category ILIKE :query_category"
+      @events= Event.where(sql_query, query_event: "%#{params[:query_event]}%")
+      @events = @events.where(sql_query_category, query_category: "%#{params[:query_category]}%")
     else
       @events = Event.all
     end
