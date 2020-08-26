@@ -10,6 +10,7 @@ CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dan
 <!-- search from -->
 <%= form_tag events_path, method: :get do %>
 
+
   <%= text_field_tag :query_event,
     params[:query_event],
     class: "form-control",
@@ -34,7 +35,7 @@ CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dan
 	data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 	<!-- cards -->
-
+<div class="d-flex flex-wrap justify-content-around">
 	<% @events.each do |event| %>
 	<% if event.date > DateTime.now  %>
 	<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
@@ -51,5 +52,6 @@ CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dan
 			<%= link_to "view event", event_path(event), class:"btn btn-primary"%>
 		</div>
 	</div>
+</div>
 	<% end %>
 	<% end %>
