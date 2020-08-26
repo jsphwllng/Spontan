@@ -1,2 +1,7 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<h1 style="color:white">User: <%= @user.username %></h1>
+<p style="color:white"> User since: <%=@user.created_at %></p>
+
+ <p style="color:white">Name: <%= @user.first_name %> <%= @user.last_name %></p>
+ <p style="color:white">Gender: <%= @user.gender %></p>
+ <p style="color:white">Location: <%= @user.location %></p>
+
