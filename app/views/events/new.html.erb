@@ -2,8 +2,9 @@
   <div class="container" style="color: white">
     <h1 style="color: white">Create a new event</h1>
     <%= simple_form_for(@event) do |f| %>
-                <%= f.error_notification %>
+
                 <%= f.input :title %>
+                <%= f.input :category, collection: Event::CATEGORIES %>
                 <%= f.input :description %>
                 <%= f.input :maximum_users %>
                 <%= f.input :location %>

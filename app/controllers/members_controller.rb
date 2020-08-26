@@ -3,6 +3,8 @@ class MembersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @participations = @user.participations
+    @review = Review.new
   end
 
   def new
