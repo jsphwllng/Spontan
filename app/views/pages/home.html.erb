@@ -19,7 +19,7 @@ data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 			<p class="card-text">
 				<%= event.location %>
 			</p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
+			<%= link_to "view event", event_path(event), class:"btn btn-primary"%>
 		</div>
 	</div>
 	<% end %>

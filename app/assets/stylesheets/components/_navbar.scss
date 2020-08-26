@@ -13,8 +13,16 @@
   width: 40px;
   justify-content: flex-end;
     left: 50%;
-    top: 10%;
+    top: 15%;
     transform: translateX(-50%);
     position: absolute;
 }
 
+.fa-plus {
+  font-size: 40px;
+  color: #35D0BA;
+}
+
+.fa-plus:hover {
+  color: white
+}
