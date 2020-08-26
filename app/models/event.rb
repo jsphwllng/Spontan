@@ -8,4 +8,5 @@ class Event < ApplicationRecord
 	belongs_to :user
 	validates :category, inclusion: { in: CATEGORIES }
 	has_many :participations
+	has_one_attached :photo
 end
