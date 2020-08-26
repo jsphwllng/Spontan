@@ -3,3 +3,15 @@
 <% @events.each do |event| %>
 <%= link_to 'Events', event_path(event), class: "btn btn-primary" %>
 <% end %>
+
+<!-- do a search from -->
+
+
+<%= form_tag events_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find Events"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
