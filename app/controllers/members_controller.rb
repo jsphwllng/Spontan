@@ -7,15 +7,13 @@ class MembersController < ApplicationController
   end
 
   def new
-  end
-
-  def create
-  end
-
-  def update
+    @user = User.new
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destory
+    # redirect_to some_path
   end
 
 #I think these two methods belong here?!
