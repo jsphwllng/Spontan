@@ -1,15 +1,17 @@
 
 <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
-  
+<%= link_to new_event_path, class: "new-event-btn" do %>
+  <i class="fas fa-plus" ></i>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-<div class="navbar-brand">
-<%= link_to root_path, class: "" do %>
+  <div class="navbar-brand">
+    <%= link_to root_path, class: "logo-spontan" do %>
     <%= image_tag "logo.png" %>
     <% end %>
-    </div>
+  </div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
