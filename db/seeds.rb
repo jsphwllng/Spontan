@@ -38,13 +38,13 @@ puts "now saving #{user_4.id}"
 puts "now generating 8 events (two per user, past and future)"
 sleep 0.5
 event_1 = Event.new(category: "food", description: "a very cool event", location: "treptower park", date: (DateTime.now + (score.sample).hours), user: user_1, title: "it's food time (future)")
-event_2 = Event.new(category: "spiritual", description: "a very cool event", location: "babylon berlin", date: (DateTime.now + (score.sample).hours), user: user_2, title: "let's do yoga! (future)")
-event_3 = Event.new(category: "political", description: "a very cool event", location: "berghain", date: (DateTime.now + (score.sample).hours), user: user_3, title: "clubbing!")
-event_4 = Event.new(category: "sports", description: "a very cool event", location: "about blank, berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "techno fitness (future)")
-event_5 = Event.new(category: "food", description: "a very cool event", location: "treptower park", date: "2020-08-22", user: user_1, title: "it's food time")
-event_6 = Event.new(category: "spiritual", description: "a very cool event", location: "alt tegel berlin", date: "2020-08-23", user: user_2, title: "let's do yoga!")
-event_7 = Event.new(category: "political", description: "a very cool event", location: "berghain", date: "2020-08-24", user: user_3, title: "clubbing!")
-event_8 = Event.new(category: "sports", description: "a very cool event", location: "about blank, berlin", date: "2020-08-25", user: user_4, title: "techno fitness")
+event_2 = Event.new(category: "spiritual", description: "a very fun event", location: "babylon berlin", date: (DateTime.now + (score.sample).hours), user: user_2, title: "let's do yoga! (future)")
+event_3 = Event.new(category: "political", description: "a very sexy event", location: "berghain", date: (DateTime.now + (score.sample).hours), user: user_3, title: "clubbing!")
+event_4 = Event.new(category: "sports", description: "a very awesome event", location: "about blank, berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "techno fitness (future)")
+event_5 = Event.new(category: "food", description: "a very scary event", location: "treptower park", date: "2020-08-22", user: user_1, title: "it's food time")
+event_6 = Event.new(category: "spiritual", description: "a very spooky event", location: "alt tegel berlin", date: "2020-08-23", user: user_2, title: "let's do yoga!")
+event_7 = Event.new(category: "political", description: "a very unfortunate event", location: "berghain", date: "2020-08-24", user: user_3, title: "clubbing!")
+event_8 = Event.new(category: "sports", description: "a very arty event", location: "about blank, berlin", date: "2020-08-25", user: user_4, title: "techno fitness")
 
 event_1.save
 puts "now saving future event #{event_1.id}"
