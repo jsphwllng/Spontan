@@ -10,6 +10,7 @@ const buildMap = () => {
   });
 };
 
+
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     new mapboxgl.Marker()

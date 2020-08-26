@@ -9,6 +9,7 @@ params[:query],
 class: "form-control",
 	placeholder: "Find Events"
 	%>
+	<br>
 	<%= submit_tag "Search", class: "btn btn-primary" %>
 	<% end %>
 	<!-- map -->
@@ -19,7 +20,7 @@ class: "form-control",
 	data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 	<!-- cards -->
-
+<div class="d-flex flex-wrap justify-content-around">
 	<% @events.each do |event| %>
 	<% if event.date > DateTime.now  %>
 	<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
@@ -36,5 +37,6 @@ class: "form-control",
 			<%= link_to "view event", event_path(event), class:"btn btn-primary"%>
 		</div>
 	</div>
+</div>
 	<% end %>
 	<% end %>
