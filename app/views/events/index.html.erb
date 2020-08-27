@@ -11,6 +11,11 @@ CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dan
     class: "form-control",
     placeholder: "Find Events"
   %>
+    <%= text_field_tag :query_location,
+    params[:query_location],
+    class: "form-control",
+    placeholder: "Location"
+  %>
    <%= select_tag :query_category, options_for_select((Event::CATEGORIES),
   params[:query_category]), {class: 'form-control'}
  %>
