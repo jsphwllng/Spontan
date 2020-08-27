@@ -21,4 +21,5 @@ class User < ApplicationRecord
   has_many :followers, through: :followee_followships
 
   validates :username, uniqueness: true
+  has_one_attached :photo
 end
