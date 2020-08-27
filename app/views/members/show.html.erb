@@ -35,7 +35,11 @@
 				<% end %>
 				<% end %>
 				<% end %>
+				<% if host_score > 0 %>
+
+				
 				<% host_score = host_score / @user.events.count %>
+				<% end %>
 				<p>
 					Host score: <%host_score.ceil().times do |star|%>
 					<i class="fas fa-star"></i>
@@ -46,12 +50,12 @@
 				</p>
 			</div>
 			<% if @user == current_user %>
-			<h4>You have attended the following events:</h4>
+			<h4>   You have attended the following events:</h4>
 			<% else %>
 			<h4> <%= @user.username %> has attended the following events: </h4>
 			<% end %>
 			<% @participations.each do |participation| %>
-			<div class="user-box">
+			<div class="user-box", style="height:40%">
 				<div class="row">
 					<div class="col">
 						<p><%= participation.event.title %> on <%= participation.event.date.strftime("%d, %B %Y") %> </p>
@@ -86,8 +90,10 @@
 						<% end %>
 						<% end %>
 					</div>
-					<div class="row">
-						<p>an image goes here</p>
+					<div class="col">
+						<% if participation.event.photo.attached? %>
+						<%= cl_image_tag participation.event.photo.key, style:"width: 170px; height: 170px" %> 
+						<% end %>
 					</div>
 				</div>
 			</div>
