@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-
+  now_date = DateTime.now
   def index
+
     if params[:query_event].present? || params[:query_category].present? || params[:query_location].present?
         sql_query = "title ILIKE :query_event OR description ILIKE :query_event"
         sql_query_category = "category ILIKE :query_category"
@@ -11,19 +12,20 @@ class EventsController < ApplicationController
         @events = @events.near(current_user.location, params[:query_location].to_i) if params[:query_location] != "0"
         @events = @events.where(sql_query_category, query_category: "%#{params[:query_category]}%")
 
+        @events = @events.where("date > ?", DateTime.now)
+
     else
-      @events = Event.all
+      @events = Event.where("date > ?", DateTime.now)
     end
 
     @markers = @events.map do |event|
-      if event.date > DateTime.now
-        {
-          lat: event.latitude,
-          lng: event.longitude
-        }
-      end
+      {
+        lat: event.latitude,
+        lng: event.longitude
+      }
     end
   end
+  
 
 
   def show

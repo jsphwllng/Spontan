@@ -6,7 +6,8 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/jsphwllng/cke9x6p8r6g4j19o8ws6tozc5'
+    style: 'mapbox://styles/jsphwllng/ckecnjp5w1xr519kigrqilw9w'
+    
   });
 };
 
@@ -14,15 +15,15 @@ const buildMap = () => {
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(map);
+    .setLngLat([ marker.lng, marker.lat ])
+    .addTo(map);
   });
 };
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 20, duration: 0 });
 };
 
 const initMapbox = () => {
