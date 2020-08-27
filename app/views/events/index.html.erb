@@ -5,14 +5,24 @@ CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dan
 <h1 style="color:white">Index for all events</h1>
 <br>
 
+
+
 <%= form_tag events_path, method: :get do %>
   <%= text_field_tag :query_event,
     params[:query_event],
     class: "form-control",
-    placeholder: "Find Events"
+    placeholder: "Find Events by Keyword"
   %>
+    <%#= text_field_tag :query_location,
+    params[:query_location],
+    class: "form-control",
+    placeholder: "Find Events by Location"
+  %>
+  <%= select_tag :query_location, options_for_select(([['', 0],['2 Km', 1], ['5 Km', 2], ['10 Km', 3], ['25 Km', 4]]),
+  params[:query_location]), {class: 'form-control', placeholder: "Find Events by City"}
+ %>
    <%= select_tag :query_category, options_for_select((Event::CATEGORIES),
-  params[:query_category]), {class: 'form-control'}
+  params[:query_category]), {class: 'form-control', placeholder: "Find Events by City"}
  %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
