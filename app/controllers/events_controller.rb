@@ -8,10 +8,12 @@ class EventsController < ApplicationController
         sql_query_category = "category ILIKE :query_category"
         sql_query_location = "location ILIKE :query_location"
         @events = Event.all
-        @events = Event.near(current_user.location, params[:query_location].to_i) if params[:query_location] != "0"
         @events= @events.where(sql_query, query_event: "%#{params[:query_event]}%")
+        @events = @events.near(current_user.location, params[:query_location].to_i) if params[:query_location] != "0"
         @events = @events.where(sql_query_category, query_category: "%#{params[:query_category]}%")
+
         @events = @events.where("date > ?", DateTime.now)
+
     else
       @events = Event.where("date > ?", DateTime.now)
     end

@@ -13,7 +13,7 @@ CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dan
     class: "form-control",
     placeholder: "Find Events by Keyword"
   %>
-  <%= select_tag :query_location, options_for_select(([['', 0],['2 Km', 1], ['5 Km', 2], ['10 Km', 3], ['25 Km', 4]]),
+  <%= select_tag :query_location, options_for_select(([['', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
   params[:query_location]), {class: 'form-control', placeholder: "Find Events by City"}
  %>
    <%= select_tag :query_category, options_for_select((Event::CATEGORIES),
