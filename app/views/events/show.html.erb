@@ -2,12 +2,12 @@
 
 <% if @event.photo.attached? %>
 	<%= cl_image_tag @event.photo.key%>
-	<h1>
-		<%= @event.title %>
+	<h1 class="text-white">
+		<%= @event.title.capitalize %>
 	</h1>
 <% else %>
 <h1 class="text-white">
-	<%= @event.title %>
+	<%= @event.title.capitalize %>
 </h1>
 <% end %>
 
