@@ -55,16 +55,10 @@ event_1 = Event.new(category: "food", description: "a very cool event", location
 event_2 = Event.new(category: "spiritual", description: "a very fun event", location: "babylon berlin", date: (DateTime.now + (score.sample).hours), user: user_2, title: "let's do yoga! (future)")
 event_3 = Event.new(category: "political", description: "a very sexy event", location: "berghain", date: (DateTime.now + (score.sample).hours), user: user_3, title: "clubbing!")
 event_4 = Event.new(category: "sports", description: "a very awesome event", location: "about blank, berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "techno fitness (future)")
-
-event_5 = Event.new(category: "culture", description: "Come join our group for a tour through the Pergamon Museum. Bring some time!", location: "Pergamon Museum Berlin", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Art in Pergamon Museum (future)")
-event_6 = Event.new(category: "dancing", description: "We are a small group of enthusiastic salza dancers. Everyone is welcome! No prior knowledge required :)", location: "Volkspark Friedrichshain", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Salza dancing for beginners (future)")
-event_7 = Event.new(category: "studying", description: "I give free tips & tricks how to step up your learning process when it comes to studying.", location: "Staatsbibliothek Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Tips & Tricks for successfull studying")
-event_8 = Event.new(category: "party", description: "Lets end the day with some pumping beats and some nice & cold beers, 18+ !", location: "Möckernstraße Berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Beers & Beats (future)")
-
-event_9 = Event.new(category: "food", description: "a very scary event", location: "treptower park", date: "2020-08-22", user: user_1, title: "it's food time")
-event_10 = Event.new(category: "spiritual", description: "a very spooky event", location: "alt tegel berlin", date: "2020-08-23", user: user_2, title: "let's do yoga!")
-event_11 = Event.new(category: "political", description: "a very unfortunate event", location: "berghain", date: "2020-08-24", user: user_3, title: "clubbing!")
-event_12 = Event.new(category: "sports", description: "a very arty event", location: "about blank, berlin", date: "2020-08-25", user: user_4, title: "techno fitness")
+event_5 = Event.new(category: "food", description: "a very scary event", location: "treptower park", date: "2020-08-22", user: user_1, title: "it's food time")
+event_6 = Event.new(category: "spiritual", description: "a very spooky event", location: "alt tegel berlin", date: "2020-08-23", user: user_2, title: "let's do yoga!")
+event_7 = Event.new(category: "political", description: "a very unfortunate event", location: "berghain", date: "2020-08-24", user: user_3, title: "clubbing!")
+event_8 = Event.new(category: "sports", description: "a very arty event", location: "about blank, berlin", date: "2020-08-25", user: user_4, title: "techno fitness")
 
 event_1.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo  #{event_1.id}"
@@ -107,14 +101,6 @@ event_7.save
 puts "now saving past event #{event_7.id}"
 event_8.save
 puts "now saving past event #{event_8.id}"
-event_9.save
-puts "now saving past event #{event_9.id}"
-event_10.save
-puts "now saving past event #{event_10.id}"
-event_11.save
-puts "now saving past event #{event_11.id}"
-event_12.save
-puts "now saving past event #{event_12.id}"
 
 
 
