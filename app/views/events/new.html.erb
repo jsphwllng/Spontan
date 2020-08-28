@@ -1,17 +1,26 @@
 
-  <div class="container" style="color: white">
-    <h1 style="color: white">Create a new event</h1>
-    <%= simple_form_for(@event) do |f| %>
+<div class="container create-event" style="color: white">
 
-                <%= f.input :title %>
-                <%= f.input :category, collection: Event::CATEGORIES %>
-                <%= f.input :description %>
-                <%= f.input :maximum_users %>
-                <%= f.input :location %>
-                <%= f.input :date %>
-                <%= f.input :photo, as: :file %>
-                <%= f.submit "Create", class: "btn btn-primary" %>
-              <% end %>
+    <h1 style="color: white">Create a new event</h1>
+     <div class="row">
+    <div class="column">
+
+      <%= simple_form_for @event, defaults: { input_html: { class: 'input-form-new-events' } } do |f| %>
+
+                  <%= f.input :title %>
+                  <%= f.input :category, collection: Event::CATEGORIES %>
+                  <%= f.input :description %>
+                  <%= f.input :maximum_users %>
+                  <%= f.input :location %>
+                  <%= f.input :date %>
+                  <%= f.input :photo, as: :file %>
+                  <%= f.submit "Create", class: "btn btn-primary" %>
+                <% end %>
+    </div>
+    <div class="column map-column">
+      <img src="<%= image_path("map_example") %>" class="map-img" alt="image map">
+    </div>
   </div>
+</div>
 #randomComment
 

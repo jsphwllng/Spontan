@@ -34,10 +34,10 @@ puts "now generating seeds..."
 sleep 0.5
 
 puts "now generating 4 users"
-user_1 = User.new(email: "im_a_test@example.com", first_name: "Maya", last_name: "example", gender: "female", location: "treptow", username: "bee_fan69", password: "123456")
-user_2 = User.new(email: "ich_auch@example.com", first_name: "Jojo", last_name: "example", gender: "male", location: "mitte", username: "beep_beep", password: "123456")
-user_3 = User.new(email: "big_example@example.com", first_name: "Aljosha", last_name: "example", gender: "male", location: "brandeburger tor", username: "spontan_boy", password: "123456")
-user_4 = User.new(email: "example_time@example.com", first_name: "Marian", last_name: "example", gender: "male", location: "Volkspark Wedding", username: "monkey_time", password: "123456")
+user_1 = User.new(email: "q@example.com", first_name: "Sarah", last_name: "Hunter", gender: "female", location: "Paul-Robson-Str. 1, 10439 Berlin", username: "new_in_town91", password: "123456")
+user_2 = User.new(email: "x@example.com", first_name: "Bert", last_name: "Carlson", gender: "male", location: "Weserstr. 25, 12045 Berlin", username: "GretchenBerlin", password: "123456")
+user_3 = User.new(email: "y@example.com", first_name: "Dino", last_name: "Wurst", gender: "male", location: "Brandeburger Tor", username: "dino_the_boss", password: "123456")
+user_4 = User.new(email: "z@example.com", first_name: "Marian", last_name: "example", gender: "male", location: "Volkspark Wedding", username: "Metallica4Life", password: "123456")
 user_1.save
 puts "now saving #{user_1.id}"
 user_2.save
@@ -51,20 +51,21 @@ puts "now saving #{user_4.id}"
 
 puts "now generating 8 events (two per user, past and future)"
 sleep 0.5
-event_1 = Event.new(category: "food", description: "a very cool event", location: "treptower park", date: (DateTime.now + (score.sample).hours), user: user_1, title: "it's food time (future)")
-event_2 = Event.new(category: "spiritual", description: "a very fun event", location: "babylon berlin", date: (DateTime.now + (score.sample).hours), user: user_2, title: "let's do yoga! (future)")
-event_3 = Event.new(category: "political", description: "a very sexy event", location: "berghain", date: (DateTime.now + (score.sample).hours), user: user_3, title: "clubbing!")
-event_4 = Event.new(category: "sports", description: "a very awesome event", location: "about blank, berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "techno fitness (future)")
 
-event_5 = Event.new(category: "culture", description: "Come join our group for a tour through the Pergamon Museum. Bring some time!", location: "Pergamon Museum Berlin", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Art in Pergamon Museum (future)")
-event_6 = Event.new(category: "dancing", description: "We are a small group of enthusiastic salza dancers. Everyone is welcome! No prior knowledge required :)", location: "Volkspark Friedrichshain", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Salza dancing for beginners (future)")
-event_7 = Event.new(category: "studying", description: "I give free tips & tricks how to step up your learning process when it comes to studying.", location: "Staatsbibliothek Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Tips & Tricks for successfull studying")
-event_8 = Event.new(category: "party", description: "Lets end the day with some pumping beats and some nice & cold beers, 18+ !", location: "Möckernstraße Berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Beers & Beats (future)")
+event_1 = Event.new(category: "food", description: "I love to cook and bake and as it is Friday today, I thought why not do it with some fun people who share my passion for yummy stuff! I have a slow cooker and put some delicious ribs in this morning. If you guys could bring some sidedishes or deserts, we should be all set for a feast! ", location: "Karl-Kunger-Str. 8", date: (DateTime.now + (score.sample).hours), user: user_1, title: "I've Got The Ribs, Let's Eat Together!")
+event_2 = Event.new(category: "spiritual", description: "Ever since I lived in an Ashram in India for six month, my life as been transformed and I cannot imagine not doing yoga for hours on end on a daily basis in the outdoors. Let's meet to train our bodies and minds and find a spiritual connection with one another than will transcendent from the Now to the Was and to the Will-be.", location: "Pfaueninsel, 14109 Berlin", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Transcendental Ashtanga Yoga for Free Spirits (Vegans only!)")
+event_3 = Event.new(category: "political", description: "After a looooooong hiatus, Berghain is back, baby! If you are also one of the elustrous few who got a ticket this weekend, let's go together and party like it's 2019! (PS: bring your own gear!)", location: "Am Wriezener Bahnhof, 10243 Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Berghain is Back!")
+event_4 = Event.new(category: "sports", description: "I could really use some light physical activity and thought, how about a wee marathon this weekend. I usually finish in just under 4 hours so please no lame ducks. Meet at Friedrich-Ludwig-Jahn-Sportpark in front of the entrance", location: "Cantianstraße 24, 10437 Berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Quick Run for Real Dudes")
 
-event_9 = Event.new(category: "food", description: "a very scary event", location: "treptower park", date: "2020-08-22", user: user_1, title: "it's food time")
-event_10 = Event.new(category: "spiritual", description: "a very spooky event", location: "alt tegel berlin", date: "2020-08-23", user: user_2, title: "let's do yoga!")
-event_11 = Event.new(category: "political", description: "a very unfortunate event", location: "berghain", date: "2020-08-24", user: user_3, title: "clubbing!")
-event_12 = Event.new(category: "sports", description: "a very arty event", location: "about blank, berlin", date: "2020-08-25", user: user_4, title: "techno fitness")
+event_5 = Event.new(category: "culture", description: "Come join our group for a tour through the Pergamon Museum. Bring some time!", location: "Pergamon Museum, Hamburgerbanhof Berlin", date: (DateTime.now + (score.sample).hours), user: user_1, title: "The World Needs More Modern Art - Looking for Likeminded Connoisseurs")
+event_6 = Event.new(category: "dancing", description: "We are a small group of enthusiastic salza dancers. Everyone is welcome! No prior knowledge required :)", location: "Volkspark Friedrichshain", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Salza Dancing for Beginners")
+event_7 = Event.new(category: "studying", description: "The semester is almost over and exams are just around the corner. I give free tips & tricks how to step up your learning process when it comes to studying for exams.", location: "Staatsbibliothek Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Tips & Tricks for Successfull Studying")
+event_8 = Event.new(category: "party", description: "Lets end the day with some pumping beats and some nice & cold beers, 18+ !", location: "Café Hasenschänke, 10965, Berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Beers & Beats at Hasenheide")
+
+event_9 = Event.new(category: "food", description: "Poke Bowls are so delicious, let's have some together at Vietbowl in Neukoelln!", location: "Böhmische Str. 13, 12055 Berlin", date: "2020-08-22", user: user_1, title: "It's Poke Bowl Time!")
+event_10 = Event.new(category: "spiritual", description: "Let's pray together for the children of the world who needlessly suffer because rich people and conglomerates are selfish and evil", location: "Karl-Liebknecht-Str. 8, 10178 Berlin", date: "2020-08-23", user: user_2, title: "Let us Pray for the Children at St. Marienkirche")
+event_11 = Event.new(category: "political", description: "Never forget what happened in Hanau! We cannot let racism and fascism win. Let's show society that we will never forget and never accept such acts of terrorism!", location: "Alexanderplatz", date: "2020-08-24", user: user_3, title: "Never Forget!")
+event_12 = Event.new(category: "sports", description: "Me and a friend would like to play some frisbee. We are easygoing guys and wouldn't mind going for a beer afterwards", location: "Tempelhofer Feld", date: "2020-08-25", user: user_4, title: "techno fitness")
 
 event_1.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo  #{event_1.id}"
@@ -107,14 +108,6 @@ event_7.save
 puts "now saving past event #{event_7.id}"
 event_8.save
 puts "now saving past event #{event_8.id}"
-event_9.save
-puts "now saving past event #{event_9.id}"
-event_10.save
-puts "now saving past event #{event_10.id}"
-event_11.save
-puts "now saving past event #{event_11.id}"
-event_12.save
-puts "now saving past event #{event_12.id}"
 
 
 
