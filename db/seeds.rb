@@ -12,6 +12,7 @@ require 'open-uri'
 food = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521127/food_isnu2d.jpg')
 spiritual = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521129/yoga_p096vn.jpg')
 political = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598605916/frnvwzs3f90klalc1731wmbjjhu0.jpg')
+# ????
 sports = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598606008/rku4jcqqaigdp6yhi9vbfpsg231k.jpg')
 culture = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598606107/8qltv4m98uib1dccfhw6wy09mzm0.jpg')
 dancing = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598605354/i06pmd809y9jpqnk14881x49b1ji.jpg')
