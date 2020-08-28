@@ -25,7 +25,7 @@ class EventsController < ApplicationController
       }
     end
   end
-  
+
 
 
   def show
@@ -50,6 +50,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
       if @event.user_id == current_user.id
       @event.update(event_params)
+      redirect_to events_path(@event)
       end
   end
 
@@ -57,6 +58,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
       if @event.user_id == current_user.id
       @event.destroy
+      redirect_to events_path
       end
   end
 
