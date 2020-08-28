@@ -1,0 +1,100 @@
+<div class="text-white">
+	<br>
+	<div class="row">
+		<div class="col">
+			<h1><%= @user.username %></h1>
+			<% if @user.photo.attached? %>
+			<%= cl_image_tag @user.photo.key, class:"rounded-circle", style:"width: 170px; height: 170px"%>
+			<% else %>
+			<img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 170px; height: 170px">
+			<% end %>
+			<br>
+			<br>
+
+			<p>User since: <%=@user.created_at.strftime("%B %Y") %></p>
+			<p>Followers: <%=@user.followers.count %></p>
+			<p>Following: <%= @user.followees.count %> </p>
+			<p>Attended: <%= @user.participations.count%> events </p>
+		</div>
+		<div class="col">
+			<div class="user-box">
+				<% if @user == current_user %>
+				<p>
+					You have hosted <%= @user.events.count %> events.
+				</p>
+				<% else %>
+				<p>
+					<%= @user.username%> has hosted <%= @user.events.count %> events. 
+				</p>
+				<% end %>
+				<% host_score = 0 %>
+				<% @user.events.each do |event| %>
+				<% event.participations.each do |participation| %>
+				<% if participation.review %>			
+				<% host_score += participation.review.score %>
+				<% end %>
+				<% end %>
+				<% end %>
+				<% host_score = host_score / @user.events.count %>
+				<p>
+					Host score: <%host_score.ceil().times do |star|%>
+					<i class="fas fa-star"></i>
+					<% end %>
+					<% (5 - host_score.ceil).times do |star| %>
+					<i class="far fa-star"></i>
+					<% end %>
+				</p>
+			</div>
+			<% if @user == current_user %>
+			<h4>You have attended the following events:</h4>
+			<% else %>
+			<h4> <%= @user.username %> has attended the following events: </h4>
+			<% end %>
+			<% @participations.each do |participation| %>
+			<div class="user-box">
+				<div class="row">
+					<div class="col">
+						<p><%= participation.event.title %> on <%= participation.event.date.strftime("%d, %B %Y") %> </p>
+						<p>Hosted by: <%= participation.event.user.username%></p>
+						<% if participation.review && @user == current_user %>
+						<p>You rated: 
+							<%participation.review.score.round.times do |star|%>
+							<i class="fas fa-star"></i>
+							<% end %>
+							<% (5 - participation.review.score.round).times do |star| %>
+							<i class="far fa-star"></i>
+							<% end %>
+
+						</p>
+
+						<% else %>
+						<% unless participation.event.user == current_user %>
+						<div class="user-box">
+
+							<div class="form">
+								<%= simple_form_for [participation, @review = Review.new] do |f| %>
+								<%= f.input :review %>
+								<%= f.input :score  %>
+								<%= f.submit %>
+							</div>
+							<% end %>
+						</div>
+
+
+
+
+						<% end %>
+						<% end %>
+					</div>
+					<div class="row">
+						<p>an image goes here</p>
+					</div>
+				</div>
+			</div>
+			
+			<% end %>
+		</div>
+	</div>
+
+</div>
+<br><br>

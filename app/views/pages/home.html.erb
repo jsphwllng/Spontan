@@ -1,4 +1,89 @@
+<br>
 <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+style="width: 100%; height: 350px;"
+data-markers="<%= @markers.to_json %>"
+data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<br>
+<div class="d-flex flex-wrap justify-content-between">
+	<% @events.each do |event| %>
+		<%  if event.date > DateTime.now %>
+		<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+	
+			<% if event.photo.attached? %>
+				<div class="event-image-container">
+					<%= cl_image_tag event.photo.key, class:"event-image" %>
+				</div>
+			<% end %>
+				<!--Headline of the card -->
+			<div class="event-card-h1">
+				<%= event.title.capitalize %>
+			</div>
+			<!--Giving each category the assigned image-tag -->
+			<% if event.category == "sports" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-SPORTS.png') %>" class="category-tag">
+				</div>
+			<% elsif event.category == "party" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-PARTY.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "drinking" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-DRINKING.png') %>" class="category-tag">
+				</div>
+					<% elsif event.category == "social" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-SOCIAL.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "yoga" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-YOGA.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "spiritual" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-SPIRITUAL.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "dancing" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-DANCING.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "misc" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-MISC.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "studying" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-STUDYING.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "political" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-POLITICAL.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "food" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-FOOD.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "board games" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-BOARD-GAMES.png') %>" class="category-tag">
+				</div>
+				<% elsif event.category == "culture" %>
+				<div class="event-card-tag-container">
+					<img src="<%= image_path('Category-tag-CULTURE.png') %>" class="category-tag">
+				</div>		
+				<% end %>
+		
+				<div>
+					<p class="event-card-location">
+						<%= event.location %>
+					</p>
+					<%= link_to "view event", event_path(event), class:"btn btn-primary"%>
+		  	</div>
+		</div>
+		<% end %>
+	<% end %>
+</div>
+
+<%= link_to 'Events', events_path, class: "btn btn-primary" %>
+
