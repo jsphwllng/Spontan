@@ -1,11 +1,5 @@
-
-
-CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"] -->
-
 <h1 style="color:white">Index for all events</h1>
 <br>
-
-
 
 <%= form_tag events_path, method: :get do %>
   <%= text_field_tag :query_event,
@@ -21,7 +15,6 @@ CATEGORIES = ["sports", "party", "drinking", "social", "yoga", "spiritual", "dan
  %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-
 
 		<!-- map -->
 		<br>
