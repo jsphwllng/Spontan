@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :members, only: [:show, :destroy] do
     resources :followships, only: [:create, :destroy]
   end
-  resources :events, only: [:new, :index, :create, :show] do 
+  resources :events, only: [:new, :index, :create, :show, :update, :destroy, :edit] do
     resources :participations, only: [:create, :delete]
   end
   resources :participations, only: [:show] do
