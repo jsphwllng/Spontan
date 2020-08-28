@@ -12,7 +12,7 @@ require 'open-uri'
 food = URI.open('https://images.unsplash.com/photo-1519167874178-f1c834c38f25?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 spiritual = URI.open('https://images.unsplash.com/photo-1571935538821-8ecb6b4dea17?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 political = URI.open('https://images.unsplash.com/photo-1591435285545-409bf0657ebf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
-# ????
+# ?????
 sports = URI.open('https://images.unsplash.com/photo-1559505670-6301572907d0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 culture = URI.open('https://images.unsplash.com/photo-1571417340192-301652af256b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 dancing = URI.open('https://images.unsplash.com/photo-1511843395354-8f364cfb80d5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
