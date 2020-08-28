@@ -9,15 +9,15 @@
 require 'date'
 require 'open-uri'
 
-food = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521127/food_isnu2d.jpg')
-spiritual = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521129/yoga_p096vn.jpg')
-political = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598605916/frnvwzs3f90klalc1731wmbjjhu0.jpg')
+food = URI.open('https://images.unsplash.com/photo-1519167874178-f1c834c38f25?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+spiritual = URI.open('https://images.unsplash.com/photo-1571935538821-8ecb6b4dea17?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+political = URI.open('https://images.unsplash.com/photo-1591435285545-409bf0657ebf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 # ????
-sports = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598606008/rku4jcqqaigdp6yhi9vbfpsg231k.jpg')
-culture = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598606107/8qltv4m98uib1dccfhw6wy09mzm0.jpg')
-dancing = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598605354/i06pmd809y9jpqnk14881x49b1ji.jpg')
-studying = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521128/studying_rgcpnm.jpg')
-party = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521128/party_t5odfd.jpg')
+sports = URI.open('https://images.unsplash.com/photo-1559505670-6301572907d0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+culture = URI.open('https://images.unsplash.com/photo-1571417340192-301652af256b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+dancing = URI.open('https://images.unsplash.com/photo-1511843395354-8f364cfb80d5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+studying = URI.open('https://images.unsplash.com/photo-1472772224448-b24d00409675?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+party = URI.open('https://images.unsplash.com/photo-1460451330947-331de664bf35?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 food2 = URI.open('https://images.unsplash.com/photo-1458677677220-000ddaa037e3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 spiritual2 = URI.open('https://images.unsplash.com/photo-1554244933-d876deb6b2ff?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 political2 = URI.open('https://images.unsplash.com/photo-1551921486-4be2f85f62ed?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
