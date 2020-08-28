@@ -1,8 +1,8 @@
 <div class="text-white">
 	<br>
 	<div class="row">
-		<div class="col">
-			<div class="user-box", style="height: 450px">
+		<div class="col-4">
+			<div class="user-box">
 				<h1><%= @user.username %></h1>
 				<% if @user.photo.attached? %>
 				<%= cl_image_tag @user.photo.key, class:"rounded-circle", style:"width: 170px; height: 170px"%>
@@ -16,13 +16,21 @@
 				<p>Followers: <%=@user.followers.count %></p>
 				<p>Following: <%= @user.followees.count %> </p>
 				<p>Attended: <%= @user.participations.count%> events </p>
+				<% unless @user == current_user || current_user.nil? %>
+				<% pre_follow = @user.followers.find { |follower| follower.id == current_user.id} %>
+				<% if pre_follow %>
+				<%= link_to "unfollow this user", member_followships_path(@user.id), method: :create, class:"btn btn-danger"  %>	
+				<% else %>
+				<%= link_to "follow this user", member_followships_path(@user.id), method: :create, class:"btn btn-primary"  %>					
+				<% end %>
+				<% end %>
 			</div>
 		</div>
 		<div class="col">
 			<div class="user-box">
 				<% if @user == current_user %>
 				<p>
-					You have hosted <%= @user.events.count %> events.
+					<strong> You have hosted </strong> <%= @user.events.count %> events.
 				</p>
 				<% else %>
 				<p>
@@ -60,7 +68,7 @@
 			<div class="user-box">
 				<div class="row">
 					<div class="col">
-						<p><%= participation.event.title %> on <%= participation.event.date.strftime("%d, %B %Y") %> </p>
+						<p><strong><%= participation.event.title %></strong> on <%= participation.event.date.strftime("%d, %B %Y") %> </p>
 						<p>Hosted by: <%= participation.event.user.username%></p>
 						<% if participation.review && @user == current_user %>
 						<p>You rated: 
@@ -74,7 +82,7 @@
 						</p>
 
 						<% else %>
-						<% unless participation.event.user == current_user %>
+						<% if participation.user == current_user %>
 						<div class="user-box">
 
 							<div class="form">
@@ -92,7 +100,7 @@
 						<% end %>
 						<% end %>
 					</div>
-					<div class="col">
+					<div class="col text-right">
 						<% if participation.event.photo.attached? %>
 						<%= cl_image_tag participation.event.photo.key, style:"width: 170px; height: 170px" %> 
 						<% end %>

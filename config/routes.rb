@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :members, only: [:show, :destroy]
-  resources :events, only: [:new, :index, :create, :show, :update, :destroy, :edit] do
+  resources :members, only: [:show, :destroy] do
+    resources :followships, only: [:create, :destroy]
+  end
+  resources :events, only: [:new, :index, :create, :show] do 
     resources :participations, only: [:create, :delete]
   end
   resources :participations, only: [:show] do
