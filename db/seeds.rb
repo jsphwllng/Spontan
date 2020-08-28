@@ -7,6 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'date'
+require 'open-uri'
+
+food = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521127/food_isnu2d.jpg')
+spiritual = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521129/yoga_p096vn.jpg')
+political = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598605916/frnvwzs3f90klalc1731wmbjjhu0.jpg')
+sports = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598606008/rku4jcqqaigdp6yhi9vbfpsg231k.jpg')
+culture = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598606107/8qltv4m98uib1dccfhw6wy09mzm0.jpg')
+dancing = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598605354/i06pmd809y9jpqnk14881x49b1ji.jpg')
+studying = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521128/studying_rgcpnm.jpg')
+party = URI.open('https://res.cloudinary.com/dbbmbbgju/image/upload/v1598521128/party_t5odfd.jpg')
+food2 = URI.open('https://images.unsplash.com/photo-1458677677220-000ddaa037e3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+spiritual2 = URI.open('https://images.unsplash.com/photo-1554244933-d876deb6b2ff?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+political2 = URI.open('https://images.unsplash.com/photo-1551921486-4be2f85f62ed?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+sports2 = URI.open('https://images.unsplash.com/photo-1573056020071-9697f575f8d6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 
 Followship.destroy_all
 Review.destroy_all
@@ -51,6 +65,31 @@ event_9 = Event.new(category: "food", description: "a very scary event", locatio
 event_10 = Event.new(category: "spiritual", description: "a very spooky event", location: "alt tegel berlin", date: "2020-08-23", user: user_2, title: "let's do yoga!")
 event_11 = Event.new(category: "political", description: "a very unfortunate event", location: "berghain", date: "2020-08-24", user: user_3, title: "clubbing!")
 event_12 = Event.new(category: "sports", description: "a very arty event", location: "about blank, berlin", date: "2020-08-25", user: user_4, title: "techno fitness")
+
+event_1.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo  #{event_1.id}"
+event_2.photo.attach(io: spiritual, filename: 'spiritual.jpg', content_type: 'image/jpg')
+puts "now addding a photo  #{event_2.id}"
+event_3.photo.attach(io: political, filename: 'political.jpg', content_type: 'image/jpg')
+puts "now addding a photo  #{event_3.id}"
+event_4.photo.attach(io: sports, filename: 'sports.jpg', content_type: 'image/jpg')
+puts "now addding a photo  #{event_4.id}"
+event_5.photo.attach(io: culture, filename: 'culture.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_5.id}"
+event_6.photo.attach(io: dancing, filename: 'dancing.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_6.id}"
+event_7.photo.attach(io: studying, filename: 'studying.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_7.id}"
+event_8.photo.attach(io: party, filename: 'party.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_8.id}"
+event_9.photo.attach(io: food2, filename: 'food2.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_9.id}"
+event_10.photo.attach(io: spiritual2, filename: 'spiritual2.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_10.id}"
+event_11.photo.attach(io: political2, filename: 'political2.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_11.id}"
+event_12.photo.attach(io: sports2, filename: 'sports2.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_12.id}"
 
 event_1.save
 puts "now saving future event #{event_1.id}"
