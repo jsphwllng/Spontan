@@ -1,36 +1,49 @@
 <br>
-
-<% if @event.photo.attached? %>
-	<%= cl_image_tag @event.photo.key%>
-	<h1 class="text-white">
-		<%= @event.title.capitalize %>
-	</h1>
-<% else %>
-<h1 class="text-white">
-	<%= @event.title.capitalize %>
-</h1>
-<% end %>
-
-<div class="text-white">
-	<h3> a <%= @event.category %> event</h3>
-	<h3> 
-		<%= @event.description %>
-	</h3>
-	<h5>
-		Hosted by <%= @event.user.username %> (this is their <%= @event.user.events.count.ordinalize %> event)
-	</h5>
-	<p>
-		Starting on <%= @event.date.strftime("%m/%d at %I:%M%p") %>
-	</p>
-
-	<% unless @event.participations.exists?(user_id: current_user) %>
-	<%= link_to 'confirm attendance', event_participations_path(@event), method: :post, class: "btn btn-primary" %>
-	<% else %>
-	<%= link_to 'cancel attendance', "#", class: "btn btn-danger" %>
-	<% end %>
-	<br><br>
-	<% if @event.participations.exists?(user_id: current_user) %>
-	<p>You are attending!</p>
-	<% end %>
+<div class="row text-center">
+	<div class="col">
+		<% if @event.user.photo.attached?%>
+		<p class="text-white"> <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px" %> Hosted by: <%= @event.user.username %> </p>
+		<% else %>	
+		<p class="text-white"><img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 70px; height: 70px">Hosted by: <%= @event.user.username %> </p>
+		<% end %>
+	</div>
 </div>
+
+<div class="row">
+	<div class="col">
+		<div class="user-box">
+		<% if @event.photo.attached? %>
+		<%= cl_image_tag @event.photo.key,  style:"width: 250px; height: 120px;"%>
+		<% end %>
+		<h1 class="text-white">
+			<%= @event.title.capitalize %>
+
+			<div class="text-white">
+				<h3> a <%= @event.category %> event</h3>
+				<h3> 
+					<%= @event.description %>
+				</h3>
+				<h5>
+					Hosted by <%= @event.user.username %> (this is their <%= @event.user.events.count.ordinalize %> event)
+				</h5>
+				<p>
+					Starting on <%= @event.date.strftime("%m/%d at %I:%M%p") %>
+				</p>
+			</div>
+
+			<% unless @event.participations.exists?(user_id: current_user) %>
+			<%= link_to 'confirm attendance', event_participations_path(@event), method: :post, class: "btn btn-primary" %>
+			<% else %>
+			<%= link_to 'cancel attendance', "#", class: "btn btn-danger" %>
+			<% end %>
+			<br><br>
+			<% if @event.participations.exists?(user_id: current_user) %>
+			<p>You are attending!</p>
+			<% end %>
+		</div>
+	</div>
+		<div class="col">
+			<!-- this is where the chat will eventually go :) -->
+		</div>	
+	</div>
 
