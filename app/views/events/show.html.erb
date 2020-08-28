@@ -34,5 +34,7 @@
 	<% end %>
 </div>
 <% if @event.user_id == current_user.id %>
-   <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? "}%>
+   <%= link_to "Delete", @event, class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure? "}%>
+    <%= link_to "Update Event", edit_event_path(@event), class: "btn btn-primary" %>
+    <%#= link_to "View", bee_path(bee), class: "btn btn-primary" %>
 <% end %>
