@@ -1,89 +1,124 @@
-<br>
-<div class="search-button-div">
-<%= link_to 'SEARCH FOR EVENTS', events_path, class: "search-event-btn btn btn-primary" %>
-</div>
-<br>
-<div id="map"
-style="width: 100%; height: 350px;"
-data-markers="<%= @markers.to_json %>"
-data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<div class="banner-div">
+	<img src="<%= image_path('spontan-group-blur.jpg') %>" class="banner-image">
+
+	<div class="call-to-action">
+		<h1 class="home-title">BE SPONTAN.</h1>
+		<p class="home-subtitle">Host or join events in your city. Right here. Right now. </p>
+	</div>
+
+	<div class="new-event-button">
+		<%= link_to 'Create an event', new_event_path, class: "btn btn-primary" %>
+	</div>
+
+	<div class="search-bar-container d-inline-flex flex-row">
+		<div class="searchbar-keyword flex-grow-1">
+			<%= form_tag events_path, method: :get do %>
+			<%= text_field_tag :query_event,
+			params[:query_event],
+			class: "form-control",
+				placeholder: "Find Events by Keyword"%>
+				<% end %>
+			</div>
+			<div class="searchbar-range">
+				<%= form_tag events_path, method: :get do %>
+				<%= select_tag :query_location, options_for_select(([['Range', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
+				params[:query_location]), {class: 'form-control', placeholder: "Range"}	%>
+				<% end %>			
+			</div>
+			<!-- "sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"] -->
+			<div class="searchbar-category">
+				<%= form_tag events_path, method: :get do %>
+				<%= select_tag :query_category, options_for_select((["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]),
+				params[:query_category]), {class: 'form-control', placeholder: "Category", prompt: "Category"}	%>
+				<% end %>
+			</div>
+			<div class="searchbar-submit-button">
+				<%= form_tag events_path, method: :get do %>
+				<%= submit_tag "Search", class: "btn btn-primary" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 
 <br>
+<%# cards %>
 <div class= "d-flex flex-wrap justify-content-between">
 	<% @events.each do |event| %>
 		<%  if event.date > DateTime.now %>
-		<div class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
 
+		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
 			<% if event.photo.attached? %>
-				<div class="event-image-container">
-					<%= cl_image_tag event.photo.key, class:"event-image" %>
-				</div>
+			<div class="event-image-container">
+				<%= cl_image_tag event.photo.key, class:"event-image" %>
+			</div>
 			<% elsif %>
-				<div class="event-image-container">
-					<img src="<%= image_path('default-image.png') %>" class="event-image">
-				</div>
+			<div class="event-image-container">
+				<img src="<%= image_path('default-image.png') %>" class="event-image">
+			</div>
 			<% end %>
+			
 
 
 			<!--Giving each category the assigned image-tag -->
 			<% if event.category == "sports" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-SPORTS.png') %>" class="category-tag">
-				</div>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-SPORTS.png') %>" class="category-tag">
+			</div>
 			<% elsif event.category == "party" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-PARTY.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "drinking" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-DRINKING.png') %>" class="category-tag">
-				</div>
-					<% elsif event.category == "social" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-SOCIAL.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "yoga" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-YOGA.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "spiritual" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-SPIRITUAL.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "dancing" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-DANCING.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "misc" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-MISC.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "studying" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-STUDYING.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "political" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-POLITICAL.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "food" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-FOOD.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "board games" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-BOARD-GAMES.png') %>" class="category-tag">
-				</div>
-				<% elsif event.category == "culture" %>
-				<div class="event-card-tag-container">
-					<img src="<%= image_path('Category-tag-CULTURE.png') %>" class="category-tag">
-				</div>
-				<% end %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-PARTY.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "drinking" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-DRINKING.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "social" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-SOCIAL.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "yoga" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-YOGA.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "spiritual" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-SPIRITUAL.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "dancing" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-DANCING.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "misc" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-MISC.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "studying" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-STUDYING.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "political" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-POLITICAL.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "food" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-FOOD.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "board games" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-BOARD-GAMES.png') %>" class="category-tag">
+			</div>
+			<% elsif event.category == "culture" %>
+			<div class="event-card-tag-container">
+				<img src="<%= image_path('Category-tag-CULTURE.png') %>" class="category-tag">
+			</div>		
+			<% end %>
 
 
-
+			<div class="card-body d-flex flex-column">
 			<div class="card-text-wrapper">
-					<!--Headline of the card -->
+				<!--Headline of the card -->
 				<div class="event-card-h1">
 					<%= event.title.capitalize %>
 				</div>
@@ -94,15 +129,15 @@ data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 					</p>
 				</div >
 
-					<div class="d-flex align-items-end">
-						<%= link_to "view event", event_path(event), class:"btn btn-primary"%>
-					</div>
+
+					<%= link_to "view event", event_path(event), class:"btn btn-primary mt-auto"%>
+				</div>
 			</div>
 
 		</div>
 		<% end %>
-	<% end %>
-</div>
+		</div>
+	</div>
 
 
 

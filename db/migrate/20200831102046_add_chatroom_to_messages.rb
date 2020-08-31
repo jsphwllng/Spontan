@@ -1,0 +1,12 @@
+class AddChatroomToMessages < ActiveRecord::Migration[6.0]
+	def change
+		drop_table :messages
+		create_table :messages do |t|
+			t.string :content
+			t.references :chatroom, null: false, foreign_key: true
+			t.references :user, null: false, foreign_key: true
+
+			t.timestamps
+		end
+	end
+end

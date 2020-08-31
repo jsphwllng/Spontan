@@ -9,4 +9,5 @@ class Event < ApplicationRecord
 	validates :category, inclusion: { in: CATEGORIES }
 	has_many :participations, dependent: :destroy
 	has_one_attached :photo
+	has_one :chatroom, dependent: :destroy
 end

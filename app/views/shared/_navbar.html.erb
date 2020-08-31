@@ -1,9 +1,11 @@
 
-<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
-<%= link_to new_event_path, class: "new-event-btn" do %>
-  <i class="fas fa-plus" ></i>
-  <% end %>
 
+<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
+  <div class="new-event-button-div">
+    <%= link_to new_event_path, class: "new-event-btn" do %>
+      <i class="fas fa-plus" ></i>
+    <% end %>
+  </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
