@@ -1,0 +1,62 @@
+.banner-div {
+  position: relative;
+  width:100%;
+  height: 500px;
+ 
+}
+
+.banner-image {
+  position: absolute;
+  left:-12.5%;
+  height: 100%;
+  width:125%;
+  object-fit: cover;
+}
+
+.call-to-action {
+  position: absolute;
+  left: 5%;
+  top: 30%;
+}
+
+.home-title {
+  font-weight: bolder;
+  color: white;
+  font-size: 60px;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.9);
+}
+
+.home-subtitle {
+  font-weight: bold;
+  color: white;
+  opacity: 0.85;
+  font-size: 25px;
+  text-shadow: 2px 2px 2px rgba(0,0,0,1);
+}
+
+.search-bar-container {
+  position: absolute;
+  left: 26%;
+  bottom: 10%;
+  opacity: 0.85;
+}
+
+.find-event-text {
+  position: absolute;
+  left: 26%;
+  bottom: 14%;
+}
+
+.new-event-button {
+  opacity: 0.85;
+  position: absolute;
+  left: 45%;
+  bottom: 59%;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+}
+
+.navbar-inject {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
