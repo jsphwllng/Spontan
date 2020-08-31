@@ -1,24 +1,33 @@
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: #3C3C3C;
+/* Add background color here if you want a background color for the navbar */
+}
+
+.new-event-button-div {
+  justify-content: flex-end;
+  left: 48%;
+  top: 15%;
+  position: absolute;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
   text-align: right;
-
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
   justify-content: flex-end;
-    left: 50%;
-    top: 15%;
-    transform: translateX(-50%);
-    position: absolute;
+  left: 2%;
+  top: 15%;
+  transform: translateX(-50%);
+  position: absolute;
 }
 
 .fa-plus {
+  left: 50%;
+  top: 15%;
   font-size: 40px;
   color: #35D0BA;
 }
