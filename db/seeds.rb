@@ -23,11 +23,21 @@ spiritual2 = URI.open('https://images.unsplash.com/photo-1554244933-d876deb6b2ff
 political2 = URI.open('https://images.unsplash.com/photo-1551921486-4be2f85f62ed?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 sports2 = URI.open('https://images.unsplash.com/photo-1573056020071-9697f575f8d6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 
+
+Message.destroy_all
+puts "goodbye message"
+Chatroom.destroy_all
+puts "goodbye chatrooms"
 Followship.destroy_all
+puts "goodbye followships"
 Review.destroy_all
+puts "goodbye reviews"
 Participation.destroy_all
+puts "goodbye participations"
 Event.destroy_all
+puts "goodbye events"
 User.destroy_all
+"seeya users!"
 
 score = (1..5).to_a
 
@@ -164,3 +174,43 @@ puts "now saving #{followship_3.id}"
 followship_4.save
 puts "now saving #{followship_4.id}"
 
+
+puts "now generating 8 chatrooms"
+
+chatroom_1 = Chatroom.new(name: event_1.title, event: event_1 )
+puts "now saving chatroom_1"
+chatroom_1.save
+chatroom_2 = Chatroom.new(name: event_2.title, event: event_2 )
+puts "now saving chatroom_2"
+chatroom_2.save
+chatroom_3 = Chatroom.new(name: event_3.title, event: event_3 )
+puts "now saving chatroom_3"
+chatroom_3.save
+chatroom_4 = Chatroom.new(name: event_4.title, event: event_4 )
+puts "now saving chatroom_4"
+chatroom_4.save
+chatroom_5 = Chatroom.new(name: event_5.title, event: event_5 )
+puts "now saving chatroom_5"
+chatroom_5.save
+chatroom_6 = Chatroom.new(name: event_6.title, event: event_6 )
+puts "now saving chatroom_6"
+chatroom_6.save
+chatroom_7 = Chatroom.new(name: event_7.title, event: event_7 )
+puts "now saving chatroom_7"
+chatroom_7.save
+chatroom_8 = Chatroom.new(name: event_8.title, event: event_8 )
+puts "now saving chatroom_8"
+chatroom_8.save
+
+puts "now generating a random amount of messages"
+
+random = (40..70).to_a
+chatrooms = [chatroom_1, chatroom_2, chatroom_3, chatroom_4, chatroom_5, chatroom_6, chatroom_7, chatroom_8]
+users = [user_1, user_2, user_3, user_4]
+messages = ["looking forward to it", "do i need to bring anything?", "how do i get here from HbF??", "i heard this place is v. cool", "looooool!!!!", "i've not done this in a long time", "i think i'll need to practice", "who else is coming??", "is there a dress code?"]
+
+random.sample.times do |l| 
+	hello = Message.new(content: messages.sample, user: users.sample, chatroom: chatrooms.sample)
+	puts "saving the message #{hello.content} to #{hello.chatroom.event.title}"
+	hello.save
+	end

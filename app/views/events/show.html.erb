@@ -49,7 +49,25 @@
 			</div>
 		</div>
 		<div class="col">
-			<!-- this is where the chat will eventually go :) -->
-		</div>	
+			<div class="text-white">
+				<!-- this is where the chat will eventually go :) -->
+				<h1>#<%= @chatroom.name %></h1>
+				<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+					<% @chatroom.messages.reverse_each do |message| %>
+					<div class="message-container" id="message-<%= message.id %>">
+						<i class="author">
+							<span><%= message.user.username %></span>
+							<small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+						</i>
+						<p><%= message.content %></p>
+					</div>
+					<% end %>
+				</div>
+
+				<%= simple_form_for [ @chatroom, @message = Message.new ], remote: true do |f| %>
+				<%= f.input :content, placeholder: "Message #{@event.title.upcase} chat!" %>
+				<% end %>
+			</div>	
+		</div>
 	</div>
 
