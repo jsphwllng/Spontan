@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   now_date = DateTime.now
 
+
   def susbcribed
     event = Event.find(params[:id])
     stream_for event
@@ -17,7 +18,6 @@ class EventsController < ApplicationController
       @events= @events.where(sql_query, query_event: "%#{params[:query_event]}%")
       @events = @events.near(current_user.location, params[:query_location].to_i) if params[:query_location] != "0"
       @events = @events.where(sql_query_category, query_category: "%#{params[:query_category]}%")
-
       @events = @events.where("date > ?", DateTime.now)
 
     else
@@ -27,12 +27,12 @@ class EventsController < ApplicationController
     @markers = @events.map do |event|
       {
         lat: event.latitude,
-        lng: event.longitude
+        lng: event.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { event: event })
       }
+
     end
   end
-
-
 
   def show
     @event = Event.find(params[:id])

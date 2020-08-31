@@ -7,15 +7,18 @@ const buildMap = () => {
   return new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/jsphwllng/ckecnjp5w1xr519kigrqilw9w'
-    
+
   });
 };
 
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
+    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
     new mapboxgl.Marker()
     .setLngLat([ marker.lng, marker.lat ])
+    .setPopup(popup)
     .addTo(map);
   });
 };

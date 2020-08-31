@@ -1,0 +1,33 @@
+.mapboxgl-popup-content {
+    padding: 0px !important;
+}
+
+.map-window-title {
+  font-weight: bold;
+}
+
+.event-image {
+  object-fit: cover !important;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.event-card-text {
+  padding: 10px;
+  padding-bottom: 20px;
+  border-bottom: solid white;
+  font-size: 16px;
+}
+
+.event-card-text-location {
+  padding: 10px;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+#event-card-map {
+  margin: 0px !important;
+}
+
+
+

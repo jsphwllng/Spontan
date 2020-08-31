@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 			# unless marker.event.date < DateTime.now
 				{
 					lat: marker.latitude,
-					lng: marker.longitude
+					lng: marker.longitude,
 				}
 			# end
 		end
