@@ -10,44 +10,39 @@
 	<div class="new-event-button">
 		<%= link_to 'Create an event', new_event_path, class: "btn btn-primary" %>
 	</div>
-
+	
+  <%#  SEARCHBAR %>
 	<div class="search-bar-container d-inline-flex flex-row">
 		<div class="searchbar-keyword flex-grow-1">
 			<%= form_tag events_path, method: :get do %>
-			<%= text_field_tag :query_event,
-			params[:query_event],
-			class: "form-control",
-				placeholder: "Find Events by Keyword"%>
-				<% end %>
+				<%= text_field_tag :query_event,
+				params[:query_event],
+				class: "form-control",
+				placeholder: "Find Events by Keyword"
+				%>
 			</div>
 			<div class="searchbar-range">
-				<%= form_tag events_path, method: :get do %>
-				<%= select_tag :query_location, options_for_select(([['Range', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
-				params[:query_location]), {class: 'form-control', placeholder: "Range"}	%>
-				<% end %>			
-			</div>
-			<!-- "sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"] -->
-			<div class="searchbar-category">
-				<%= form_tag events_path, method: :get do %>
-				<%= select_tag :query_category, options_for_select((["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]),
-				params[:query_category]), {class: 'form-control', placeholder: "Category", prompt: "Category"}	%>
-				<% end %>
-			</div>
-			<div class="searchbar-submit-button">
-				<%= form_tag events_path, method: :get do %>
-				<%= submit_tag "Search", class: "btn btn-primary" %>
-				<% end %>
-			</div>
+				<%= select_tag :query_location, options_for_select(([['', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
+				params[:query_location]), {class: 'form-control', placeholder: "Find Events by City"}
+				%>
+		</div>
+		<div  class="searchbar-category">
+			<%= select_tag :query_category, options_for_select((["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]),
+			params[:query_category]), {class: 'form-control', placeholder: "Category", prompt: "Category"}	%>
+		</div>
+		<div class="searchbar-submit-button">
+			<%= submit_tag "Search", class: "btn btn-primary" %>
+			<% end %>
 		</div>
 	</div>
+</div>
 
 <br>
 <%# cards %>
 <div class= "d-flex flex-wrap justify-content-between">
 	<% @events.each do |event| %>
-		<%  if event.date > DateTime.now %>
-
-		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
+		
+			<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
 			<% if event.photo.attached? %>
 			<div class="event-image-container">
 				<%= cl_image_tag event.photo.key, class:"event-image" %>
