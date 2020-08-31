@@ -12,38 +12,62 @@
 <div class="row">
 	<div class="col">
 		<div class="user-box">
-		<% if @event.photo.attached? %>
-		<%= cl_image_tag @event.photo.key,  style:"width: 250px; height: 120px;"%>
-		<% end %>
-		<h1 class="text-white">
-			<%= @event.title.capitalize %>
+			<% if @event.photo.attached? %>
+			<%= cl_image_tag @event.photo.key,  style:"width: 250px; height: 120px;"%>
+			<% end %>
+			<h1 class="text-white">
+				<%= @event.title.capitalize %>
 
-			<div class="text-white">
-				<h3> a <%= @event.category %> event</h3>
-				<h3> 
-					<%= @event.description %>
-				</h3>
-				<h5>
-					Hosted by <%= @event.user.username %> (this is their <%= @event.user.events.count.ordinalize %> event)
-				</h5>
-				<p>
-					Starting on <%= @event.date.strftime("%m/%d at %I:%M%p") %>
-				</p>
+				<div class="text-white">
+					<h3> a <%= @event.category %> event</h3>
+					<h3> 
+						<%= @event.description %>
+					</h3>
+					<h5>
+						Hosted by <%= @event.user.username %> (this is their <%= @event.user.events.count.ordinalize %> event)
+					</h5>
+					<p>
+						Starting on <%= @event.date.strftime("%m/%d at %I:%M%p") %>
+					</p>
+				</div>
+
+				<% unless @event.participations.exists?(user_id: current_user) %>
+				<%= link_to 'confirm attendance', event_participations_path(@event), method: :post, class: "btn btn-primary" %>
+				<% else %>
+				<%= link_to 'cancel attendance', "#", class: "btn btn-danger" %>
+				<% end %>
+				<br><br>
+				<% if @event.participations.exists?(user_id: current_user) %>
+				<p>You are attending!</p>
+				<% end %>
+				<%#= link_to "View", bee_path(bee), class: "btn btn-primary" %>
+				<% if @event.user_id == current_user.id %>
+				<%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? "}, class: "btn btn-danger"%>
+				<%= link_to "Update Event", edit_event_path(@event), class: "btn btn-primary" %>
+				<%#= link_to "View", bee_path(bee), class: "btn btn-primary" %>
+				<% end %>
 			</div>
-
-			<% unless @event.participations.exists?(user_id: current_user) %>
-			<%= link_to 'confirm attendance', event_participations_path(@event), method: :post, class: "btn btn-primary" %>
-			<% else %>
-			<%= link_to 'cancel attendance', "#", class: "btn btn-danger" %>
-			<% end %>
-			<br><br>
-			<% if @event.participations.exists?(user_id: current_user) %>
-			<p>You are attending!</p>
-			<% end %>
 		</div>
-	</div>
 		<div class="col">
-			<!-- this is where the chat will eventually go :) -->
-		</div>	
+			<div class="text-white">
+				<!-- this is where the chat will eventually go :) -->
+				<h1>#<%= @chatroom.name %></h1>
+				<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+					<% @chatroom.messages.reverse_each do |message| %>
+					<div class="message-container" id="message-<%= message.id %>">
+						<i class="author">
+							<span><%= message.user.username %></span>
+							<small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+						</i>
+						<p><%= message.content %></p>
+					</div>
+					<% end %>
+				</div>
+
+				<%= simple_form_for [ @chatroom, @message = Message.new ], remote: true do |f| %>
+				<%= f.input :content, placeholder: "Message #{@event.title.upcase} chat!" %>
+				<% end %>
+			</div>	
+		</div>
 	</div>
 
