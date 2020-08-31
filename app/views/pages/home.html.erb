@@ -41,10 +41,11 @@
 </div>
 
 <br>
+<%# cards %>
 <div class= "d-flex flex-wrap justify-content-between">
 	<% @events.each do |event| %>
 		<%  if event.date > DateTime.now %>
-		<div class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
+		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
 			
 			<% if event.photo.attached? %>
 				<div class="event-image-container">
