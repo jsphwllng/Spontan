@@ -51,9 +51,13 @@
 		<div class="col">
 			<div class="text-white">
 				<!-- this is where the chat will eventually go :) -->
-				<h1>#<%= @chatroom.name %></h1>
+				<%= simple_form_for [ @chatroom, @message = Message.new ], remote: true do |f| %>
+				<%= f.input :content, label: false, placeholder: "Message #{@event.title.upcase} chat!" %>
+				<% end %>
+				<%  counter = 0  %>
 				<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
 					<% @chatroom.messages.reverse_each do |message| %>
+					<%  break if counter > 9  %>
 					<div class="message-container" id="message-<%= message.id %>">
 						<i class="author">
 							<span><%= message.user.username %></span>
@@ -61,12 +65,11 @@
 						</i>
 						<p><%= message.content %></p>
 					</div>
+					<% counter += 1 %>
 					<% end %>
 				</div>
 
-				<%= simple_form_for [ @chatroom, @message = Message.new ], remote: true do |f| %>
-				<%= f.input :content, placeholder: "Message #{@event.title.upcase} chat!" %>
-				<% end %>
+				
 			</div>	
 		</div>
 	</div>

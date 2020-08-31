@@ -8,6 +8,7 @@
 
 require 'date'
 require 'open-uri'
+require 'faker'
 
 food = URI.open('https://images.unsplash.com/photo-1519167874178-f1c834c38f25?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 spiritual = URI.open('https://images.unsplash.com/photo-1571935538821-8ecb6b4dea17?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
@@ -49,6 +50,14 @@ user_1 = User.new(email: "q@example.com", first_name: "Sarah", last_name: "Hunte
 user_2 = User.new(email: "x@example.com", first_name: "Bert", last_name: "Carlson", gender: "male", location: "Weserstr. 25, 12045 Berlin", username: "GretchenBerlin", password: "123456")
 user_3 = User.new(email: "y@example.com", first_name: "Dino", last_name: "Wurst", gender: "male", location: "Brandeburger Tor", username: "dino_the_boss", password: "123456")
 user_4 = User.new(email: "z@example.com", first_name: "Marian", last_name: "example", gender: "male", location: "Volkspark Wedding", username: "Metallica4Life", password: "123456")
+user_5 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
+user_6 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
+user_7 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
+user_8 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
+user_9 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
+user_10 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
+user_11 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
+
 user_1.save
 puts "now saving #{user_1.id}"
 user_2.save
@@ -57,6 +66,21 @@ user_3.save
 puts "now saving #{user_3.id}"
 user_4.save
 puts "now saving #{user_4.id}"
+user_5.save
+puts "now saving #{user_5.id}"
+user_6.save
+puts "now saving #{user_6.id}"
+user_7.save
+puts "now saving #{user_7.id}"
+user_8.save
+puts "now saving #{user_8.id}"
+user_9.save
+puts "now saving #{user_9.id}"
+user_10.save
+puts "now saving #{user_10.id}"
+user_11.save
+puts "now saving #{user_11.id}"
+
 
 
 
@@ -64,11 +88,11 @@ puts "now generating 8 events (two per user, past and future)"
 sleep 0.5
 
 event_1 = Event.new(category: "food", description: "I love to cook and bake and as it is Friday today, I thought why not do it with some fun people who share my passion for yummy stuff! I have a slow cooker and put some delicious ribs in this morning. If you guys could bring some sidedishes or deserts, we should be all set for a feast! ", location: "Karl-Kunger-Str. 8", date: (DateTime.now + (score.sample).hours), user: user_1, title: "I've Got The Ribs, Let's Eat Together!")
-event_2 = Event.new(category: "spiritual", description: "Ever since I lived in an Ashram in India for six month, my life as been transformed and I cannot imagine not doing yoga for hours on end on a daily basis in the outdoors. Let's meet to train our bodies and minds and find a spiritual connection with one another than will transcendent from the Now to the Was and to the Will-be.", location: "Pfaueninsel, 14109 Berlin", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Transcendental Ashtanga Yoga for Free Spirits (Vegans only!)")
+event_2 = Event.new(category: "spiritual", description: "Ever since I lived in an Ashram in India for six month, my life as been transformed and I cannot imagine not doing yoga for hours on end on a daily basis in the outdoors. Let's meet to train our bodies and minds and find a spiritual connection with one another than will transcendent from the Now to the Was and to the Will-be.", location: "Pfaueninsel, 14109 Berlin", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Transcendental Ashtanga Yoga")
 event_3 = Event.new(category: "political", description: "After a looooooong hiatus, Berghain is back, baby! If you are also one of the elustrous few who got a ticket this weekend, let's go together and party like it's 2019! (PS: bring your own gear!)", location: "Am Wriezener Bahnhof, 10243 Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Berghain is Back!")
 event_4 = Event.new(category: "sports", description: "I could really use some light physical activity and thought, how about a wee marathon this weekend. I usually finish in just under 4 hours so please no lame ducks. Meet at Friedrich-Ludwig-Jahn-Sportpark in front of the entrance", location: "Cantianstraße 24, 10437 Berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Quick Run for Real Dudes")
 
-event_5 = Event.new(category: "culture", description: "Come join our group for a tour through the Pergamon Museum. Bring some time!", location: "Pergamon Museum, Hamburgerbanhof Berlin", date: (DateTime.now + (score.sample).hours), user: user_1, title: "The World Needs More Modern Art - Looking for Likeminded Connoisseurs")
+event_5 = Event.new(category: "culture", description: "Come join our group for a tour through the Pergamon Museum. Bring some time!", location: "Neues Museum, Berlin", date: (DateTime.now + (score.sample).hours), user: user_1, title: "The World Needs More Modern Art - Looking for Likeminded Connoisseurs")
 event_6 = Event.new(category: "dancing", description: "We are a small group of enthusiastic salza dancers. Everyone is welcome! No prior knowledge required :)", location: "Volkspark Friedrichshain", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Salza Dancing for Beginners")
 event_7 = Event.new(category: "studying", description: "The semester is almost over and exams are just around the corner. I give free tips & tricks how to step up your learning process when it comes to studying for exams.", location: "Staatsbibliothek Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Tips & Tricks for Successfull Studying")
 event_8 = Event.new(category: "party", description: "Lets end the day with some pumping beats and some nice & cold beers, 18+ !", location: "Café Hasenschänke, 10965, Berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Beers & Beats at Hasenheide")
@@ -206,11 +230,12 @@ puts "now generating a random amount of messages"
 
 random = (40..70).to_a
 chatrooms = [chatroom_1, chatroom_2, chatroom_3, chatroom_4, chatroom_5, chatroom_6, chatroom_7, chatroom_8]
-users = [user_1, user_2, user_3, user_4]
-messages = ["looking forward to it", "do i need to bring anything?", "how do i get here from HbF??", "i heard this place is v. cool", "looooool!!!!", "i've not done this in a long time", "i think i'll need to practice", "who else is coming??", "is there a dress code?"]
+users = [user_1, user_2, user_3, user_4, user_5, user_6, user_7, user_8, user_9, user_10, user_11]
+messages = ["looking forward to it", "do i need to bring anything?", "how do i get here from HbF??", "i heard this place is v. cool", "looooool!!!!", "i've not done this in a long time", "i think i'll need to practice", "who else is coming??", "is there a dress code?", Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote]
 
 random.sample.times do |l| 
 	hello = Message.new(content: messages.sample, user: users.sample, chatroom: chatrooms.sample)
-	puts "saving the message #{hello.content} to #{hello.chatroom.event.title}"
+	puts "saving the message #{hello.content} to #{hello.chatroom.event.title}\n\n"
+	sleep(0.2)
 	hello.save
 	end
