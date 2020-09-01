@@ -9,16 +9,15 @@
 </div>
 
 
-
 <div class="container">
 	<div class="search-bar-container d-inline-flex flex-row" style="margin-bottom: 120px;">
 		<div class="searchbar-keyword flex-grow-1">
 			<%= form_tag events_path, method: :get do %>
-			<%= text_field_tag :query_event,
-			params[:query_event],
-			class: "form-control",
-				placeholder: "Find Events by Keyword"%>
-				<% end %>
+				<%= text_field_tag :query_event,
+				params[:query_event],
+				class: "form-control",
+				placeholder: "Find Events by Keyword"
+				%>
 			</div>
 			<div class="searchbar-range">
 				<%= form_tag events_path, method: :get do %>
@@ -38,8 +37,11 @@
 				<%= submit_tag "Search", class: "btn btn-primary" %>
 				<% end %>
 			</div>
+
 		</div>
 	</div>
+</div>
+
 
 	<br>
 	<%# cards %>
