@@ -1,8 +1,10 @@
 <br>
-<div class="row text-center">
+<div class="row text-center align-self-center host-bar">
 	<div class="col">
 		<% if @event.user.photo.attached?%>
+
 		<p class="text-white"> <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %>      Hosted by: <%= link_to @event.user.username, member_path(@event.user) %></p>
+
 		<% else %>	
 		<p class="text-white"><img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 70px; height: 70px">      Hosted by: <%= @event.user.username %> </p>
 		<% end %>
@@ -14,40 +16,44 @@
 		<div class="user-box">
 			<div class="text-white">
 			<%= cl_image_tag @event.photo.key,  style:"width: 100%; height: 25%;"%>
-				<h1> <%= @event.title.capitalize %></h1>
+				<h1 class="event-show-title"> <%= @event.title.capitalize %></h1>
 
 				
-					<p style="opacity:0.5"> a <%= @event.category %> event</p>
-					<p style="opacity:0.9">
-						Starting on <%= @event.date.strftime("%m/%d at %I:%M%p") %>
+					<p class="event-show-category" style="opacity:0.5"> a <strong><%= @event.category %> </strong> event</p>
+					<p class="event-show-location"> <%= @event.location  %></p>
+					<p class="event-show-date" style="opacity:0.9">	Starting on <%= @event.date.strftime("%m/%d at %I:%M%p") %>
 					</p>
 					<p> 
 						<%= @event.description %>
 					</p>
 				</div>
-<br><br>
+				
 				<% unless @event.participations.exists?(user_id: current_user) %>
-				<%= link_to 'confirm attendance', event_participations_path(@event), method: :post, class: "cool-button" %>
+				<div class="attendance-button d-flex justify-content-center">
+					<%= link_to 'confirm attendance', event_participations_path(@event), method: :post, class: "cool-button" %>
+				</div>
 				<% else %>
-				<%= link_to 'cancel attendance', "#", class: "btn btn-danger" %>
+				<div class="attendance-button d-flex justify-content-center">
+					<%= link_to 'cancel attendance', "#", class: "btn btn-danger" %>
+				</div>
 				<% end %>
-				<br><br>
+				
 				<% if @event.participations.exists?(user_id: current_user) %>
 				<p class="text-white", style="opacity:0.9">You are attending!</p>
-				<% end %>
-				<%#= link_to "View", bee_path(bee), class: "btn btn-primary" %>
+				<% end %>		
 				<% if @event.user_id == current_user.id %>
 				<%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? "}, class: "btn btn-danger"%>
 				<%= link_to "Update Event", edit_event_path(@event), class: "btn btn-primary" %>
-				<%#= link_to "View", bee_path(bee), class: "btn btn-primary" %>
 				<% end %>
 			</div>
 		</div>
-		<div class="col">
-			<div class="text-white">
+		<div class="col chat-box">
+			<div class="text-white chat-group">
 				<!-- this is where the chat will eventually go :) -->
 				<%= simple_form_for [ @chatroom, @message = Message.new ], remote: true do |f| %>
-				<%= f.input :content, label: false, placeholder: "Message #{@event.title.upcase} chat!" %>
+				<span class="chat-input-field">
+					<%= f.input :content, label: false, placeholder: "Your message:" %>
+				</span>
 				<% end %>
 				<%  counter = 0  %>
 				<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
@@ -56,14 +62,17 @@
 					<div class="message-container message_block" id="message-<%= message.id %>">
 						<i class="author">
 							<span> <% if message.user.photo.attached?%>
+
 								<%= cl_image_tag message.user.photo.key, style:"width: 50px; height:50px", class:"rounded-circle" %>
+
 								<% else %>	
 								<img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 50px; height: 50px">
 								<% end %> <strong>
 								<%= link_to message.user.username, member_path(message.user) %></strong></span>
 								<small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+
 							</i>
-							<p><%= message.content %></p>
+							<p class="chat-content"><%= message.content %></p>
 						</div>
 						<% counter += 1 %>
 						<% end %>

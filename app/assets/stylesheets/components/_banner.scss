@@ -11,13 +11,14 @@
 }
 
 .home-subtitle {
-  font-weight: 500;
-  background: #4E5154;
+  background: white;
+  opacity: 0.8;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 18px;
   text-align: left;
   padding-left: 20px;
+
   width: 50%;
   padding-bottom: 180px;
   padding-top: 20px;
@@ -46,8 +47,10 @@
   margin-bottom: 150px;
 }
 
+
 .banner-image {
   border-radius: 15px;
   padding-top: 20px;
   padding-bottom: 50px;
 }
+

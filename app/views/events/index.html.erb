@@ -1,32 +1,29 @@
 
-
+<div class="container">
 <h1 style="color:white">Index for all events</h1>
 <br>
 
-<div class="search-bar-container d-inline-flex flex-row">
-	<div class="searchbar-keyword flex-grow-1">
-	<%= form_tag events_path, method: :get do %>
-		<%= text_field_tag :query_event,
+<div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+		<div class="searchbar-keyword">
+			<%= form_tag events_path, method: :get do %>
+			<%= text_field_tag :query_event,
 			params[:query_event],
-			class: "form-control",
-			placeholder: "Find Events by Keyword"
-		%>
+			class: "form-control form-start",
+				placeholder: "By Keyword"%>
+			</div>
+			<div class="searchbar-range">
+				<%= select_tag :query_location, options_for_select(([['Range', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
+				params[:query_location]), {class: 'form-control form-middle', placeholder: "Range"}	%>
+			</div>
+
+			<div class="searchbar-category">
+				<%= select_tag :query_category, options_for_select((["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]),
+				params[:query_category]), {class: 'form-control form-end', placeholder: "Category", prompt: "Category"}	%>
+			</div>
+				<%= submit_tag "Whatever", class: "searchbar-submit-button" %>
+				<% end %>
+			</div>
 		</div>
-		<div class="searchbar-range">
-		<%= select_tag :query_location, options_for_select(([['', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
-		params[:query_location]), {class: 'form-control', placeholder: "Find Events by City"}
-	%>
-	</div>
-	<div  class="searchbar-category">
-		<%= select_tag :query_category, options_for_select((Event::CATEGORIES),
-		params[:query_category]), {class: 'form-control', placeholder: "Find Events by City"}
-	%>
-	</div>
-	<div class="searchbar-submit-button">
-		<%= submit_tag "Search", class: "btn btn-primary" %>
-	<% end %>
-	</div>
-</div>
 
 
 		<!-- map -->
@@ -124,3 +121,4 @@
 		</div>
 		<% end %>
 		</div>
+</div>
