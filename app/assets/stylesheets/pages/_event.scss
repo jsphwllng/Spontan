@@ -10,11 +10,20 @@
 
 .event-show-title {
   font-size: 2em;
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0px 0px 0px;
   font-weight: bolder;
 }
 
+.event-show-location {
+  font-size: 1.4em;
+  font-weight: bolder;
+  opacity: 0.8;
+  margin: 0px;
+}
 
+.event-show-date {
+  margin-bottom: 25px;
+}
 
 .chat-box {
   background-color: #14171A;
