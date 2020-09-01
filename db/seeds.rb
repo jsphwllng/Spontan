@@ -10,7 +10,7 @@ require 'date'
 require 'open-uri'
 require 'faker'
 
-food = URI.open('https://images.unsplash.com/photo-1519167874178-f1c834c38f25?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+food = URI.open('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80')
 spiritual = URI.open('https://images.unsplash.com/photo-1571935538821-8ecb6b4dea17?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 political = URI.open('https://images.unsplash.com/photo-1591435285545-409bf0657ebf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
 # ?????
@@ -239,7 +239,7 @@ chatrooms = [chatroom_1, chatroom_2, chatroom_3, chatroom_4, chatroom_5, chatroo
 
 messages = ["looking forward to it", "do i need to bring anything?", "how do i get here from HbF??", "i heard this place is v. cool", "looooool!!!!", "i've not done this in a long time", "i think i'll need to practice", "who else is coming??", "is there a dress code?", Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote]
 
-random.sample.times do |l| 
+random.sample.times do |l|
 	hello = Message.new(content: messages.sample, user: users.sample, chatroom: chatrooms.sample)
 	puts "saving the message #{hello.content} to #{hello.chatroom.event.title}\n\n"
 	sleep(0.2)
