@@ -1,37 +1,25 @@
-.banner-div {
-  position: relative;
-  width:100%;
-  height: 500px;
- 
-}
-
-.banner-image {
-  position: absolute;
-  left:-12.5%;
-  height: 100%;
-  width:125%;
-  object-fit: cover;
-}
-
-.call-to-action {
-  position: absolute;
-  left: 5%;
-  top: 30%;
-}
-
 .home-title {
-  font-weight: bolder;
-  color: white;
-  font-size: 60px;
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.9);
+  font-weight: bold;
+  background: -webkit-linear-gradient(325deg, rgba(105,51,176,1) 36%, rgba(66,200,176,1) 62%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 102px;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+  padding-top: 40px;
 }
 
 .home-subtitle {
-  font-weight: bold;
-  color: white;
-  opacity: 0.85;
-  font-size: 25px;
-  text-shadow: 2px 2px 2px rgba(0,0,0,1);
+  font-weight: 500;
+  background: #4E5154;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 18px;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  padding-bottom: 120px;
 }
 
 .search-bar-container {
@@ -47,16 +35,12 @@
   bottom: 14%;
 }
 
-.new-event-button {
-  opacity: 0.85;
-  position: absolute;
-  left: 45%;
-  bottom: 59%;
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.6);
-}
-
 .navbar-inject {
   position: absolute;
   top: 0%;
   left: 0%;
+}
+
+.call-to-action {
+  margin-bottom: 150px;
 }

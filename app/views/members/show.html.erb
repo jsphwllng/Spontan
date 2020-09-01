@@ -12,10 +12,10 @@
 				<br>
 				<br>
 
-				<p>User since: <%=@user.created_at.strftime("%B %Y") %></p>
-				<p>Followers: <%=@user.followers.count %></p>
-				<p>Following: <%= @user.followees.count %> </p>
-				<p>Attended: <%= @user.participations.count%> events </p>
+				<p>User since: <strong> <%=@user.created_at.strftime("%B %Y") %></strong> </p>
+				<p>Followers: <strong> <%=@user.followers.count %></strong> </p>
+				<p>Following: <strong> <%= @user.followees.count %> </strong> </p>
+				<p>Attended: <strong> <%= @user.participations.count%> events </strong> </p>
 				<% unless @user == current_user || current_user.nil? %>
 				<% pre_follow = @user.followers.find { |follower| follower.id == current_user.id} %>
 				<% if pre_follow %>
