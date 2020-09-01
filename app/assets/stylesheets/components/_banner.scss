@@ -3,11 +3,11 @@
   background: -webkit-linear-gradient(325deg, rgba(105,51,176,1) 36%, rgba(66,200,176,1) 62%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 102px;
-  text-align: center;
+  font-size: 82px;
+  text-align: left;
   margin: auto;
-  padding: 10px;
-  padding-top: 40px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .home-subtitle {
@@ -16,10 +16,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 18px;
-  text-align: center;
-  margin: auto;
+  text-align: left;
+  padding-left: 20px;
   width: 50%;
-  padding-bottom: 120px;
+  padding-bottom: 180px;
+  padding-top: 20px;
 }
 
 .search-bar-container {
@@ -43,4 +44,10 @@
 
 .call-to-action {
   margin-bottom: 150px;
+}
+
+.banner-image {
+  border-radius: 15px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
