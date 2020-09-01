@@ -1,8 +1,8 @@
 <br>
-<div class="row text-center">
+<div class="row text-center align-self-center host-bar">
 	<div class="col">
 		<% if @event.user.photo.attached?%>
-		<p class="text-white"> <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %>      Hosted by: <%= @event.user.username %> </p>
+		<p class="text-white host-logo"> Hosted by: <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %>  <%= @event.user.username %> </p>
 		<% else %>	
 		<p class="text-white"><img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 70px; height: 70px">      Hosted by: <%= @event.user.username %> </p>
 		<% end %>
@@ -14,10 +14,10 @@
 		<div class="user-box">
 			<div class="text-white">
 			<%= cl_image_tag @event.photo.key,  style:"width: 100%; height: 25%;"%>
-				<h1> <%= @event.title.capitalize %></h1>
+				<h1 class="event-show-title"> <%= @event.title.capitalize %></h1>
 
 				
-					<p style="opacity:0.5"> a <%= @event.category %> event</p>
+					<p style="opacity:0.5"> a <strong><%= @event.category %> </strong>event</p>
 					<p style="opacity:0.9">
 						Starting on <%= @event.date.strftime("%m/%d at %I:%M%p") %>
 					</p>
@@ -25,29 +25,33 @@
 						<%= @event.description %>
 					</p>
 				</div>
-<br><br>
+				
 				<% unless @event.participations.exists?(user_id: current_user) %>
-				<%= link_to 'confirm attendance', event_participations_path(@event), method: :post, class: "cool-button" %>
+				<div class="attendance-button d-flex justify-content-center">
+					<%= link_to 'confirm attendance', event_participations_path(@event), method: :post, class: "cool-button" %>
+				</div>
 				<% else %>
-				<%= link_to 'cancel attendance', "#", class: "btn btn-danger" %>
+				<div class="attendance-button d-flex justify-content-center">
+					<%= link_to 'cancel attendance', "#", class: "btn btn-danger" %>
+				</div>
 				<% end %>
-				<br><br>
+				
 				<% if @event.participations.exists?(user_id: current_user) %>
 				<p class="text-white", style="opacity:0.9">You are attending!</p>
-				<% end %>
-				<%#= link_to "View", bee_path(bee), class: "btn btn-primary" %>
+				<% end %>		
 				<% if @event.user_id == current_user.id %>
 				<%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? "}, class: "btn btn-danger"%>
 				<%= link_to "Update Event", edit_event_path(@event), class: "btn btn-primary" %>
-				<%#= link_to "View", bee_path(bee), class: "btn btn-primary" %>
 				<% end %>
 			</div>
 		</div>
-		<div class="col">
-			<div class="text-white">
+		<div class="col chat-box">
+			<div class="text-white chat-group">
 				<!-- this is where the chat will eventually go :) -->
 				<%= simple_form_for [ @chatroom, @message = Message.new ], remote: true do |f| %>
-				<%= f.input :content, label: false, placeholder: "Message #{@event.title.upcase} chat!" %>
+				<span class="chat-input-field">
+					<%= f.input :content, label: false, placeholder: "Message #{@event.title.upcase} chat!" %>
+				</span>
 				<% end %>
 				<%  counter = 0  %>
 				<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
@@ -56,14 +60,14 @@
 					<div class="message-container" id="message-<%= message.id %>">
 						<i class="author">
 							<span> <% if message.user.photo.attached?%>
-								<%= cl_image_tag message.user.photo.key, style:"width: 30px; height:30px", class:"rounded-circle" %>
+								<%= cl_image_tag message.user.photo.key, style:"width: 50px; height:50px; margin:5px;", class:"rounded-circle chat-avatar" %>
 								<% else %>	
 								<img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 30px; height: 30px">
 								<% end %> <strong>
 								<%= message.user.username %></strong></span>
-								<small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+								<small style="opacity: 0.6"><%= message.created_at.strftime("%a %l:%M%p") %></small>
 							</i>
-							<p><%= message.content %></p>
+							<p class="chat-content"><%= message.content %></p>
 						</div>
 						<% counter += 1 %>
 						<% end %>
