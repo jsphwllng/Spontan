@@ -88,14 +88,13 @@
 
 						<% else %>
 						<% if participation.user == current_user %>
-						<div class="user-box">
+					
 
 							<div class="form">
-								<%= simple_form_for [participation, @review = Review.new] do |f| %>
+								<%= simple_form_for [participation, @review = Review.new],defaults: { input_html: { class: 'input-form-new-reviews' } } do |f| %>
 								<%= f.input :review %>
 								<%= f.input :score  %>
 								<%= f.submit %>
-							</div>
 							<% end %>
 						</div>
 

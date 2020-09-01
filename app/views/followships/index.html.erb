@@ -1,18 +1,19 @@
-<h1 style="color:white; margin-bottom:30px">People you are following</h1>
+<h1 style="color:white; margin-bottom:30px margin-top: 30px opacity:0.8">People you are following</h1>
 
 <div style="color:white">
-<!-- Avatar of user-->
+	<!-- Avatar of user-->
 
-  <% @followees.each do |f|  %>
-       <h2 style="margin-bottom: 20px">Events of: <%= f.username %></h2>
-       <div class= "d-flex flex-wrap justify-content-start mx-auto" style="margin-top: 50px; margin-left: 50px; margin-right: 50px">
-       <% f.events.each do |event| %>
-          <%= render "/events/event_card", event: event %>
-        <% end %>
-      </div>
-  <% end %>
+	<% @followees.each do |f|  %>
+	<h2 style="margin-bottom: 20px margin-top: 20px"> <%= cl_image_tag f.photo.key, class:"rounded-circle", style:"width: 50px; height: 50px padding-right:"%>    <span style="opacity:0.8"> Events of:</span>
+		<%= f.username %></h2>
+		<div class= "d-flex flex-wrap justify-content-start mx-auto" style="margin-top: 50px; margin-left: 50px; margin-right: 50px">
+			<% f.events.each do |event| %>
+			<%= render "/events/event_card", event: event %>
+			<% end %>
+		</div>
+		<% end %>
 
-</div>
+	</div>
 
 
 

@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initChatroomCable } from '../channels/chatroom_channel';
+import "../plugins/flatpickr"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,6 +37,15 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox(); //HELP
   initChatroomCable();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  flatpickr('.your-selector', {
+    enableTime: true,
+    plugins: [
+      new confirmDatePlugin({})
+    ]
+  })
+})
 
 
 
