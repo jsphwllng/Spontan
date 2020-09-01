@@ -93,6 +93,7 @@ puts "now saving #{user_11.id}"
 puts "now generating 8 events (two per user, past and future)"
 sleep 0.5
 
+
 event_1 = Event.new(category: "food", description: "I love to cook and bake and as it is Friday today, I thought why not do it with some fun people who share my passion for yummy stuff! I have a slow cooker and put some delicious ribs in this morning. If you guys could bring some sidedishes or deserts, we should be all set for a feast! ", location: "Karl-Kunger-Str. 8", date: "2020-10-12", user: user_1, title: "Let's Eat Ribs!")
 event_2 = Event.new(category: "spiritual", description: "Ever since I lived in an Ashram in India for six month, my life as been transformed and I cannot imagine not doing yoga for hours on end on a daily basis in the outdoors. Let's meet to train our bodies and minds and find a spiritual connection with one another than will transcendent from the Now to the Was and to the Will-be.", location: "Pfaueninsel, 14109 Berlin", date: "2020-10-08", user: user_2, title: "Transcendental Ashtanga Yoga")
 event_3 = Event.new(category: "political", description: "After a looooooong hiatus, Berghain is back, baby! If you are also one of the elustrous few who got a ticket this weekend, let's go together and party like it's 2019! (PS: bring your own gear!)", location: "Am Wriezener Bahnhof, 10243 Berlin", date: "2020-10-25", user: user_3, title: "Berghain is Back!")
