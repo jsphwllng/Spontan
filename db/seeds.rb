@@ -58,6 +58,12 @@ user_9 = User.new(email: Faker::Internet.email , username: Faker::Internet.usern
 user_10 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
 user_11 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
 
+users = [user_1, user_2, user_3, user_4, user_5, user_6, user_7, user_8, user_9, user_10, user_11]
+
+users.each do |user|
+user.photo.attach(io: URI.open("https://source.unsplash.com/500x500/?person"), filename: user.username, content_type: 'image/jpg')
+end
+
 user_1.save
 puts "now saving #{user_1.id}"
 user_2.save
@@ -87,7 +93,7 @@ puts "now saving #{user_11.id}"
 puts "now generating 8 events (two per user, past and future)"
 sleep 0.5
 
-event_1 = Event.new(category: "food", description: "I love to cook and bake and as it is Friday today, I thought why not do it with some fun people who share my passion for yummy stuff! I have a slow cooker and put some delicious ribs in this morning. If you guys could bring some sidedishes or deserts, we should be all set for a feast! ", location: "Karl-Kunger-Str. 8", date: (DateTime.now + (score.sample).hours), user: user_1, title: "I've Got The Ribs, Let's Eat Together!")
+event_1 = Event.new(category: "food", description: "I love to cook and bake and as it is Friday today, I thought why not do it with some fun people who share my passion for yummy stuff! I have a slow cooker and put some delicious ribs in this morning. If you guys could bring some sidedishes or deserts, we should be all set for a feast! ", location: "Karl-Kunger-Str. 8", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Let's Eat Ribs!")
 event_2 = Event.new(category: "spiritual", description: "Ever since I lived in an Ashram in India for six month, my life as been transformed and I cannot imagine not doing yoga for hours on end on a daily basis in the outdoors. Let's meet to train our bodies and minds and find a spiritual connection with one another than will transcendent from the Now to the Was and to the Will-be.", location: "Pfaueninsel, 14109 Berlin", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Transcendental Ashtanga Yoga")
 event_3 = Event.new(category: "political", description: "After a looooooong hiatus, Berghain is back, baby! If you are also one of the elustrous few who got a ticket this weekend, let's go together and party like it's 2019! (PS: bring your own gear!)", location: "Am Wriezener Bahnhof, 10243 Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Berghain is Back!")
 event_4 = Event.new(category: "sports", description: "I could really use some light physical activity and thought, how about a wee marathon this weekend. I usually finish in just under 4 hours so please no lame ducks. Meet at Friedrich-Ludwig-Jahn-Sportpark in front of the entrance", location: "Cantianstraße 24, 10437 Berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Quick Run for Real Dudes")
@@ -230,7 +236,7 @@ puts "now generating a random amount of messages"
 
 random = (40..70).to_a
 chatrooms = [chatroom_1, chatroom_2, chatroom_3, chatroom_4, chatroom_5, chatroom_6, chatroom_7, chatroom_8]
-users = [user_1, user_2, user_3, user_4, user_5, user_6, user_7, user_8, user_9, user_10, user_11]
+
 messages = ["looking forward to it", "do i need to bring anything?", "how do i get here from HbF??", "i heard this place is v. cool", "looooool!!!!", "i've not done this in a long time", "i think i'll need to practice", "who else is coming??", "is there a dress code?", Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote]
 
 random.sample.times do |l| 
