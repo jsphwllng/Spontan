@@ -1,0 +1,33 @@
+.add_button {
+	text-align: center;
+	border-radius:50%;
+	text-decoration:none;
+	color:#ffffff;
+	background: rgb(105,51,176);
+	background: linear-gradient(325deg, rgba(105,51,176,1) 26%, rgba(66,200,176,1) 66%);
+	margin: 50px;
+	width: 44px;
+	height: 44px;
+	position:fixed;
+    bottom:0;
+    right:0;
+    box-shadow: 
+	0 0 13px 1px rgb(105,51,176),
+	1px 1px 1px mix(rgb(105,51,176), rgba(66,200,176,1), 50%);
+	transition: 0.5s;
+}
+
+
+.fa-plus {
+  color: white;
+  opacity: 0.8;
+  font-size: 25px;
+  padding-top: 8px; 
+}
+
+.add_button:hover {
+	transform: scale(1.08);
+	transition: 0.5s;
+	cursor: pointer;
+	cursor: pointer;
+}

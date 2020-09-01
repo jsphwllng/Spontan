@@ -1,5 +1,11 @@
 class FollowshipsController < ApplicationController
 
+  def index
+    @followees = current_user.followees
+
+  end
+
+
 	def create
 		unless already_follows?
 			@followship = Followship.new
@@ -8,7 +14,7 @@ class FollowshipsController < ApplicationController
 			@followship.follower = current_user
 			@followship.save
 			redirect_to member_path(@followee)
-		else 
+		else
 			destroy
 		end
 	end

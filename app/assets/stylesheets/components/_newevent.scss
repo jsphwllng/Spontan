@@ -25,6 +25,20 @@ h1 {
 }
 
 .input-form-new-events {
-  background-color: #4E4E4E;
+  background-color: transparent;
+  color: white;
+  border-radius: 35px;
+}
+
+.date-input {
+  border-radius: 35px;
+  background-color: transparent;
   color: white;
 }
+
+.file-input {
+  border-radius: 35px;
+  background-color: red;
+  color: white;
+}
+
