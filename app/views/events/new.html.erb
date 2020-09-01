@@ -4,17 +4,15 @@
     <h1 style="color: white">Create a new event</h1>
      <div class="row">
     <div class="column">
-
       <%= simple_form_for @event, defaults: { input_html: { class: 'input-form-new-events' } } do |f| %>
-
                   <%= f.input :title %>
                   <%= f.input :category, collection: Event::CATEGORIES %>
                   <%= f.input :description %>
                   <%= f.input :maximum_users %>
                   <%= f.input :location %>
-                  <%= f.input :date %>
-                  <%= f.input :photo, as: :file %>
-                  <%= f.submit "Create", class: "btn btn-primary" %>
+                  <%= f.input :date, input_html: { class: 'date-input' } %>
+                  <%= f.input :photo, as: :file, input_html: { class: 'file-input' } %>
+                  <%= f.submit "Create", class: "btn btn-two" %>
                 <% end %>
     </div>
     <div class="column map-column">
@@ -22,5 +20,3 @@
     </div>
   </div>
 </div>
-ß
-
