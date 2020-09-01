@@ -9,47 +9,36 @@
 </div>
 
 
+
 <div class="container">
-	<div class="search-bar-container d-inline-flex flex-row" style="margin-bottom: 120px;">
-		<div class="searchbar-keyword flex-grow-1">
+	<div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+		<div class="searchbar-keyword">
 			<%= form_tag events_path, method: :get do %>
-				<%= text_field_tag :query_event,
-				params[:query_event],
-				class: "form-control",
-				placeholder: "Find Events by Keyword"
-				%>
-				<% end %>
+			<%= text_field_tag :query_event,
+			params[:query_event],
+			class: "form-control form-start",
+				placeholder: "By Keyword"%>
 			</div>
 			<div class="searchbar-range">
-				<%= form_tag events_path, method: :get do %>
 				<%= select_tag :query_location, options_for_select(([['Range', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
-				params[:query_location]), {class: 'form-control', placeholder: "Range"}	%>
-				<% end %>			
+				params[:query_location]), {class: 'form-control form-middle', placeholder: "Range"}	%>		
 			</div>
 
 			<div class="searchbar-category">
-				<%= form_tag events_path, method: :get do %>
 				<%= select_tag :query_category, options_for_select((["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]),
-				params[:query_category]), {class: 'form-control', placeholder: "Category", prompt: "Category"}	%>
+				params[:query_category]), {class: 'form-control form-end', placeholder: "Category", prompt: "Category"}	%>
+			</div>
+				<%= submit_tag "Whatever", class: "searchbar-submit-button" %>
 				<% end %>
 			</div>
-			<div class="searchbar-submit-button">
-				<%= form_tag events_path, method: :get do %>
-				<%= submit_tag "Search", class: "btn btn-primary" %>
-				<% end %>
-			</div>
-
 		</div>
-	</div>
-</div>
-
 
 	<br>
 	<%# cards %>
 	<div class= "d-flex flex-wrap justify-content-around mx-auto" style="margin-top: 50px">
 		<% @events.each do |event| %>
 
-		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 13rem; min-height: 30rem">
+		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
 			<% if event.photo.attached? %>
 			<div class="event-image-container">
 				<%= cl_image_tag event.photo.key, class:"event-image" %>
@@ -118,7 +107,8 @@
 			<% end %>
 
 
-			<div class="card-body">
+			<div class="card-body d-flex flex-column">
+				<div class="card-text-wrapper">
 					<!--Headline of the card -->
 					<div class="event-card-h1">
 						<%= event.title.capitalize %>
@@ -128,9 +118,10 @@
 
 					</div >
 
-					<div class="card-footer text-muted" style="align-self: flex-end;">
-						<small><i class="fas fa-map-marker-alt"></i> <%= event.location %></small>
+					<div class="card-footer">
+						<small class="text-muted"><i class="fas fa-map-marker-alt"></i> <%= event.location %></small>
 					</div>
+				</div>
 			</div>
 
 		</div>
