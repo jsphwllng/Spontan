@@ -2,7 +2,7 @@
 <div class="row text-center">
 	<div class="col">
 		<% if @event.user.photo.attached?%>
-		<p class="text-white"> <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %>      Hosted by: <%= @event.user.username %> </p>
+		<p class="text-white"> <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %>      Hosted by: <%= link_to @event.user.username, member_path(@event.user) %></p>
 		<% else %>	
 		<p class="text-white"><img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 70px; height: 70px">      Hosted by: <%= @event.user.username %> </p>
 		<% end %>
@@ -53,14 +53,14 @@
 				<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
 					<% @chatroom.messages.reverse_each do |message| %>
 					<%  break if counter > 9  %>
-					<div class="message-container" id="message-<%= message.id %>">
+					<div class="message-container message_block" id="message-<%= message.id %>">
 						<i class="author">
 							<span> <% if message.user.photo.attached?%>
-								<%= cl_image_tag message.user.photo.key, style:"width: 30px; height:30px", class:"rounded-circle" %>
+								<%= cl_image_tag message.user.photo.key, style:"width: 50px; height:50px", class:"rounded-circle" %>
 								<% else %>	
-								<img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 30px; height: 30px">
+								<img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 50px; height: 50px">
 								<% end %> <strong>
-								<%= message.user.username %></strong></span>
+								<%= link_to message.user.username, member_path(message.user) %></strong></span>
 								<small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
 							</i>
 							<p><%= message.content %></p>
@@ -68,7 +68,6 @@
 						<% counter += 1 %>
 						<% end %>
 					</div>
-
 
 				</div>	
 			</div>
