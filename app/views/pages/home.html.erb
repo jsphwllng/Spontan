@@ -24,7 +24,7 @@
 				<%= form_tag events_path, method: :get do %>
 				<%= select_tag :query_location, options_for_select(([['Range', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
 				params[:query_location]), {class: 'form-control', placeholder: "Range"}	%>
-				<% end %>			
+				<% end %>
 			</div>
 
 			<div class="searchbar-category">
@@ -46,10 +46,10 @@
 
 	<br>
 	<%# cards %>
-	<div class= "d-flex flex-wrap justify-content-around mx-auto" style="margin-top: 50px">
+	<div class= "d-flex flex-wrap justify-content-around mx-auto" style="margin-top: 50px; margin-left: 50px; margin-right: 50px">
 		<% @events.each do |event| %>
 
-		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 13rem; min-height: 30rem">
+		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 13rem; min-height: 10rem">
 			<% if event.photo.attached? %>
 			<div class="event-image-container">
 				<%= cl_image_tag event.photo.key, class:"event-image" %>
@@ -114,7 +114,7 @@
 			<% elsif event.category == "culture" %>
 			<div class="event-card-tag-container">
 				<img src="<%= image_path('Category-tag-CULTURE.png') %>" class="category-tag">
-			</div>		
+			</div>
 			<% end %>
 
 
@@ -124,12 +124,8 @@
 						<%= event.title.capitalize %>
 					</div>
 
-					<div>
-
-					</div >
-
 					<div class="card-footer text-muted" style="align-self: flex-end;">
-						<small><i class="fas fa-map-marker-alt"></i> <%= event.location %></small>
+						<p class="card-location"><i class="fas fa-map-marker-alt"></i> <%= event.location %></p>
 					</div>
 			</div>
 
