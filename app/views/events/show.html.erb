@@ -2,7 +2,7 @@
 <div class="row text-center">
 	<div class="col">
 		<% if @event.user.photo.attached?%>
-		<p class="text-white"> <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px" %>      Hosted by: <%= @event.user.username %> </p>
+		<p class="text-white"> <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %>      Hosted by: <%= @event.user.username %> </p>
 		<% else %>	
 		<p class="text-white"><img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 70px; height: 70px">      Hosted by: <%= @event.user.username %> </p>
 		<% end %>
@@ -56,7 +56,7 @@
 					<div class="message-container" id="message-<%= message.id %>">
 						<i class="author">
 							<span> <% if message.user.photo.attached?%>
-								<%= cl_image_tag message.user.photo.key, style:"width: 30px; height:30px" %>
+								<%= cl_image_tag message.user.photo.key, style:"width: 30px; height:30px", class:"rounded-circle" %>
 								<% else %>	
 								<img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 30px; height: 30px">
 								<% end %> <strong>
