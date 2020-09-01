@@ -35,10 +35,11 @@
 
 	<br>
 	<%# cards %>
-	<div class= "d-flex flex-wrap justify-content-around mx-auto" style="margin-top: 50px">
+	<div class= "d-flex flex-wrap justify-content-around mx-auto" style="margin-top: 50px; margin-left: 50px; margin-right: 50px">
 		<% @events.each do |event| %>
 
 		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
+
 			<% if event.photo.attached? %>
 			<div class="event-image-container">
 				<%= cl_image_tag event.photo.key, class:"event-image" %>
@@ -103,7 +104,7 @@
 			<% elsif event.category == "culture" %>
 			<div class="event-card-tag-container">
 				<img src="<%= image_path('Category-tag-CULTURE.png') %>" class="category-tag">
-			</div>		
+			</div>
 			<% end %>
 
 
@@ -114,12 +115,9 @@
 						<%= event.title.capitalize %>
 					</div>
 
-					<div>
 
-					</div >
-
-					<div class="card-footer">
-						<small class="text-muted"><i class="fas fa-map-marker-alt"></i> <%= event.location %></small>
+					<div class="card-footer text-muted" style="align-self: flex-end;">
+						<p class="card-location"><i class="fas fa-map-marker-alt"></i> <%= event.location %></p>
 					</div>
 				</div>
 			</div>
