@@ -1,5 +1,7 @@
 
-<h1 style="color:white; margin-bottom:30px margin-top: 30px opacity:0.8">People you are following</h1>
+<div style="margin-right: 100px; margin-left: 100px">
+
+<h1 style="color:white; margin-bottom:50px; margin-top: 30px; opacity:0.8">People you are following</h1>
 
 <div style="color:white">
 	<!-- Avatar of user-->
@@ -7,8 +9,9 @@
       <div class="row">
         <div class="col">
           <% if f.photo.attached?%>
-          <div style="display:flex; align-items:center">
-          <h3 style="text-align:center; margin-right: 20px">User: <i><%= f.username %></i></h3>
+          <div class="followship-member" style="display:flex; align-items:center; margin-top: 40px">
+          <h3 style="text-align:center; margin-right: 20px">User <i style="color:#42c7b0" onclick="location.href='<%= member_path(f) %>'">
+          <%= f.username %></i></h3>
           <div class="text-white"> <%= cl_image_tag f.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %> </div>
           </div>
           <% else %>
@@ -23,9 +26,9 @@
       </div>
   <% end %>
 
-
 	</div>
 
+</div>
 
 
 
