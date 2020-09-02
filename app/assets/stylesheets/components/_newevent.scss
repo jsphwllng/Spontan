@@ -44,7 +44,9 @@ h1 {
 
 .file-input {
   border-radius: 35px;
-  background-color: red;
-  color: white;
+  background-color: transparent;
+  // border: 1px solid #ced4da;
+  border: 1px solid rgba(250, 250, 250, .5);
 }
+
 
