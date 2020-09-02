@@ -3,7 +3,7 @@
 
 	<h1 class="home-title">Spontan</h1>
 	<p class="home-subtitle">Host or join events in your city. Right here. Right now. </p>
-	
+
 		<%= link_to "Host an event", new_event_path, class:"cool-button" %>
 
 </div>
@@ -23,7 +23,7 @@
 			</div>
 			<div class="searchbar-range">
 				<%= select_tag :query_location, options_for_select(([['Range', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
-				params[:query_location]), {class: 'form-control form-middle', placeholder: "Range"}	%>		
+				params[:query_location]), {class: 'form-control form-middle', placeholder: "Range"}	%>
 			</div>
 
 			<div class="searchbar-category">
