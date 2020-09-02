@@ -58,6 +58,7 @@
 					<i class="far fa-star"></i>
 					<% end %>
 				</p>
+        <p style="margin-top: 30px"><%= link_to "People you follow", member_followships_path(@user), class: "btn btn-primary" %> </p>
 			</div>
 			<% if @user == current_user %>
 			<h4 style="opacity:0.8;">   You have attended the following events:</h4>
@@ -71,7 +72,7 @@
 						<h6>
 							<strong>
 								<%= participation.event.title %>
-							</strong> 
+							</strong>
 						</h6>
 						<p style="opacity:0.8; font-size: 10px;"> <%= participation.event.date.strftime("%d, %B %Y") %> </p>
 						<p>Hosted by: <%= participation.event.user.username%></p>
@@ -88,7 +89,7 @@
 
 						<% else %>
 						<% if participation.user == current_user %>
-					
+
 
 							<div class="form">
 								<%= simple_form_for [participation, @review = Review.new],defaults: { input_html: { class: 'input-form-new-reviews' } } do |f| %>
@@ -98,11 +99,6 @@
 							<% end %>
 						</div>
 
-           <!--  Link to followships -->
-          <!--   <div>
-              <%#= link_to "People you follow", member_followships_path(@user), class: "btn-primary" %>
-              <p>Test</p>
-            </div> -->
 
 
 						<% end %>
@@ -117,8 +113,16 @@
 			</div>
 
 			<% end %>
+
+
+
+
+
+
 		</div>
 	</div>
+
+
 
 </div>
 <br><br>

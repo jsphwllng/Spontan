@@ -7,13 +7,13 @@
       <%= simple_form_for @event, defaults: { input_html: { class: 'input-form-new-events' } } do |f| %>
 
       <%= f.input :title %>
-      <%= f.input :category, collection: Event::CATEGORIES %>
+       <%= f.input :category, collection: (["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]), placeholder: 'Category'%>
       <%= f.input :description %>
       <%= f.input :maximum_users %>
       <%= f.input :location %>
       <%= f.input :date, as: :string, required: true, input_html: {class: "datepicker"} %>
       <%= f.input :photo, as: :file, required: true, input_html: { class: 'file-input' } %>
-      <%= f.submit "Create", class: "btn btn-two" %>
+      <%= f.submit "Create", class: "btn btn-primary" %>
       <% end %>
 
     </div>
