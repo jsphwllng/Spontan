@@ -11,17 +11,30 @@ require 'open-uri'
 require 'faker'
 
 food = URI.open('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
-spiritual = URI.open('https://images.unsplash.com/flagged/photo-1573894156182-8df0f4bc5764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80')
+spiritual = URI.open('https://images.unsplash.com/photo-1562960364-f47d48567cf0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80')
+
 political = URI.open('https://images.unsplash.com/photo-1535903021127-d50417eae4a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
 # ?????
 sports = URI.open('https://images.unsplash.com/photo-1521537634581-0dced2fee2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
-culture = URI.open('https://images.unsplash.com/photo-1573076195749-03b8d70940c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
-dancing = URI.open('https://images.unsplash.com/photo-1511804630215-682f94fde271?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2831&q=80')
+
+culture = URI.open('https://images.unsplash.com/photo-1592834358188-8410454ad544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80')
+
+# dancing = URI.open('https://images.unsplash.com/photo-1531747056595-07f6cbbe10ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+
+# dancing2 = URI.open('https://images.unsplash.com/photo-1587922342650-955e9760d689?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1250&q=80')
+
+dancing = URI.open('https://images.unsplash.com/photo-1498761560229-39e74b243558?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80')
+
 studying = URI.open('https://images.unsplash.com/photo-1517673132405-a56a62b18caf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1356&q=80')
+
 party = URI.open('https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+
 food2 = URI.open('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80')
+
 spiritual2 = URI.open('https://images.unsplash.com/photo-1554244933-d876deb6b2ff?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+
 political2 = URI.open('https://images.unsplash.com/photo-1551921486-4be2f85f62ed?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600')
+
 sports2 = URI.open('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
 
 
@@ -72,20 +85,45 @@ puts "now generating 8 events (two per user, past and future)"
 sleep 0.5
 
 event_1 = Event.new(category: "food", description: "I love to cook and bake and as it is Friday today, I thought why not do it with some fun people who share my passion for yummy stuff! I have a slow cooker and put some delicious ribs in this morning. If you guys could bring some sidedishes or deserts, we should be all set for a feast! ", location: "Karl-Kunger-Str. 8", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Let's Eat Ribs!")
-event_2 = Event.new(category: "spiritual", description: "Ever since I lived in an Ashram in India for six month, my life as been transformed and I cannot imagine not doing yoga for hours on end on a daily basis in the outdoors. Let's meet to train our bodies and minds and find a spiritual connection with one another than will transcendent from the Now to the Was and to the Will-be.", location: "Pfaueninsel, 14109 Berlin", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Transcendental Ashtanga Yoga")
-event_3 = Event.new(category: "political", description: "After a looooooong hiatus, Berghain is back, baby! If you are also one of the elustrous few who got a ticket this weekend, let's go together and party like it's 2019! (PS: bring your own gear!)", location: "Am Wriezener Bahnhof, 10243 Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Berghain is Back!")
-event_4 = Event.new(category: "sports", description: "As we all know, badminton is the best game ever, though I could also be persuaded to play some squash, let's hit the gym this weekend and see who is boss!", location: "Cantianstraße 24, 10437 Berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "It's badminton time!")
 
-event_5 = Event.new(category: "culture", description: "Come join our group for a tour through the Hamburger Bahnhof museum of modern art. Bring some time!", location: "Neues Museum, Berlin", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Arty chat and viewing")
-event_6 = Event.new(category: "dancing", description: "We are a small group of enthusiastic salza dancers. Everyone is welcome! No prior knowledge required :)", location: "Volkspark Friedrichshain", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Salza Dancing for Beginners")
-event_7 = Event.new(category: "studying", description: "The semester is almost over and exams are just around the corner. I give free tips & tricks how to step up your learning process when it comes to studying for exams.", location: "Staatsbibliothek Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Tips & Tricks for Successfull Studying")
-event_8 = Event.new(category: "party", description: "Lets end the day with some pumping beats and some nice & cold beers, 18+ !", location: "Café Hasenschänke, 10965, Berlin", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Beers & Beats")
+event_2 = Event.new(category: "spiritual", description: "Ever since I lived in an Ashram in India for six month, my life as been transformed and I cannot imagine not doing yoga for hours on end on a daily basis in the outdoors. Let's meet to train our bodies and minds and find a spiritual connection with one another than will transcendent from the Now to the Was and to the Will-be.", location: "Pfaueninsel", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Transcendental Yoga")
+event_3 = Event.new(category: "political", description: "After a looooooong hiatus, Berghain is back, baby! If you are also one of the elustrous few who got a ticket this weekend, let's go together and party like it's 2019! (PS: bring your own gear!)", location: "Berghain", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Berghain is Back!")
+event_4 = Event.new(category: "sports", description: "As we all know, badminton is the best game ever, though I could also be persuaded to play some squash, let's hit the gym this weekend and see who is boss!", location: "Cantianstraße 24", date: (DateTime.now + (score.sample).hours), user: user_4, title: "It's badminton time!")
 
-event_9 = Event.new(category: "food", description: "Poke Bowls are so delicious, let's have some together at Vietbowl in Neukoelln!", location: "Böhmische Str. 13, 12055 Berlin", date: "2020-08-22", user: user_1, title: "It's Poke Bowl Time!")
-event_10 = Event.new(category: "spiritual", description: "Let's pray together for the children of the world who needlessly suffer because rich people and conglomerates are selfish and evil", location: "Karl-Liebknecht-Str. 8, 10178 Berlin", date: "2020-08-23", user: user_2, title: "Let us Pray for the Children at St. Marienkirche")
-event_11 = Event.new(category: "political", description: "Never forget what happened in Hanau! We cannot let racism and fascism win. Let's show society that we will never forget and never accept such acts of terrorism!", location: "Alexanderplatz", date: "2020-08-24", user: user_3, title: "Never Forget!")
-event_12 = Event.new(category: "sports", description: "Me and a friend would like to play some frisbee. We are easygoing guys and wouldn't mind going for a beer afterwards", location: "Tempelhofer Feld", date: "2020-08-25", user: user_4, title: "techno fitness")
+event_5 = Event.new(category: "culture", description: "Come join our group for a tour through Alte Nationalgalerie. Bring some time!", location: "Unter den Linden 1", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Arty chat and viewing")
+event_6 = Event.new(category: "dancing", description: "We are a small group of enthusiastic salza dancers. Everyone is welcome! No prior knowledge required :)", location: "Volkspark Wedding", date: (DateTime.now + (score.sample).hours), user: user_2, title: "Salsa Dancing")
+event_7 = Event.new(category: "studying", description: "The semester is almost over and exams are just around the corner. I give free tips & tricks how to step up your learning process when it comes to studying for exams.", location: "Staatsbibliothek Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Studying tips")
+event_8 = Event.new(category: "party", description: "Lets end the day with some pumping beats and some nice & cold beers, 18+ !", location: "Café Hasenschänke", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Beers & Beats")
 
+event_9 = Event.new(category: "food", description: "Poke Bowls are so delicious, let's have some together at Vietbowl in Neukoelln!", location: "Böhmische Str. 13, 12055 Berlin", date: "2020-08-22", user: user_6, title: "It's Poke Bowl Time!")
+event_10 = Event.new(category: "spiritual", description: "Let's pray together for the children of the world who needlessly suffer because rich people and conglomerates are selfish and evil", location: "Karl-Liebknecht-Str. 8, 10178 Berlin", date: "2020-08-23", user: user_6, title: "Let us Pray for the Children at St. Marienkirche")
+event_11 = Event.new(category: "political", description: "Never forget what happened in Hanau! We cannot let racism and fascism win. Let's show society that we will never forget and never accept such acts of terrorism!", location: "Alexanderplatz", date: "2020-08-24", user: user_6, title: "Never Forget!")
+event_12 = Event.new(category: "sports", description: "Me and a friend would like to play some frisbee. We are easygoing guys and wouldn't mind going for a beer afterwards", location: "Tempelhofer Feld", date: "2020-08-25", user: user_6, title: "techno fitness")
+event_13 = Event.new(category: "board games", description: "Let's plat Doppelkopf at Laidak, preferably without 9s though!", location: "Boddinstr. 8", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Doppelkopf in Neukoelln")
+
+event_14 = Event.new(category: "board games", description: "Betrayal on the House of the Hill is probably the best game ever invented. If you like strategy/group games this is perfect for you! Let's play!", location: "Weserstr. 20", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Let's play Betrayal!")
+
+event_15 = Event.new(category: "misc", description: "I love how to knit and am looking for likeminded people or those who would like to learn how to knit. Winter is comimg and I think we could all use some warm woolen socks soon :) ", location: "Wegernerstr. 10", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Let's knit socks ")
+
+event_16 = Event.new(category: "misc", description: "I'd like to learn how to read music and thought maybe you'd like to as well? Or maybe you are an experienced musician looking to pass on your wisdom - either would be swell! I am not a complete beginnder but would definitely benefit from an exchange of experiences ", location: "Motzstr. 30", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Fun times reading music")
+
+event_17 = Event.new(category: "sports", description: "Corona made me fat and I'd really like to walk the extra weight off. But it's always easier to stay motivated if I do thinks in a group so here is me hoping you feel the same way.", location: "Bergmannstr. 3", date: (DateTime.now + (score.sample).hours), user: user_7, title: "Nordic Walking")
+
+event_18 = Event.new(category: "sports", description: "The weather is great, let's play some beach volleyball at Wannsee tonight!", location: "Wannsee", date: "2020-08-28", user: user_6, title: "Beach volleyball")
+
+event_19 = Event.new(category: "drinking", description: "Nemo is my favorite bar and I am looking for some fun people to drink beer with. I also wouldn't mind a few rounds of fussball (Kicker!)", location: "Oderbergerstr. 25", date: (DateTime.now + (score.sample).hours), user: user_11, title: "Beers + Kicker")
+
+event_20 = Event.new(category: "drinking", description: "I am looking for a group of nice people to enjoy a few drinks with tonight. My favorite bar makes the best Aperol Spritz and Turbomate in Berlin! Come join me, let's drink and me merry!", location: "Rodenbergstr. 8", date: (DateTime.now + (score.sample).hours), user: user_8, title: "Aperol & Turbomate")
+
+event_21 = Event.new(category: "social", description: "I love getting manicures and would love to make a little event out of it, so I thought we would get a drink at a nearby bar and go for manicures after a few cocktails :)", location: "Winterfeldstr. 6", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Manicures 'n drinks")
+
+event_22 = Event.new(category: "social", description: "We all need more love and affection in our lives so how about a biiiig group hugging session so share and spread the love! We will obviously wear masks and not get unreasonably touchy.", location: "Mauerpark", date: (DateTime.now + (score.sample).hours), user: user_9, title: "Group hugs!")
+
+event_22 = Event.new(category: "food", description: "I loooooove baking and would like to try a new recipe with you guys! I thought about making a nougat ganache torte with a pistachio buttercream finish. Obviously we will have some coffee and and eat the whole thing afterwards!", location: "Potsdammerstr. 2", date: (DateTime.now + (score.sample).hours), user: user_10, title: "Baking in Berlin")
+
+event_23 = Event.new(category: "food", description: "I am originally from Italy and love to make my own pasta. My nonna has the best recipe and I am willing to share it with you :)", location: "Luisenstr. 10", date: "2020-08-30", user: user_6, title: "Fusili in da house")
+
+# random comment
 event_1.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo  #{event_1.id}"
 event_2.photo.attach(io: spiritual, filename: 'spiritual.jpg', content_type: 'image/jpg')
