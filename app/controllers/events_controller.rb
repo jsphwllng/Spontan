@@ -16,19 +16,20 @@ class EventsController < ApplicationController
       sql_query_location = "location ILIKE :query_location"
       @events = Event.all
       @events= @events.where(sql_query, query_event: "%#{params[:query_event]}%")
-      @events = @events.near(current_user.location, params[:query_location].to_i) if params[:query_location] != "0"
+      @events = Event.near(current_user.location, params[:query_location].to_i) if params[:query_location] != "0"
       @events = @events.where(sql_query_category, query_category: "%#{params[:query_category]}%")
       @events = @events.where("date > ?", DateTime.now)
 
     else
       @events = Event.where("date > ?", DateTime.now)
     end
-
+# keyword, range, category
     @markers = @events.map do |event|
       {
         lat: event.latitude,
         lng: event.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+        infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
+        image_url: helpers.asset_url('spontan-marker.png')
       }
 
     end
@@ -41,12 +42,25 @@ class EventsController < ApplicationController
   end
 
   def new
+    @events = Event.where("date > ?", DateTime.now)
+    @markers = @events.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
+        image_url: helpers.asset_url('spontan-marker.png')
+      }
+
+    end
     @event = Event.new
   end
 
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
+    if @event.photo == nil
+      render :new
+    end
     if  @event.save
       @event.create_chatroom!(name: @event.title)
       redirect_to event_path(@event)

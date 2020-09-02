@@ -1,55 +1,56 @@
+<div class="row">
+	<div class="col">
 
-
-<div class="call-to-action">
-	<h1 class="home-title">Be Spontan</h1>
+	<h1 class="home-title">Spontan</h1>
 	<p class="home-subtitle">Host or join events in your city. Right here. Right now. </p>
-	<div class="text-center">
+	
 		<%= link_to "Host an event", new_event_path, class:"cool-button" %>
+
+</div>
+<div class="col">
+<%= image_tag "https://i.imgur.com/SKjCApp.png", alt: "alttext", style:"width:100%;" %>
 	</div>
 </div>
 
-
 <div class="container">
-	<div class="search-bar-container d-inline-flex flex-row" style="margin-bottom: 120px;">
-		<div class="searchbar-keyword flex-grow-1">
+	<div class="d-flex justify-content-center" style="margin-bottom: 10px; margin-top: 60px; padding-top:50px;">
+		<div class="searchbar-keyword">
 			<%= form_tag events_path, method: :get do %>
-				<%= text_field_tag :query_event,
-				params[:query_event],
-				class: "form-control",
-				placeholder: "Find Events by Keyword"
-				%>
-				<% end %>
+			<%= text_field_tag :query_event,
+			params[:query_event],
+			class: "form-control form-start",
+				placeholder: "By Keyword"%>
 			</div>
 			<div class="searchbar-range">
-				<%= form_tag events_path, method: :get do %>
 				<%= select_tag :query_location, options_for_select(([['Range', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
-				params[:query_location]), {class: 'form-control', placeholder: "Range"}	%>
-				<% end %>
+				params[:query_location]), {class: 'form-control form-middle', placeholder: "Range"}	%>		
 			</div>
 
 			<div class="searchbar-category">
-				<%= form_tag events_path, method: :get do %>
 				<%= select_tag :query_category, options_for_select((["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]),
-				params[:query_category]), {class: 'form-control', placeholder: "Category", prompt: "Category"}	%>
+				params[:query_category]), {class: 'form-control form-end', placeholder: "Category", prompt: "Category"}	%>
+			</div>
+				<%= submit_tag " ", class: "searchbar-submit-button" %>
 				<% end %>
 			</div>
-			<div class="searchbar-submit-button">
-				<%= form_tag events_path, method: :get do %>
-				<%= submit_tag "Search", class: "btn btn-primary" %>
-				<% end %>
-			</div>
-
 		</div>
-	</div>
-</div>
-
 
 	<br>
 	<%# cards %>
+	<div class="row">
+		<div class="col-11" style="margin-top:35px;">
+	<h2 class="text-white ml-3" style="opacity:0.8;">Events near: Berlin, DE </h2>
+	</div>
+	<div class="col" style="margin-top:46px;">
+		<%= link_to "See all", events_path %>
+	</div>
+	</div>
 	<div class= "d-flex flex-wrap justify-content-around mx-auto" style="margin-top: 50px; margin-left: 50px; margin-right: 50px">
+<% counter = 1 %>
 		<% @events.each do |event| %>
+<% break if counter > 4 %>
+		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
 
-		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 13rem; min-height: 10rem">
 			<% if event.photo.attached? %>
 			<div class="event-image-container">
 				<%= cl_image_tag event.photo.key, class:"event-image" %>
@@ -118,20 +119,22 @@
 			<% end %>
 
 
-			<div class="card-body">
+			<div class="card-body d-flex flex-column">
+				<div class="card-text-wrapper">
 					<!--Headline of the card -->
 					<div class="event-card-h1">
 						<%= event.title.capitalize %>
 					</div>
 
+
 					<div class="card-footer text-muted" style="align-self: flex-end;">
 						<p class="card-location"><i class="fas fa-map-marker-alt"></i> <%= event.location %></p>
 					</div>
+				</div>
 			</div>
 
 		</div>
+		<% counter+=1 %>
 		<% end %>
 	</div>
-
-
 

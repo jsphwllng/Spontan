@@ -1,26 +1,27 @@
 
 <div class="container create-event" style="color: white">
 
-    <h1 style="color: white">Create a new event</h1>
-     <div class="row">
+  <h1 style="color: white">Create a new event</h1>
+  <div class="row">
     <div class="column">
-
       <%= simple_form_for @event, defaults: { input_html: { class: 'input-form-new-events' } } do |f| %>
 
-                  <%= f.input :title %>
-                  <%= f.input :category, collection: Event::CATEGORIES %>
-                  <%= f.input :description %>
-                  <%= f.input :maximum_users %>
-                  <%= f.input :location %>
-                  <%= f.input :date %>
-                  <%= f.input :photo, as: :file %>
-                  <%= f.submit "Create", class: "btn btn-primary" %>
-                <% end %>
+      <%= f.input :title %>
+      <%= f.input :category, collection: Event::CATEGORIES %>
+      <%= f.input :description %>
+      <%= f.input :maximum_users %>
+      <%= f.input :location %>
+      <%= f.input :date, as: :string, required: true, input_html: {class: "datepicker"} %>
+      <%= f.input :photo, as: :file, required: true, input_html: { class: 'file-input' } %>
+      <%= f.submit "Create", class: "btn btn-two" %>
+      <% end %>
+
     </div>
     <div class="column map-column">
-      <img src="https://i.imgur.com/Ce8Du0x.jpg" class="map-img" alt="image map">
+      <div id="map"
+      style="width: 100%; height: 100%;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
   </div>
 </div>
-ß
-

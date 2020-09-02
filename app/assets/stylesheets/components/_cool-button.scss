@@ -8,18 +8,20 @@
 	color:#ffffff;
 	background: rgb(105,51,176);
 	background: linear-gradient(325deg, rgba(105,51,176,1) 26%, rgba(66,200,176,1) 66%);
-	transition-delay: 3s;
+	transition: 0.5s;
 	box-shadow: 
 	0 0 25px 1px rgb(105,51,176),
 	1px 1px 1px mix(rgb(105,51,176), rgba(66,200,176,1), 50%);
-	margin: 50px;
+	transition: 0.5s;
+	margin-left: 20px;
 
 }
 
 .cool-button:hover {
-	transition-delay: 3s;
+	transition: 0.5s;
 	background: rgb(105,51,176);
 	background: linear-gradient(325deg, rgba(105,51,176,1) 6%, rgba(66,200,176,1) 87%); 
 	color: #ffffff;
 	text-decoration: none;
+	
 }

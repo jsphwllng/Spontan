@@ -12,10 +12,10 @@
 				<br>
 				<br>
 
-				<p>User since: <strong> <%=@user.created_at.strftime("%B %Y") %></strong> </p>
-				<p>Followers: <strong> <%=@user.followers.count %></strong> </p>
-				<p>Following: <strong> <%= @user.followees.count %> </strong> </p>
-				<p>Attended: <strong> <%= @user.participations.count%> events </strong> </p>
+				<p> <span style="opacity:0.8"> USER SINCE:</span> <strong> <%=@user.created_at.strftime("%B %Y") %></strong> </p>
+				<p><span style="opacity:0.8">FOLLOWERS: </span><strong> <%=@user.followers.count %></strong> </p>
+				<p><span style="opacity:0.8">FOLLOWING: </span><strong> <%= @user.followees.count %> </strong> </p>
+				<p><span style="opacity:0.8">ATTENDED: </span><strong> <%= @user.participations.count%> events </strong> </p>
 				<% unless @user == current_user || current_user.nil? %>
 				<% pre_follow = @user.followers.find { |follower| follower.id == current_user.id} %>
 				<% if pre_follow %>
@@ -30,7 +30,7 @@
 			<div class="user-box">
 				<% if @user == current_user %>
 				<p>
-					<strong> You have hosted </strong> <%= @user.events.count %> events.
+					<span style="opacity:0.8">You have hosted </span> <strong> <%= @user.events.count %> events.</strong>
 				</p>
 				<% else %>
 				<p>
@@ -60,15 +60,20 @@
 				</p>
 			</div>
 			<% if @user == current_user %>
-			<h4>   You have attended the following events:</h4>
+			<h4 style="opacity:0.8;">   You have attended the following events:</h4>
 			<% else %>
-			<h4> <%= @user.username %> has attended the following events: </h4>
+			<h4 style="opacity:0.8;"> <%= @user.username %> has attended the following events: </h4>
 			<% end %>
 			<% @participations.each do |participation| %>
 			<div class="user-box">
 				<div class="row">
 					<div class="col">
-						<p><strong><%= participation.event.title %></strong> on <%= participation.event.date.strftime("%d, %B %Y") %> </p>
+						<h6>
+							<strong>
+								<%= participation.event.title %>
+							</strong> 
+						</h6>
+						<p style="opacity:0.8; font-size: 10px;"> <%= participation.event.date.strftime("%d, %B %Y") %> </p>
 						<p>Hosted by: <%= participation.event.user.username%></p>
 						<% if participation.review && @user == current_user %>
 						<p>You rated:
@@ -83,14 +88,13 @@
 
 						<% else %>
 						<% if participation.user == current_user %>
-						<div class="user-box">
+					
 
 							<div class="form">
-								<%= simple_form_for [participation, @review = Review.new] do |f| %>
+								<%= simple_form_for [participation, @review = Review.new],defaults: { input_html: { class: 'input-form-new-reviews' } } do |f| %>
 								<%= f.input :review %>
 								<%= f.input :score  %>
 								<%= f.submit %>
-							</div>
 							<% end %>
 						</div>
 
