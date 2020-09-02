@@ -11,13 +11,13 @@ require 'open-uri'
 require 'faker'
 
 food = URI.open('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
-spiritual = URI.open('https://images.unsplash.com/photo-1562138506-fa810708e05b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80')
+spiritual = URI.open('https://images.unsplash.com/photo-1562960364-f47d48567cf0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80')
 
 political = URI.open('https://images.unsplash.com/photo-1535903021127-d50417eae4a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
 # ?????
 sports = URI.open('https://images.unsplash.com/photo-1521537634581-0dced2fee2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
 
-culture = URI.open('https://images.unsplash.com/photo-1482245294234-b3f2f8d5f1a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1730&q=80')
+culture = URI.open('https://images.unsplash.com/photo-1592834358188-8410454ad544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80')
 
 # dancing = URI.open('https://images.unsplash.com/photo-1531747056595-07f6cbbe10ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
 
