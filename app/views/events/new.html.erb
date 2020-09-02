@@ -7,7 +7,7 @@
       <%= simple_form_for @event, defaults: { input_html: { class: 'input-form-new-events' } } do |f| %>
 
       <%= f.input :title %>
-      <%= f.input :category, collection: Event::CATEGORIES %>
+       <%= f.input :category, collection: (["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]), placeholder: 'Category'%>
       <%= f.input :description %>
       <%= f.input :maximum_users %>
       <%= f.input :location %>
