@@ -1,5 +1,11 @@
 
-<h1 style="color:white; margin-bottom:90px margin-top: 30px opacity:0.8">People you are following</h1>
+<div style="margin-right: 100px; margin-left: 100px">
+
+<% if @user == current_user %>
+<h1 style="color:white; margin-bottom:50px; margin-top: 30px; opacity:0.8">People you are following</h1>
+<% else %>
+  <h1 style="color:white; margin-bottom:50px; margin-top: 30px; opacity:0.8">People <i style="color:#42c7b0"> <%=  @user.username %></i> is following</h1>
+
 
 <div style="color:white">
 	<!-- Avatar of user-->
