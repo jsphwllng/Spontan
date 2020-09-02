@@ -1,0 +1,5 @@
+meta_product_name: "spontan"
+meta_title: "spontan - be spontan!"
+meta_description: "Host or join events in your city. Right here. Right now."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@spontan" 
