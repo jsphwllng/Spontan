@@ -1,14 +1,14 @@
 <div class="row">
 	<div class="col">
 
-	<h1 class="home-title">Spontan</h1>
-	<p class="home-subtitle">Host or join events in your city. Right here. Right now. </p>
-	
+		<h1 class="home-title">Spontan</h1>
+		<p class="home-subtitle">Host or join events in your city. Right here. Right now. </p>
+		
 		<%= link_to "Host an event", new_event_path, class:"cool-button" %>
 
-</div>
-<div class="col">
-<%= image_tag "https://i.imgur.com/SKjCApp.png", alt: "alttext", style:"width:100%;" %>
+	</div>
+	<div class="col">
+		<%= image_tag "https://i.imgur.com/SKjCApp.png", alt: "alttext", style:"width:100%;" %>
 	</div>
 </div>
 
@@ -30,25 +30,25 @@
 				<%= select_tag :query_category, options_for_select((["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]),
 				params[:query_category]), {class: 'form-control form-end', placeholder: "Category", prompt: "Category"}	%>
 			</div>
-				<%= submit_tag " ", class: "searchbar-submit-button" %>
-				<% end %>
-			</div>
+			<%= submit_tag " ", class: "searchbar-submit-button" %>
+			<% end %>
 		</div>
+	</div>
 
 	<br>
 	<%# cards %>
 	<div class="row">
 		<div class="col-11" style="margin-top:35px;">
-	<h2 class="text-white ml-3" style="opacity:0.8;">Events near: Berlin, DE </h2>
-	</div>
-	<div class="col" style="margin-top:46px;">
-		<%= link_to "See all", events_path %>
-	</div>
+			<h2 class="text-white ml-3" style="opacity:0.8;">Events near Berlin, DE </h2>
+		</div>
+		<div class="col" style="margin-top:46px;">
+			<%= link_to "See all", events_path %>
+		</div>
 	</div>
 	<div class= "d-flex flex-wrap justify-content-around mx-auto" style="margin-top: 50px; margin-left: 50px; margin-right: 50px">
-<% counter = 1 %>
+		<% counter = 1 %>
 		<% @events.each do |event| %>
-<% break if counter > 4 %>
+		<% break if counter > 4 %>
 		<div onclick="location.href='<%= event_path(event) %>';" class="card event-card text-white bg-dark mb-3" style="max-width: 16rem;">
 
 			<% if event.photo.attached? %>
