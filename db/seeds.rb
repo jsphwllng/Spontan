@@ -10,7 +10,9 @@ require 'date'
 require 'open-uri'
 require 'faker'
 
-food = URI.open('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+# food = URI.open('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
 spiritual = URI.open('https://images.unsplash.com/photo-1562960364-f47d48567cf0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80')
 
 political = URI.open('https://images.unsplash.com/photo-1535903021127-d50417eae4a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
@@ -37,6 +39,9 @@ political2 = URI.open('https://images.unsplash.com/photo-1551921486-4be2f85f62ed
 
 sports2 = URI.open('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
 
+# cake = URI.open('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2180&q=80')
+
+# pasta = URI.open('https://images.unsplash.com/photo-1591651998857-a9ca0e40c960?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2408&q=80')
 
 Message.destroy_all
 puts "goodbye message"
@@ -99,15 +104,16 @@ event_9 = Event.new(category: "food", description: "Poke Bowls are so delicious,
 event_10 = Event.new(category: "spiritual", description: "Let's pray together for the children of the world who needlessly suffer because rich people and conglomerates are selfish and evil", location: "Karl-Liebknecht-Str. 8, 10178 Berlin", date: "2020-08-23", user: user_6, title: "Let us Pray for the Children at St. Marienkirche")
 event_11 = Event.new(category: "political", description: "Never forget what happened in Hanau! We cannot let racism and fascism win. Let's show society that we will never forget and never accept such acts of terrorism!", location: "Alexanderplatz", date: "2020-08-24", user: user_6, title: "Never Forget!")
 event_12 = Event.new(category: "sports", description: "Me and a friend would like to play some frisbee. We are easygoing guys and wouldn't mind going for a beer afterwards", location: "Tempelhofer Feld", date: "2020-08-25", user: user_6, title: "techno fitness")
+
 event_13 = Event.new(category: "board games", description: "Let's plat Doppelkopf at Laidak, preferably without 9s though!", location: "Boddinstr. 8", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Doppelkopf in Neukoelln")
 
-event_14 = Event.new(category: "board games", description: "Betrayal on the House of the Hill is probably the best game ever invented. If you like strategy/group games this is perfect for you! Let's play!", location: "Weserstr. 20", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Let's play Betrayal!")
+event_14 = Event.new(category: "board games", description: "Betrayal on the House of the Hill is probably the best game ever invented. If you like strategy/group games this is perfect for you! Let's play!", location: "Hermannplatz", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Let's play Betrayal!")
 
-event_15 = Event.new(category: "misc", description: "I love how to knit and am looking for likeminded people or those who would like to learn how to knit. Winter is comimg and I think we could all use some warm woolen socks soon :) ", location: "Wegernerstr. 10", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Let's knit socks ")
+event_15 = Event.new(category: "misc", description: "I love how to knit and am looking for likeminded people or those who would like to learn how to knit. Winter is comimg and I think we could all use some warm woolen socks soon :) ", location: "Checkpoint Charlie", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Let's knit socks ")
 
 event_16 = Event.new(category: "misc", description: "I'd like to learn how to read music and thought maybe you'd like to as well? Or maybe you are an experienced musician looking to pass on your wisdom - either would be swell! I am not a complete beginnder but would definitely benefit from an exchange of experiences ", location: "Motzstr. 30", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Fun times reading music")
 
-event_17 = Event.new(category: "sports", description: "Corona made me fat and I'd really like to walk the extra weight off. But it's always easier to stay motivated if I do thinks in a group so here is me hoping you feel the same way.", location: "Bergmannstr. 3", date: (DateTime.now + (score.sample).hours), user: user_7, title: "Nordic Walking")
+event_17 = Event.new(category: "sports", description: "Corona made me fat and I'd really like to walk the extra weight off. But it's always easier to stay motivated if I do thinks in a group so here is me hoping you feel the same way.", location: "Bouchéstr. 3", date: (DateTime.now + (score.sample).hours), user: user_7, title: "Nordic Walking")
 
 event_18 = Event.new(category: "sports", description: "The weather is great, let's play some beach volleyball at Wannsee tonight!", location: "Wannsee", date: "2020-08-28", user: user_6, title: "Beach volleyball")
 
@@ -115,11 +121,11 @@ event_19 = Event.new(category: "drinking", description: "Nemo is my favorite bar
 
 event_20 = Event.new(category: "drinking", description: "I am looking for a group of nice people to enjoy a few drinks with tonight. My favorite bar makes the best Aperol Spritz and Turbomate in Berlin! Come join me, let's drink and me merry!", location: "Rodenbergstr. 8", date: (DateTime.now + (score.sample).hours), user: user_8, title: "Aperol & Turbomate")
 
-event_21 = Event.new(category: "social", description: "I love getting manicures and would love to make a little event out of it, so I thought we would get a drink at a nearby bar and go for manicures after a few cocktails :)", location: "Winterfeldstr. 6", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Manicures 'n drinks")
+event_21 = Event.new(category: "social", description: "I love getting manicures and would love to make a little event out of it, so I thought we would get a drink at a nearby bar and go for manicures after a few cocktails :)", location: "Rosenthaler Platz", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Manicures 'n drinks")
 
 event_22 = Event.new(category: "social", description: "We all need more love and affection in our lives so how about a biiiig group hugging session so share and spread the love! We will obviously wear masks and not get unreasonably touchy.", location: "Mauerpark", date: (DateTime.now + (score.sample).hours), user: user_9, title: "Group hugs!")
 
-event_23 = Event.new(category: "food", description: "I loooooove baking and would like to try a new recipe with you guys! I thought about making a nougat ganache torte with a pistachio buttercream finish. Obviously we will have some coffee and and eat the whole thing afterwards!", location: "Potsdammerstr. 2", date: (DateTime.now + (score.sample).hours), user: user_10, title: "Baking in Berlin")
+event_23 = Event.new(category: "food", description: "I loooooove baking and would like to try a new recipe with you guys! I thought about making a nougat ganache torte with a pistachio buttercream finish. Obviously we will have some coffee and and eat the whole thing afterwards!", location: "Hausvogteiplatz", date: (DateTime.now + (score.sample).hours), user: user_10, title: "Baking in Berlin")
 
 event_24 = Event.new(category: "food", description: "I am originally from Italy and love to make my own pasta. My nonna has the best recipe and I am willing to share it with you :)", location: "Luisenstr. 10", date: "2020-08-30", user: user_8, title: "Fusili in da house")
 
@@ -160,38 +166,72 @@ puts "now addding a photo #{event_11.id}"
 event_12.photo.attach(io: sports2, filename: 'sports2.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_12.id}"
 
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
 event_13.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_13.id}"
+
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
 
 event_14.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_14.id}"
 
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
+
 event_15.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_15.id}"
+
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
 
 event_16.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_16.id}"
 
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
+
 event_17.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_17.id}"
+
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
 
 event_18.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_18.id}"
 
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
+
 event_19.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_19.id}"
+
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
 
 event_20.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_20.id}"
 
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
+
 event_21.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_21.id}"
+
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
 
 event_22.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_22.id}"
 
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
+
 event_23.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_23.id}"
+
+food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+
 
 event_24.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_24.id}"
@@ -229,7 +269,7 @@ puts "now saving past event #{event_12.id}"
 event_13.save!
 puts "now saving past event #{event_13.id}"
 
-event_14.save!
+event_14.save
 puts "now saving past event #{event_14.id}"
 
 event_15.save!
