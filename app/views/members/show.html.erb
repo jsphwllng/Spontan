@@ -58,6 +58,7 @@
 					<i class="far fa-star"></i>
 					<% end %>
 				</p>
+        <p style="margin-top: 30px"><%= link_to "People you follow", member_followships_path(@user), class: "btn btn-primary" %> </p>
 			</div>
 			<% if @user == current_user %>
 			<h4 style="opacity:0.8;">   You have attended the following events:</h4>
@@ -113,12 +114,9 @@
 
 			<% end %>
 
-        <h4 style="opacity:0.8; margin-top: 50px">   People you are following: <%= link_to "here", member_followships_path(@user), class: "btn-primary" %></h4>
-       <!--  Link to followships -->
-          <!--   <div>
-              <%#= link_to "People you follow", member_followships_path(@user), class: "btn-primary" %>
-              <p>Test</p>
-            </div> -->
+
+
+
 
 
 		</div>
