@@ -226,40 +226,40 @@ puts "now saving past event #{event_11.id}"
 event_12.save
 puts "now saving past event #{event_12.id}"
 
-event_13.save
+event_13.save!
 puts "now saving past event #{event_13.id}"
 
-event_14.save
+event_14.save!
 puts "now saving past event #{event_14.id}"
 
-event_15.save
+event_15.save!
 puts "now saving past event #{event_15.id}"
 
-event_16.save
+event_16.save!
 puts "now saving past event #{event_16.id}"
 
-event_17.save
+event_17.save!
 puts "now saving past event #{event_17.id}"
 
-event_18.save
+event_18.save!
 puts "now saving past event #{event_18.id}"
 
-event_19.save
+event_19.save!
 puts "now saving past event #{event_19.id}"
 
-event_20.save
+event_20.save!
 puts "now saving past event #{event_20.id}"
 
-event_21.save
+event_21.save!
 puts "now saving past event #{event_21.id}"
 
-event_22.save
+event_22.save!
 puts "now saving past event #{event_22.id}"
 
-event_23.save
+event_23.save!
 puts "now saving past event #{event_23.id}"
 
-event_24.save
+event_24.save!
 puts "now saving past event #{event_24.id}"
 
 
