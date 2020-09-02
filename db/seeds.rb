@@ -119,35 +119,83 @@ event_21 = Event.new(category: "social", description: "I love getting manicures 
 
 event_22 = Event.new(category: "social", description: "We all need more love and affection in our lives so how about a biiiig group hugging session so share and spread the love! We will obviously wear masks and not get unreasonably touchy.", location: "Mauerpark", date: (DateTime.now + (score.sample).hours), user: user_9, title: "Group hugs!")
 
-event_22 = Event.new(category: "food", description: "I loooooove baking and would like to try a new recipe with you guys! I thought about making a nougat ganache torte with a pistachio buttercream finish. Obviously we will have some coffee and and eat the whole thing afterwards!", location: "Potsdammerstr. 2", date: (DateTime.now + (score.sample).hours), user: user_10, title: "Baking in Berlin")
+event_23 = Event.new(category: "food", description: "I loooooove baking and would like to try a new recipe with you guys! I thought about making a nougat ganache torte with a pistachio buttercream finish. Obviously we will have some coffee and and eat the whole thing afterwards!", location: "Potsdammerstr. 2", date: (DateTime.now + (score.sample).hours), user: user_10, title: "Baking in Berlin")
 
-event_23 = Event.new(category: "food", description: "I am originally from Italy and love to make my own pasta. My nonna has the best recipe and I am willing to share it with you :)", location: "Luisenstr. 10", date: "2020-08-30", user: user_6, title: "Fusili in da house")
+event_24 = Event.new(category: "food", description: "I am originally from Italy and love to make my own pasta. My nonna has the best recipe and I am willing to share it with you :)", location: "Luisenstr. 10", date: "2020-08-30", user: user_8, title: "Fusili in da house")
 
 # random comment
 event_1.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo  #{event_1.id}"
+
 event_2.photo.attach(io: spiritual, filename: 'spiritual.jpg', content_type: 'image/jpg')
 puts "now addding a photo  #{event_2.id}"
+
 event_3.photo.attach(io: political, filename: 'political.jpg', content_type: 'image/jpg')
 puts "now addding a photo  #{event_3.id}"
+
 event_4.photo.attach(io: sports, filename: 'sports.jpg', content_type: 'image/jpg')
 puts "now addding a photo  #{event_4.id}"
+
 event_5.photo.attach(io: culture, filename: 'culture.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_5.id}"
+
 event_6.photo.attach(io: dancing, filename: 'dancing.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_6.id}"
+
 event_7.photo.attach(io: studying, filename: 'studying.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_7.id}"
+
 event_8.photo.attach(io: party, filename: 'party.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_8.id}"
+
 event_9.photo.attach(io: food2, filename: 'food2.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_9.id}"
+
 event_10.photo.attach(io: spiritual2, filename: 'spiritual2.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_10.id}"
+
 event_11.photo.attach(io: political2, filename: 'political2.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_11.id}"
+
 event_12.photo.attach(io: sports2, filename: 'sports2.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_12.id}"
+
+event_13.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_13.id}"
+
+event_14.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_14.id}"
+
+event_15.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_15.id}"
+
+event_16.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_16.id}"
+
+event_17.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_17.id}"
+
+event_18.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_18.id}"
+
+event_19.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_19.id}"
+
+event_20.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_20.id}"
+
+event_21.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_21.id}"
+
+event_22.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_22.id}"
+
+event_23.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_23.id}"
+
+event_24.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_24.id}"
+
 
 event_1.save
 puts "now saving future event #{event_1.id}"
@@ -165,6 +213,54 @@ event_7.save
 puts "now saving past event #{event_7.id}"
 event_8.save
 puts "now saving past event #{event_8.id}"
+
+event_9.save
+puts "now saving past event #{event_9.id}"
+
+event_10.save
+puts "now saving past event #{event_10.id}"
+
+event_11.save
+puts "now saving past event #{event_11.id}"
+
+event_12.save
+puts "now saving past event #{event_12.id}"
+
+event_13.save
+puts "now saving past event #{event_13.id}"
+
+event_14.save
+puts "now saving past event #{event_14.id}"
+
+event_15.save
+puts "now saving past event #{event_15.id}"
+
+event_16.save
+puts "now saving past event #{event_16.id}"
+
+event_17.save
+puts "now saving past event #{event_17.id}"
+
+event_18.save
+puts "now saving past event #{event_18.id}"
+
+event_19.save
+puts "now saving past event #{event_19.id}"
+
+event_20.save
+puts "now saving past event #{event_20.id}"
+
+event_21.save
+puts "now saving past event #{event_21.id}"
+
+event_22.save
+puts "now saving past event #{event_22.id}"
+
+event_23.save
+puts "now saving past event #{event_23.id}"
+
+event_24.save
+puts "now saving past event #{event_24.id}"
 
 
 
