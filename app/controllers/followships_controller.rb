@@ -1,10 +1,12 @@
 class FollowshipsController < ApplicationController
+	skip_before_action :verify_authenticity_token
 
-  def index
-  	@user = User.find(params[:member_id])
-    @followees = @user.followees
+	
+	def index
+		@user = User.find(params[:member_id])
+		@followees = @user.followees
 
-  end
+	end
 
 
 	def create
@@ -29,6 +31,8 @@ class FollowshipsController < ApplicationController
 		@followships.destroy
 		redirect_to member_path(@followee)
 	end
+
+	private
 
 
 end
