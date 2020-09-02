@@ -117,12 +117,13 @@ event_20 = Event.new(category: "drinking", description: "I am looking for a grou
 
 event_21 = Event.new(category: "social", description: "I love getting manicures and would love to make a little event out of it, so I thought we would get a drink at a nearby bar and go for manicures after a few cocktails :)", location: "Winterfeldstr. 6", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Manicures 'n drinks")
 
-event_22 = Event.new(category: "social", description: "We all need more love and affection in our lives so how about a biiiig group hugging session so share and spread the love! We will obviously wear masks and not get unreasonably touchy." location: "Mauerpark", date: (DateTime.now + (score.sample).hours), user: user_9, title: "Group hugs!")
+event_22 = Event.new(category: "social", description: "We all need more love and affection in our lives so how about a biiiig group hugging session so share and spread the love! We will obviously wear masks and not get unreasonably touchy.", location: "Mauerpark", date: (DateTime.now + (score.sample).hours), user: user_9, title: "Group hugs!")
 
-event_22 = Event.new(category: "food", description: "I loooooove baking and would like to try a new recipe with you guys! I thought about making a nougat ganache torte with a pistachio buttercream finish. Obviously we will have some coffee and and eat the whole thing afterwards!" location: "Potsdammerstr. 2", date: (DateTime.now + (score.sample).hours), user: user_10, title: "Baking in Berlin")
+event_22 = Event.new(category: "food", description: "I loooooove baking and would like to try a new recipe with you guys! I thought about making a nougat ganache torte with a pistachio buttercream finish. Obviously we will have some coffee and and eat the whole thing afterwards!", location: "Potsdammerstr. 2", date: (DateTime.now + (score.sample).hours), user: user_10, title: "Baking in Berlin")
 
-event_23 = Event.new(category: "food", description: "I am originally from Italy and love to make my own pasta. My nonna has the best recipe and I am willing to share it with you :)" location: "Luisenstr. 10", date: "2020-08-30", user: user_6, title: "Fusili in da house")
+event_23 = Event.new(category: "food", description: "I am originally from Italy and love to make my own pasta. My nonna has the best recipe and I am willing to share it with you :)", location: "Luisenstr. 10", date: "2020-08-30", user: user_6, title: "Fusili in da house")
 
+# random comment
 event_1.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
 puts "now addding a photo  #{event_1.id}"
 event_2.photo.attach(io: spiritual, filename: 'spiritual.jpg', content_type: 'image/jpg')
