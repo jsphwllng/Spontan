@@ -328,6 +328,9 @@ participation_18 = Participation.new(event: event_20, user: user_9)
 participation_19 = Participation.new(event: event_1, user: user_8)
 participation_20 = Participation.new(event: event_2, user: user_4)
 participation_21 = Participation.new(event: event_2, user: user_4)
+participation_23 = Participation.new(event: event_24, user: user_6)
+participation_24 = Participation.new(event: event_9, user: user_6)
+
 
 participation_1.save
 puts "now saving #{participation_1.id}"
@@ -371,6 +374,10 @@ participation_20.save
 puts "now saving #{participation_20.id}"
 participation_21.save
 puts "now saving #{participation_21.id}"
+participation_23.save
+puts "now saving #{participation_23.id}"
+participation_24.save
+puts "now saving #{participation_24.id}"
 
 puts "now generating 4 reviews"
 sleep 0.5
