@@ -77,12 +77,12 @@
 
 			</div>
 			<% if @user == current_user %>
-			<h4 class="past-event-h4" style="opacity:0.8;">   Your past events</h4>
+			<h4 class="past-event-h4" style="opacity:0.8;">   Previously attended events</h4>
 			<% else %>
 			<h4 class="past-event-h4" style="opacity:0.8;"> <%= @user.username %> has attended the following events </h4>
 			<% end %>
 			<% @participations.each do |participation| %>
-			<div class="user-box">
+			<div class="user-box mt-4">
 				<div class="row">
 					<div class="col">
 						<h6>
@@ -122,11 +122,13 @@
 					</div>
 					<div class="col text-right">
 						<%= cl_image_tag participation.event.photo.key, style:"width: 170px; height: 170px; object-fit:cover" %>
-						<% end %>
+						
 					</div>
-				</div>
+					</div>
+					
+				
 			</div>
-
+<% end %>
 
 
 

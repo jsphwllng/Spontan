@@ -18,7 +18,7 @@
 				<%= cl_image_tag @event.photo.key,  style:"width: 100%; height: 25%;"%>
 				<div class="event-show-title-box">
 					<h1 class="event-show-title"> <%= @event.title.capitalize %></h1>
-						<p class="event-show-category" style="opacity:0.5"> a <strong><%= @event.category %> </strong> event</p>
+						<p class="event-show-category" style="opacity:0.7; font-size:18px;"> a <strong><%= @event.category %> </strong> event</p>
 				</div>
 				<div class="row event-details-box">
 					<div class="col">
@@ -65,9 +65,9 @@
 	<div class="col chat-box">
 		<div class="text-white chat-group">
 			<!-- this is where the chat will eventually go :) -->
-			<%= simple_form_for [ @chatroom, @message = Message.new ], remote: true do |f| %>
+			<%= simple_form_for [ @chatroom, @message = Message.new ], remote: true, defaults: { input_html: { class: 'input-form-new-events' } } do |f| %>
 			<span class="chat-input-field">
-				<%= f.input :content, label: false, placeholder: "Your message:" %>
+				<%= f.input :content, style:"background-color: transparent;", label: false, placeholder: "Your message:" %>
 			</span>
 			<% end %>
 			<%  counter = 0  %>
