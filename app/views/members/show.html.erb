@@ -42,9 +42,11 @@
 				</p>
 				<% end %>
 				<% host_score = 0 %>
+        <% review_count = 0 %>
 				<% @user.events.each do |event| %>
 				<% event.participations.each do |participation| %>
 				<% if participation.review %>
+         <% review_count += 1 %>
 				<% host_score += participation.review.score %>
 				<% end %>
 				<% end %>
@@ -52,7 +54,7 @@
 				<% if host_score > 0 %>
 
 
-				<% host_score = host_score / @user.events.count %>
+				<% host_score = host_score / review_count %>
 				<% end %>
 				<p>
 					Host score: <%host_score.ceil().times do |star|%>
@@ -62,7 +64,7 @@
 					<i class="far fa-star"></i>
 					<% end %>
 				</p>
-        
+
 			</div>
 			<% if @user == current_user %>
 			<h4 class="past-event-h4" style="opacity:0.8;">   Your past events</h4>

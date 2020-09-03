@@ -10,8 +10,7 @@ require 'date'
 require 'open-uri'
 require 'faker'
 
-# food = URI.open('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
+food = URI.open('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
 
 spiritual = URI.open('https://images.unsplash.com/photo-1562960364-f47d48567cf0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80')
 
@@ -39,9 +38,32 @@ political2 = URI.open('https://images.unsplash.com/photo-1551921486-4be2f85f62ed
 
 sports2 = URI.open('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
 
-# cake = URI.open('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2180&q=80')
+doko_13 = URI.open('https://images.unsplash.com/photo-1584095508160-ec13047df8bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80')
 
-# pasta = URI.open('https://images.unsplash.com/photo-1591651998857-a9ca0e40c960?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2408&q=80')
+betrayal_14 = URI.open('https://images.unsplash.com/photo-1543886502-1286a5920ad0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+
+knit_15 = URI.open('https://images.unsplash.com/photo-1586804939649-db72258affe2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80')
+
+noten_16 = URI.open('https://images.unsplash.com/photo-1554415140-5860173d7cdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+
+nordic_17 = URI.open('https://images.unsplash.com/photo-1566725552191-cc46b03fbfc3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80')
+
+volleybal_18 = URI.open('https://images.unsplash.com/photo-1562920618-af1f5f02f0be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80')
+
+fussball_19 = URI.open('https://images.unsplash.com/photo-1551112571-25b4cfa24f74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80')
+
+aperol_20 = URI.open('https://images.unsplash.com/photo-1585386116149-22ad0453f631?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+
+manicure_21 = URI.open('https://images.unsplash.com/photo-1482101711228-1d205746bb02?ixlib=rb-1.2.1&auto=format&fit=crop&w=2684&q=80')
+
+hugs_25 = URI.open('https://images.unsplash.com/photo-1525610396350-580c98513a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+
+hugs_22 = URI.open('https://images.unsplash.com/photo-1561626389-f5ac41fc2274?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+
+cake_23 = URI.open('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2180&q=80')
+
+
+pasta_24 = URI.open('https://images.unsplash.com/photo-1591651998857-a9ca0e40c960?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2408&q=80')
 
 Message.destroy_all
 puts "goodbye message"
@@ -62,13 +84,15 @@ score = (3..5).to_a
 
 puts "now generating seeds..."
 
-puts "now generating 4 users"
+puts "now generating users"
 user_1 = User.new(email: "q@example.com", first_name: "Sarah", last_name: "Hunter", gender: "female", location: "Paul-Robson-Str. 1, 10439 Berlin", username: "new_in_town91", password: "123456")
 user_2 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
 user_3 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "female", location: "berlin", password: "123456")
 user_4 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
 user_5 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "female", location: "berlin", password: "123456")
-user_6 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
+
+user_6 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: "Joseph" , last_name: "Welling The Boss" , gender: "male", location: "berlin", password: "123456")
+
 user_7 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "female", location: "berlin", password: "123456")
 user_8 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
 user_9 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "female", location: "berlin", password: "123456")
@@ -84,9 +108,7 @@ users.each do |user|
 end
 
 
-
-
-puts "now generating 8 events (two per user, past and future)"
+puts "now generating 25 events (past and future)"
 sleep 0.5
 
 event_1 = Event.new(category: "food", description: "I love to cook and bake and as it is Friday today, I thought why not do it with some fun people who share my passion for yummy stuff! I have a slow cooker and put some delicious ribs in this morning. If you guys could bring some sidedishes or deserts, we should be all set for a feast! ", location: "Karl-Kunger-Str. 8", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Let's Eat Ribs!")
@@ -105,17 +127,17 @@ event_10 = Event.new(category: "spiritual", description: "Let's pray together fo
 event_11 = Event.new(category: "political", description: "Never forget what happened in Hanau! We cannot let racism and fascism win. Let's show society that we will never forget and never accept such acts of terrorism!", location: "Alexanderplatz", date: "2020-08-24", user: user_6, title: "Never Forget!")
 event_12 = Event.new(category: "sports", description: "Me and a friend would like to play some frisbee. We are easygoing guys and wouldn't mind going for a beer afterwards", location: "Tempelhofer Feld", date: "2020-08-25", user: user_6, title: "techno fitness")
 
-event_13 = Event.new(category: "board games", description: "Let's plat Doppelkopf at Laidak, preferably without 9s though!", location: "Boddinstr. 8", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Doppelkopf in Neukoelln")
+event_13 = Event.new(category: "board games", description: "Let's plat Doppelkopf at Laidak, preferably without 9s though!", location: "Boddinstr. 8", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Doppelkopf!")
 
 event_14 = Event.new(category: "board games", description: "Betrayal on the House of the Hill is probably the best game ever invented. If you like strategy/group games this is perfect for you! Let's play!", location: "Hermannplatz", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Let's play Betrayal!")
 
-event_15 = Event.new(category: "misc", description: "I love how to knit and am looking for likeminded people or those who would like to learn how to knit. Winter is comimg and I think we could all use some warm woolen socks soon :) ", location: "Checkpoint Charlie", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Let's knit socks ")
+event_15 = Event.new(category: "misc", description: "I love how to knit and am looking for likeminded people or those who would like to learn how to knit. Winter is comimg and I think we could all use some warm woolen socks soon :) ", location: "Checkpoint Charlie", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Let's knit socks")
 
-event_16 = Event.new(category: "misc", description: "I'd like to learn how to read music and thought maybe you'd like to as well? Or maybe you are an experienced musician looking to pass on your wisdom - either would be swell! I am not a complete beginnder but would definitely benefit from an exchange of experiences ", location: "Motzstr. 30", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Fun times reading music")
+event_16 = Event.new(category: "misc", description: "I'd like to learn how to read music and thought maybe you'd like to as well? Or maybe you are an experienced musician looking to pass on your wisdom - either would be swell! I am not a complete beginnder but would definitely benefit from an exchange of experiences ", location: "Motzstr. 30", date: (DateTime.now + (score.sample).hours), user: user_1, title: "Reading music")
 
 event_17 = Event.new(category: "sports", description: "Corona made me fat and I'd really like to walk the extra weight off. But it's always easier to stay motivated if I do thinks in a group so here is me hoping you feel the same way.", location: "Bouchéstr. 3", date: (DateTime.now + (score.sample).hours), user: user_7, title: "Nordic Walking")
 
-event_18 = Event.new(category: "sports", description: "The weather is great, let's play some beach volleyball at Wannsee tonight!", location: "Wannsee", date: "2020-08-28", user: user_6, title: "Beach volleyball")
+event_18 = Event.new(category: "sports", description: "The weather is great, let's play some beach volleyball at Wannsee tonight!", location: "Wannsee", date: "2020-08-28", user: user_6, title: "Volleyball")
 
 event_19 = Event.new(category: "drinking", description: "Nemo is my favorite bar and I am looking for some fun people to drink beer with. I also wouldn't mind a few rounds of fussball (Kicker!)", location: "Oderbergerstr. 25", date: (DateTime.now + (score.sample).hours), user: user_11, title: "Beers + Kicker")
 
@@ -128,6 +150,9 @@ event_22 = Event.new(category: "social", description: "We all need more love and
 event_23 = Event.new(category: "food", description: "I loooooove baking and would like to try a new recipe with you guys! I thought about making a nougat ganache torte with a pistachio buttercream finish. Obviously we will have some coffee and and eat the whole thing afterwards!", location: "Hausvogteiplatz", date: (DateTime.now + (score.sample).hours), user: user_10, title: "Baking in Berlin")
 
 event_24 = Event.new(category: "food", description: "I am originally from Italy and love to make my own pasta. My nonna has the best recipe and I am willing to share it with you :)", location: "Luisenstr. 10", date: "2020-08-30", user: user_8, title: "Fusili in da house")
+
+
+event_25 = Event.new(category: "misc", description: "I am looking for new friends and just a nice bunch of people to hang out with. I am really interested in politics and online games (Overwatch mostly!). Looking forward to meeting all of you!", location: "Frankfurter Tor", date: (DateTime.now + (score.sample).hours), user: user_6, title: "Let's be friends")
 
 # random comment
 event_1.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
@@ -166,76 +191,44 @@ puts "now addding a photo #{event_11.id}"
 event_12.photo.attach(io: sports2, filename: 'sports2.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_12.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-event_13.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_13.photo.attach(io: doko_13, filename: 'doko_13.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_13.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-event_14.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_14.photo.attach(io: betrayal_14, filename: 'betrayal_14.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_14.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_15.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_15.photo.attach(io: knit_15, filename: 'knit_15.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_15.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_16.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_16.photo.attach(io: noten_16, filename: 'noten_16.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_16.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_17.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_17.photo.attach(io: nordic_17, filename: 'nordic_17.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_17.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_18.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_18.photo.attach(io: volleybal_18, filename: 'volleybal_18.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_18.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_19.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_19.photo.attach(io: fussball_19, filename: 'fussball_19.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_19.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_20.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_20.photo.attach(io: aperol_20, filename: 'aperol_20.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_20.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_21.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_21.photo.attach(io: manicure_21, filename: 'manicure_21.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_21.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_22.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_22.photo.attach(io: hugs_22, filename: 'hugs_22.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_22.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_23.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_23.photo.attach(io: cake_23, filename: 'cake_23.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_23.id}"
 
-food = URI.open('https://source.unsplash.com/1600x900/?hamburger')
-
-
-event_24.photo.attach(io: food, filename: 'food.jpg', content_type: 'image/jpg')
+event_24.photo.attach(io: pasta_24, filename: 'pasta_24.jpg', content_type: 'image/jpg')
 puts "now addding a photo #{event_24.id}"
 
+event_25.photo.attach(io: hugs_25, filename: 'hugs_25.jpg', content_type: 'image/jpg')
+puts "now addding a photo #{event_25.id}"
 
 event_1.save
 puts "now saving future event #{event_1.id}"
@@ -266,50 +259,72 @@ puts "now saving past event #{event_11.id}"
 event_12.save
 puts "now saving past event #{event_12.id}"
 
-event_13.save!
+event_13.save
 puts "now saving past event #{event_13.id}"
 
 event_14.save
 puts "now saving past event #{event_14.id}"
 
-event_15.save!
+event_15.save
 puts "now saving past event #{event_15.id}"
 
-event_16.save!
+event_16.save
 puts "now saving past event #{event_16.id}"
 
-event_17.save!
+event_17.save
 puts "now saving past event #{event_17.id}"
 
-event_18.save!
+event_18.save
 puts "now saving past event #{event_18.id}"
 
-event_19.save!
+event_19.save
 puts "now saving past event #{event_19.id}"
 
-event_20.save!
+event_20.save
 puts "now saving past event #{event_20.id}"
 
-event_21.save!
+event_21.save
 puts "now saving past event #{event_21.id}"
 
-event_22.save!
+event_22.save
 puts "now saving past event #{event_22.id}"
 
-event_23.save!
+event_23.save
 puts "now saving past event #{event_23.id}"
 
-event_24.save!
+event_24.save
 puts "now saving past event #{event_24.id}"
 
+event_25.save
+puts "now saving past event #{event_25.id}"
 
 
 puts "now generating 4 participations (one user per event)"
 sleep 0.5
 participation_1 = Participation.new(event: event_4, user: user_1)
+participation_1 = Participation.new(event: event_4, user: user_2)
 participation_2 = Participation.new(event: event_5, user: user_2)
 participation_3 = Participation.new(event: event_6, user: user_3)
 participation_4 = Participation.new(event: event_7, user: user_4)
+# participation for user_6's past events
+participation_5 = Participation.new(event: event_9, user: user_4)
+participation_6 = Participation.new(event: event_9, user: user_1)
+participation_7 = Participation.new(event: event_9, user: user_3)
+participation_8 = Participation.new(event: event_9, user: user_2)
+participation_9 = Participation.new(event: event_10, user: user_5)
+participation_10 = Participation.new(event: event_10, user: user_1)
+participation_11 = Participation.new(event: event_11, user: user_3)
+participation_12 = Participation.new(event: event_11, user: user_2)
+participation_13 = Participation.new(event: event_12, user: user_5)
+participation_14 = Participation.new(event: event_12, user: user_7)
+participation_15 = Participation.new(event: event_18, user: user_9)
+participation_16 = Participation.new(event: event_18, user: user_8)
+# should it only be for past events?
+participation_17 = Participation.new(event: event_19, user: user_8)
+participation_18 = Participation.new(event: event_20, user: user_9)
+participation_19 = Participation.new(event: event_1, user: user_8)
+participation_20 = Participation.new(event: event_2, user: user_4)
+participation_21 = Participation.new(event: event_2, user: user_4)
 
 participation_1.save
 puts "now saving #{participation_1.id}"
@@ -319,33 +334,128 @@ participation_3.save
 puts "now saving #{participation_3.id}"
 participation_4.save
 puts "now saving #{participation_4.id}"
-
-
+participation_5.save
+puts "now saving #{participation_5.id}"
+participation_6.save
+puts "now saving #{participation_6.id}"
+participation_7.save
+puts "now saving #{participation_7.id}"
+participation_8.save
+puts "now saving #{participation_8.id}"
+participation_9.save
+puts "now saving #{participation_9.id}"
+participation_10.save
+puts "now saving #{participation_10.id}"
+participation_11.save
+puts "now saving #{participation_11.id}"
+participation_12.save
+puts "now saving #{participation_12.id}"
+participation_13.save
+puts "now saving #{participation_13.id}"
+participation_14.save
+puts "now saving #{participation_14.id}"
+participation_15.save
+puts "now saving #{participation_15.id}"
+participation_16.save
+puts "now saving #{participation_16.id}"
+participation_17.save
+puts "now saving #{participation_17.id}"
+participation_18.save
+puts "now saving #{participation_18.id}"
+participation_19.save
+puts "now saving #{participation_19.id}"
+participation_20.save
+puts "now saving #{participation_20.id}"
+participation_21.save
+puts "now saving #{participation_21.id}"
 
 puts "now generating 4 reviews"
 sleep 0.5
-review_1 = Review.new(participation: participation_1, score: score.sample, review: "it was an event for sure")
-review_2 = Review.new(participation: participation_2, score: score.sample, review: "it was an event for sure")
-review_3 = Review.new(participation: participation_3, score: score.sample, review: "it was an event for sure")
-review_4 = Review.new(participation: participation_4, score: score.sample, review: "it was an event for sure")
+# review_1 = Review.new(participation: participation_1, score: score.sample, review: "it was an event for sure")
+# review_2 = Review.new(participation: participation_2, score: score.sample, review: "it was an event for sure")
+# review_3 = Review.new(participation: participation_3, score: score.sample, review: "it was an event for sure")
+# review_4 = Review.new(participation: participation_4, score: score.sample, review: "it was an event for sure")
+review_5 = Review.new(participation: participation_5, score: score.sample, review: "had an amazing time, great host!")
+review_6 = Review.new(participation: participation_6, score: score.sample, review: "Best event yet, hightly recommended!")
+review_7 = Review.new(participation: participation_7, score: score.sample, review: "had fun!")
+review_8 = Review.new(participation: participation_8, score: score.sample, review: "I can't wait to do this again!")
+review_9 = Review.new(participation: participation_9, score: score.sample, review: "All good")
+review_10 = Review.new(participation: participation_10, score: score.sample, review: "Klasse event, netter Typ")
+review_11 = Review.new(participation: participation_11, score: score.sample, review: "THE nicest guy ever, super chill and really friendly!")
+review_12 = Review.new(participation: participation_12, score: score.sample, review: "Cheers, mate!")
+review_13 = Review.new(participation: participation_13, score: score.sample, review: "Merci!")
+review_14 = Review.new(participation: participation_14, score: score.sample, review: "Klasse event, netter Typ")
+review_15 = Review.new(participation: participation_15, score: score.sample, review: "i am a bit shy but the host made me feel so welcome, it was really wonderful!")
+review_16 = Review.new(participation: participation_16, score: score.sample, review: ":)")
+# review_17 = Review.new(participation: participation_17, score: score.sample, review: "Klasse event, netter Typ")
+# review_18 = Review.new(participation: participation_18, score: score.sample, review: "thumbs up!")
+# review_19 = Review.new(participation: participation_19, score: score.sample, review: "thumbs up!")
+# review_20 = Review.new(participation: participation_20, score: score.sample, review: "thumbs up!")
+# review_21 = Review.new(participation: participation_21, score: score.sample, review: "thumbs up!")
 
-review_1.save
-puts "now saving #{review_1.id}"
-review_2.save
-puts "now saving #{review_2.id}"
-review_3.save
-puts "now saving #{review_3.id}"
-review_4.save
-puts "now saving #{review_4.id}"
+# review_1.save
+# puts "now saving #{review_1.id}"
+# review_2.save
+# puts "now saving #{review_2.id}"
+# review_3.save
+# puts "now saving #{review_3.id}"
+# review_4.save
+# puts "now saving #{review_4.id}"
+review_5.save
+puts "now saving #{review_5.id}"
+review_6.save
+puts "now saving #{review_6.id}"
+review_7.save
+puts "now saving #{review_7.id}"
+review_8.save
+puts "now saving #{review_8.id}"
+review_9.save
+puts "now saving #{review_9.id}"
+review_10.save
+puts "now saving #{review_10.id}"
+review_11.save
+puts "now saving #{review_11.id}"
+review_12.save
+puts "now saving #{review_12.id}"
+review_13.save
+puts "now saving #{review_13.id}"
+review_14.save
+puts "now saving #{review_14.id}"
+review_15.save
+puts "now saving #{review_15.id}"
+review_16.save
+puts "now saving #{review_16.id}"
+# review_17.save
+# puts "now saving #{review_17.id}"
+# review_18.save
+# puts "now saving #{review_18.id}"
+# review_19.save
+# puts "now saving #{review_19.id}"
+# review_20.save
+# puts "now saving #{review_20.id}"
+# review_21.save
+# puts "now saving #{review_21.id}"
 
 
 
-puts "now generating 4 followings"
+puts "now generating 12 followings"
 sleep 0.5
-followship_1 = Followship.new(follower: user_1, followee: user_1)
-followship_2 = Followship.new(follower: user_2, followee: user_2)
-followship_3 = Followship.new(follower: user_3, followee: user_3)
-followship_4 = Followship.new(follower: user_4, followee: user_4)
+followship_1 = Followship.new(follower: user_1, followee: user_2)
+followship_2 = Followship.new(follower: user_1, followee: user_3)
+followship_3 = Followship.new(follower: user_1, followee: user_4)
+followship_4 = Followship.new(follower: user_6, followee: user_5)
+followship_5 = Followship.new(follower: user_6, followee: user_4)
+followship_6 = Followship.new(follower: user_6, followee: user_1)
+followship_7 = Followship.new(follower: user_6, followee: user_7)
+followship_8 = Followship.new(follower: user_6, followee: user_8)
+followship_9 = Followship.new(follower: user_2, followee: user_6)
+followship_10 = Followship.new(follower: user_9, followee: user_6)
+followship_11 = Followship.new(follower: user_4, followee: user_6)
+followship_12 = Followship.new(follower: user_2, followee: user_8)
+followship_13 = Followship.new(follower: user_2, followee: user_10)
+followship_14 = Followship.new(follower: user_10, followee: user_11)
+
+
 
 followship_1.save
 puts "now saving #{followship_1.id}"
@@ -355,6 +465,26 @@ followship_3.save
 puts "now saving #{followship_3.id}"
 followship_4.save
 puts "now saving #{followship_4.id}"
+followship_5.save
+puts "now saving #{followship_5.id}"
+followship_6.save
+puts "now saving #{followship_6.id}"
+followship_7.save
+puts "now saving #{followship_7.id}"
+followship_8.save
+puts "now saving #{followship_8.id}"
+followship_9.save
+puts "now saving #{followship_9.id}"
+followship_10.save
+puts "now saving #{followship_10.id}"
+followship_11.save
+puts "now saving #{followship_11.id}"
+followship_12.save
+puts "now saving #{followship_12.id}"
+followship_13.save
+puts "now saving #{followship_13.id}"
+followship_14.save
+puts "now saving #{followship_14.id}"
 
 
 puts "now generating 8 chatrooms"
@@ -383,13 +513,65 @@ chatroom_7.save
 chatroom_8 = Chatroom.new(name: event_8.title, event: event_8 )
 puts "now saving chatroom_8"
 chatroom_8.save
+chatroom_9 = Chatroom.new(name: event_9.title, event: event_9 )
+puts "now saving chatroom_9"
+chatroom_9.save
+chatroom_10 = Chatroom.new(name: event_10.title, event: event_10 )
+puts "now saving chatroom_10"
+chatroom_10.save
+chatroom_11 = Chatroom.new(name: event_11.title, event: event_11 )
+puts "now saving chatroom_11"
+chatroom_11.save
+chatroom_12 = Chatroom.new(name: event_12.title, event: event_12 )
+puts "now saving chatroom_8"
+chatroom_12.save
+chatroom_13 = Chatroom.new(name: event_13.title, event: event_13 )
+puts "now saving chatroom_13"
+chatroom_13.save
+chatroom_14 = Chatroom.new(name: event_14.title, event: event_14 )
+puts "now saving chatroom_8"
+chatroom_14.save
+chatroom_15 = Chatroom.new(name: event_15.title, event: event_15 )
+puts "now saving chatroom_15"
+chatroom_15.save
+chatroom_16 = Chatroom.new(name: event_16.title, event: event_16 )
+puts "now saving chatroom_16"
+chatroom_16.save
+chatroom_17 = Chatroom.new(name: event_17.title, event: event_17 )
+puts "now saving chatroom_17"
+chatroom_17.save
+chatroom_18 = Chatroom.new(name: event_18.title, event: event_18 )
+puts "now saving chatroom_18"
+chatroom_18.save
+chatroom_19 = Chatroom.new(name: event_19.title, event: event_19 )
+puts "now saving chatroom_17"
+chatroom_19.save
+chatroom_20 = Chatroom.new(name: event_20.title, event: event_20 )
+puts "now saving chatroom_20"
+chatroom_20.save
+chatroom_21 = Chatroom.new(name: event_21.title, event: event_21 )
+puts "now saving chatroom_21"
+chatroom_21.save
+chatroom_22 = Chatroom.new(name: event_22.title, event: event_22 )
+puts "now saving chatroom_22"
+chatroom_22.save
+chatroom_23 = Chatroom.new(name: event_23.title, event: event_23 )
+puts "now saving chatroom_23"
+chatroom_23.save
+chatroom_24 = Chatroom.new(name: event_24.title, event: event_24 )
+puts "now saving chatroom_24"
+chatroom_24.save
+chatroom_25 = Chatroom.new(name: event_25.title, event: event_25 )
+puts "now saving chatroom_24"
+chatroom_25.save
 
 puts "now generating a random amount of messages"
 
-random = (40..70).to_a
-chatrooms = [chatroom_1, chatroom_2, chatroom_3, chatroom_4, chatroom_5, chatroom_6, chatroom_7, chatroom_8]
+# random = (40..70).to_a
+random = (50..100).to_a
+chatrooms = [chatroom_1, chatroom_2, chatroom_3, chatroom_4, chatroom_5, chatroom_6, chatroom_7, chatroom_8, chatroom_9, chatroom_10, chatroom_11, chatroom_12, chatroom_13, chatroom_14, chatroom_15, chatroom_16, chatroom_17, chatroom_18, chatroom_19, chatroom_20, chatroom_21, chatroom_22, chatroom_23, chatroom_24, chatroom_25]
 
-messages = ["looking forward to it", "do i need to bring anything?", "how do i get here from HbF??", "i heard this place is v. cool", "looooool!!!!", "i've not done this in a long time", "i think i'll need to practice", "who else is coming??", "is there a dress code?", Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote]
+messages = ["I'll be 5 minutes late", "amazing, looking forward", "can i bring my dog?", "never done it, so excited", "wow!", "any allergies?", "are you guys there already?", "can't find the place, help pls", "I have been there before", "it is really cool!", "amazeballs", "alrighty tighty", "danke!", "coolio", "so good", "yummy tummy!", "boom", "no kidding", "lol", "i love the description, haha", "love this!", "merci!", "looking forward to it", "do i need to bring anything?", "how do i get here from HbF??", "i heard this place is v. cool", "looooool!!!!", "i've not done this in a long time", "i think i'll need to practice", "who else is coming??", "is there a dress code?", Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote, Faker::Movie.quote, Faker::Marketing.buzzwords, Faker::Hipster.sentence, Faker::Hacker.say_something_smart, Faker::ChuckNorris.fact, Faker::Device.serial, Faker::Games::Fallout.quote]
 
 random.sample.times do |l|
 	hello = Message.new(content: messages.sample, user: users.sample, chatroom: chatrooms.sample)
