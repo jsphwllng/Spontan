@@ -8,6 +8,8 @@ const initChatroomCable = () => {
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
         messagesContainer.insertAdjacentHTML('afterbegin', data);
+        const inputMessage = document.getElementById('message_content');
+        inputMessage.value = "";
       },
     });
   }

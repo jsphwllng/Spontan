@@ -3,10 +3,10 @@
 	<div class="col">
 		<% if @event.user.photo.attached?%>
 
-		<p class="text-white"> <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %>      Hosted by: <%= link_to @event.user.username, member_path(@event.user) %></p>
+		<p class="text-white"> <%= cl_image_tag @event.user.photo.key, style:"width: 70px; height:70px border:5px;", class:"rounded-circle" %>      Hosted by <%= link_to @event.user.username, member_path(@event.user) %></p>
 
 		<% else %>	
-		<p class="text-white"><img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 70px; height: 70px">      Hosted by: <%= @event.user.username %> </p>
+		<p class="text-white"><img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 70px; height: 70px">      Hosted by <%= @event.user.username %> </p>
 		<% end %>
 	</div>
 </div>
@@ -16,21 +16,22 @@
 		<div class="user-box">
 			<div class="text-white">
 				<%= cl_image_tag @event.photo.key,  style:"width: 100%; height: 25%;"%>
-				<h1 class="event-show-title"> <%= @event.title.capitalize %></h1>
-
-				
-				<p class="event-show-category" style="opacity:0.5"> a <strong><%= @event.category %> </strong> event</p>
+				<div class="event-show-title-box">
+					<h1 class="event-show-title"> <%= @event.title.capitalize %></h1>
+						<p class="event-show-category" style="opacity:0.5"> a <strong><%= @event.category %> </strong> event</p>
+				</div>
+				<div class="row event-details-box">
+					<div class="col">
+					
+			
 				<p class="event-show-location"> <%= @event.location  %></p>
 				<p class="event-show-date" style="opacity:0.9">	Starting on <%= @event.date.strftime("%m/%d at %I:%M%p") %>
 				</p>
-				<p> 
-					<%= @event.description %>
-				</p>
-			</div>
-
+				<p> </div>
+					<div class="col">
 			<% unless @event.participations.exists?(user_id: current_user) || @event.user == current_user %>
 			<div class="attendance-button d-flex justify-content-center">
-				<%= link_to 'confirm attendance', event_participations_path(@event), method: :post, class: "cool-button" %>
+				<%= link_to 'attend', event_participations_path(@event), method: :post, class: "cool-button attend-btn" %>
 			</div>
 
 			<% else %>
@@ -43,9 +44,18 @@
 			<% end %>
 			<% end %>
 
-			<% if @event.participations.exists?(user_id: current_user) %>
-			<p class="text-white", style="opacity:0.9">You are attending!</p>
-			<% end %>		
+							<% if @event.participations.exists?(user_id: current_user) %>
+							<p class="text-white attending-confirmation", style="opacity:0.9">You are attending!</p>
+							<% end %>		
+						</div>
+					</div>
+					<div class="description-box">
+					<%= @event.description %>
+					</div>
+				</p>
+			</div>
+
+			
 			<% if @event.user_id == current_user.id %>
 			<%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? "}, class: "btn btn-danger"%>
 			<%= link_to "Update Event", edit_event_path(@event), class: "btn btn-primary" %>
