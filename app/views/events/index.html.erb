@@ -13,15 +13,16 @@
 			</div>
 			<div class="searchbar-range">
 				<%= select_tag :query_location, options_for_select(([['Range', 0],['2 Km', 2], ['5 Km', 5], ['10 Km', 10], ['25 Km', 25]]),
-				params[:query_location]), {class: 'form-control form-middle', placeholder: "Range"}	%>
+				params[:query_location]), {class: 'form-control form-middle', placeholder: "Range", style:"-webkit-appearance: none;
+    -moz-appearance: none;"}	%>
 			</div>
 
 			<div class="searchbar-category">
 				<%= select_tag :query_category, options_for_select((["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]),
 				params[:query_category]), {class: 'form-control form-end', placeholder: "Category", prompt: "Category"}	%>
 			</div>
-				<%= submit_tag "Whatever", class: "searchbar-submit-button" %>
-				<% end %>
+				<%= submit_tag "🔎", class: "magnify-button" %>
+			<% end %>
 			</div>
 		</div>
 
