@@ -122,7 +122,7 @@ event_6 = Event.new(category: "dancing", description: "We are a small group of e
 event_7 = Event.new(category: "studying", description: "The semester is almost over and exams are just around the corner. I give free tips & tricks how to step up your learning process when it comes to studying for exams.", location: "Staatsbibliothek Berlin", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Studying tips")
 event_8 = Event.new(category: "party", description: "Lets end the day with some pumping beats and some nice & cold beers, 18+ !", location: "Café Hasenschänke", date: (DateTime.now + (score.sample).hours), user: user_4, title: "Beers & Beats")
 
-event_9 = Event.new(category: "food", description: "Poke Bowls are so delicious, let's have some together at Vietbowl in Neukoelln!", location: "Böhmische Str. 13, 12055 Berlin", date: "2020-08-22", user: user_6, title: "It's Poke Bowl Time!")
+event_9 = Event.new(category: "food", description: "Poke Bowls are so delicious, let's have some together at Vietbowl in Neukoelln!", location: "Böhmische Str. 13, 12055 Berlin", date: "2020-08-22", user: user_11, title: "It's Poke Bowl Time!")
 event_10 = Event.new(category: "spiritual", description: "Let's pray together for the children of the world who needlessly suffer because rich people and conglomerates are selfish and evil", location: "Karl-Liebknecht-Str. 8, 10178 Berlin", date: "2020-08-23", user: user_6, title: "Let us Pray for the Children at St. Marienkirche")
 event_11 = Event.new(category: "political", description: "Never forget what happened in Hanau! We cannot let racism and fascism win. Let's show society that we will never forget and never accept such acts of terrorism!", location: "Alexanderplatz", date: "2020-08-24", user: user_6, title: "Never Forget!")
 event_12 = Event.new(category: "sports", description: "Me and a friend would like to play some frisbee. We are easygoing guys and wouldn't mind going for a beer afterwards", location: "Tempelhofer Feld", date: "2020-08-25", user: user_6, title: "techno fitness")
@@ -325,6 +325,8 @@ participation_18 = Participation.new(event: event_20, user: user_9)
 participation_19 = Participation.new(event: event_1, user: user_8)
 participation_20 = Participation.new(event: event_2, user: user_4)
 participation_21 = Participation.new(event: event_2, user: user_4)
+participation_22 = Participation.new(event: event_24, user: user_6)
+participation_23 = Participation.new(event: event_9, user: user_6)
 
 participation_1.save
 puts "now saving #{participation_1.id}"
@@ -368,6 +370,10 @@ participation_20.save
 puts "now saving #{participation_20.id}"
 participation_21.save
 puts "now saving #{participation_21.id}"
+participation_22.save
+puts "now saving #{participation_22.id}"
+participation_23.save
+puts "now saving #{participation_23.id}"
 
 puts "now generating 4 reviews"
 sleep 0.5
@@ -387,6 +393,7 @@ review_13 = Review.new(participation: participation_13, score: score.sample, rev
 review_14 = Review.new(participation: participation_14, score: score.sample, review: "Klasse event, netter Typ")
 review_15 = Review.new(participation: participation_15, score: score.sample, review: "i am a bit shy but the host made me feel so welcome, it was really wonderful!")
 review_16 = Review.new(participation: participation_16, score: score.sample, review: ":)")
+review_17 = Review.new(participation: participation_23, score: score.sample, review: "Yummy yummy in ma tummy! Great food, great people, splendid event. Absolutely devine")
 # review_17 = Review.new(participation: participation_17, score: score.sample, review: "Klasse event, netter Typ")
 # review_18 = Review.new(participation: participation_18, score: score.sample, review: "thumbs up!")
 # review_19 = Review.new(participation: participation_19, score: score.sample, review: "thumbs up!")
@@ -425,6 +432,8 @@ review_15.save
 puts "now saving #{review_15.id}"
 review_16.save
 puts "now saving #{review_16.id}"
+review_17.save
+puts "now saving #{review_17.id}"
 # review_17.save
 # puts "now saving #{review_17.id}"
 # review_18.save
