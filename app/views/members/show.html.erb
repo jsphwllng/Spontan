@@ -3,31 +3,39 @@
 	<div class="row">
 		<div class="col-4">
 			<div class="user-box">
-			<div class="d-flex justify-content-center">
-				<h1><%= @user.username %></h1>
+				<div class="d-flex justify-content-center">
+					<h1><%= @user.username %></h1>
 				</div>
 				<% if @user.photo.attached? %>
 				<div class="d-flex justify-content-center">
-				<%= cl_image_tag @user.photo.key, class:"rounded-circle", style:"width: 170px; height: 170px"%>
+					<%= cl_image_tag @user.photo.key, class:"rounded-circle", style:"width: 170px; height: 170px"%>
 				</div>
 				<% else %>
 				<img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 170px; height: 170px">
 				<% end %>
 				<br>
 				<br>
-
-				<p> <span style="opacity:0.8"> JOINED </span> <strong> <%=@user.created_at.strftime("%B %Y") %></strong> </p>
-				<p><span style="opacity:0.8">FOLLOWERS </span><strong class="user-text"> <%=@user.followers.count %></strong> </p>
-				<p><span style="opacity:0.8" > <%= link_to "FOLLOWING", member_followships_path(@user) %> </span><strong class="user-text"> <%= @user.followees.count %> </strong> </p>
-				<p><span style="opacity:0.8">ATTENDED </span><strong class="user-text"> <%= @user.participations.count%></strong> events </p>
-				<% unless @user == current_user || current_user.nil? %>
-				<% pre_follow = @user.followers.find { |follower| follower.id == current_user.id} %>
-				<% if pre_follow %>
-				<%= link_to "unfollow this user", member_followships_path(@user.id), method: :create, class:"btn btn-danger"  %>
-				<% else %>
-				<%= link_to "follow this user", member_followships_path(@user.id), method: :create, class:"btn btn-primary"  %>
-				<% end %>
-				<% end %>
+				<div class="row"> <div class="col-4">
+					<p> <span style="opacity:0.8"> JOINED </span>  </p>
+					<p><span style="opacity:0.8">FOLLOWERS </span> </p>
+					<p><span style="opacity:0.8" > <%= link_to "FOLLOWING", member_followships_path(@user) %> </span></p>
+					<p><span style="opacity:0.8">ATTENDED </span>  </p>
+					</div>
+					<div class="col test-left">
+						<p> <strong> <%=@user.created_at.strftime("%B %Y") %></strong></p>
+						<p> <strong class="user-text"> <%=@user.followers.count %></strong></p>
+						<p> <strong class="user-text"> <%= @user.followees.count %> </strong> </p>
+						<p> <strong class="user-text"> <%= @user.participations.count%></strong></p>
+					</div>
+					<% unless @user == current_user || current_user.nil? %>
+					<% pre_follow = @user.followers.find { |follower| follower.id == current_user.id} %>
+					<% if pre_follow %>
+					<%= link_to "unfollow this user", member_followships_path(@user.id), method: :create, class:"btn btn-danger"  %>
+					<% else %>
+					<%= link_to "follow this user", member_followships_path(@user.id), method: :create, class:"btn btn-primary"  %>
+					<% end %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 		<div class="col">
@@ -42,17 +50,19 @@
 				</p>
 				<% end %>
 				<% host_score = 0 %>
+				<% review_count = 0 %>
 				<% @user.events.each do |event| %>
 				<% event.participations.each do |participation| %>
 				<% if participation.review %>
 				<% host_score += participation.review.score %>
+				<% review_count += 1 %>
 				<% end %>
 				<% end %>
 				<% end %>
 				<% if host_score > 0 %>
 
 
-				<% host_score = host_score / @user.events.count %>
+				<% host_score = host_score / review_count %>
 				<% end %>
 				<p>
 					Host score: <%host_score.ceil().times do |star|%>
@@ -62,7 +72,7 @@
 					<i class="far fa-star"></i>
 					<% end %>
 				</p>
-        
+
 			</div>
 			<% if @user == current_user %>
 			<h4 class="past-event-h4" style="opacity:0.8;">   Your past events</h4>
@@ -95,11 +105,11 @@
 						<% if participation.user == current_user %>
 
 
-							<div class="form">
-								<%= simple_form_for [participation, @review = Review.new],defaults: { input_html: { class: 'input-form-new-reviews' } } do |f| %>
-								<%= f.input :review %>
-								<%= f.input :score  %>
-								<%= f.submit %>
+						<div class="form">
+							<%= simple_form_for [participation, @review = Review.new],defaults: { input_html: { class: 'input-form-new-reviews' } } do |f| %>
+							<%= f.input :review %>
+							<%= f.input :score  %>
+							<%= f.submit %>
 							<% end %>
 						</div>
 
@@ -109,17 +119,14 @@
 						<% end %>
 					</div>
 					<div class="col text-right">
-						<% if participation.event.photo.attached? %>
-						<%= cl_image_tag participation.event.photo.key, style:"width: 170px; height: 170px" %>
-						<% end %>
+						<%= cl_image_tag participation.event.photo.key, style:"width: 170px; height: 170px"%>
 					</div>
 				</div>
 			</div>
 
+
+
 			<% end %>
-
-
-
 
 
 
