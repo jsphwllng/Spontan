@@ -1,34 +1,34 @@
 
 <div style="margin-right: 100px; margin-left: 100px">
 
-<% if @user == current_user %>
-<h1 style="color:white; margin-bottom:50px; margin-top: 30px; opacity:0.8">People you are following</h1>
-<% else %>
-  <h1 style="color:white; margin-bottom:50px; margin-top: 30px; opacity:0.8">People <i style="color:#42c7b0"> <%=  @user.username %></i> is following</h1>
+	<% if @user == current_user %>
+	<h1 style="color:white; margin-bottom:50px; margin-top: 30px; opacity:0.8">People you are following</h1>
+	<% else %>
+	<h1 style="color:white; margin-bottom:50px; margin-top: 30px; opacity:0.8">People <i style="color:#42c7b0"> <%=  @user.username %></i> is following</h1>
+	<% end %>
 
+	<div style="color:white">
+		<!-- Avatar of user-->
+		<% @followees.each do |f|  %>
+		<div class="row">
+			<div class="col">
+				<% if f.photo.attached?%>
+				<div style="display:flex; align-items:center">
+					<div class="text-white"> <%= cl_image_tag f.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %> </div>
+					<h3 style="text-align:center; margin-left: 20px; margin-right: 20px"><i><%= f.username %></i></h3>
 
-<div style="color:white">
-	<!-- Avatar of user-->
-  <% @followees.each do |f|  %>
-      <div class="row">
-        <div class="col">
-          <% if f.photo.attached?%>
-          <div style="display:flex; align-items:center">
-          	 <div class="text-white"> <%= cl_image_tag f.photo.key, style:"width: 70px; height:70px", class:"rounded-circle" %> </div>
-          <h3 style="text-align:center; margin-left: 20px; margin-right: 20px"><i><%= f.username %></i></h3>
-         
-          </div>
-          <% else %>
-          <p class="text-white"><img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 70px; height: 70px">      Hosted by: <%= @event.user.username %> </p>
-          <% end %>
-        </div>
-      </div>
-       <div class= "d-flex flex-wrap justify-content-start mx-auto" style="margin-top: 30px; margin-left: 50px; margin-right: 50px">
-       <% f.events.each do |event| %>
-          <%= render "/events/event_card", event: event %>
-        <% end %>
-      </div>
-  <% end %>
+				</div>
+				<% else %>
+				<p class="text-white"><img src="https://res.cloudinary.com/dbbmbbgju/image/upload/v1598524883/New_Project_ykwpvb.jpg" alt="" class ="rounded-circle" style="width: 70px; height: 70px">      Hosted by: <%= @event.user.username %> </p>
+				<% end %>
+			</div>
+		</div>
+		<div class= "d-flex flex-wrap justify-content-start mx-auto" style="margin-top: 30px; margin-left: 50px; margin-right: 50px">
+			<% f.events.each do |event| %>
+			<%= render "/events/event_card", event: event %>
+			<% end %>
+		</div>
+		<% end %>
 
 
 	</div>
