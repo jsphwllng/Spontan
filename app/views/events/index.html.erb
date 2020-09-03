@@ -19,7 +19,8 @@
 
 			<div class="searchbar-category">
 				<%= select_tag :query_category, options_for_select((["sports", "party", "drinking", "social", "yoga", "spiritual", "dancing", "misc", "studying", "political", "food", "board games", "culture"]),
-				params[:query_category]), {class: 'form-control form-end', placeholder: "Category", prompt: "Category"}	%>
+				params[:query_category]), {class: 'form-control form-end', placeholder: "Category", prompt: "Category", style:"-webkit-appearance: none;
+    -moz-appearance: none;"} 	%>
 			</div>
 				<%= submit_tag "🔎", class: "magnify-button" %>
 			<% end %>
