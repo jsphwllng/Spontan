@@ -30,7 +30,26 @@
 }
 
 .btn-danger:hover {
-  background: #e02c4a!important;
+  background: #e02c4a !important;
   color: white !important;
   border-color: #589BB1 !important;
 }
+
+.btn-mini {
+  font-family: 'Archivo', sans-serif !important;
+  text-align: center !important;
+  border-radius: 34px !important;
+  display: inline-block !important;
+  padding: 5px 15px !important;
+  background: #6660B1 !important;
+  color: white !important;
+  border-color: #589BB1 !important;
+
+}
+
+ .btn-mini:hover {
+  background: #589BB1 !important;
+  color: white im !important;
+  border-color: #6660B1 !important;
+
+ }
