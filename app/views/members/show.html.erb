@@ -55,7 +55,6 @@
 				<% @user.events.each do |event| %>
 				<% event.participations.each do |participation| %>
 				<% if participation.review %>
-         <% review_count += 1 %>
 				<% host_score += participation.review.score %>
 				<% review_count += 1 %>
 				<% end %>
@@ -111,7 +110,7 @@
 							<%= simple_form_for [participation, @review = Review.new],defaults: { input_html: { class: 'input-form-new-reviews' } } do |f| %>
 							<%= f.input :review %>
 							<%= f.input :score  %>
-							<%= f.submit %>
+							<%= f.submit "Submit", class: "btn btn-mini" %>
 							<% end %>
 						</div>
 
