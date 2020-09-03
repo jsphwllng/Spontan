@@ -91,7 +91,7 @@ user_3 = User.new(email: Faker::Internet.email , username: Faker::Internet.usern
 user_4 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
 user_5 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "female", location: "berlin", password: "123456")
 
-user_6 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: "Joseph" , last_name: "Welling The Boss" , gender: "male", location: "berlin", password: "123456")
+user_6 = User.new(email: "joseph@example.com" , username: Faker::Internet.username, first_name: "Joseph" , last_name: "Welling The Boss" , gender: "male", location: "berlin", password: "123456")
 
 user_7 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "female", location: "berlin", password: "123456")
 user_8 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
@@ -99,7 +99,7 @@ user_9 = User.new(email: Faker::Internet.email , username: Faker::Internet.usern
 user_10 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
 user_11 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "female", location: "berlin", password: "123456")
 
-users = [user_1, user_2, user_3, user_4, user_5, user_6, user_7, user_8, user_9, user_10, user_11]
+users = [user_1, user_2, user_3, user_4, user_5, user_7, user_8, user_9, user_10, user_11]
 
 users.each do |user|
 	user.photo.attach(io: URI.open("https://source.unsplash.com/500x500/?person"), filename: user.username, content_type: 'image/jpg')
@@ -107,6 +107,9 @@ users.each do |user|
 	puts "user #{user.id}, #{user.username} saved :)"
 end
 
+user_6.photo.attach(io: URI.open("https://i.imgur.com/eOv5PuC.jpg"), filename: "JOE", content_type: 'image/jpg')
+user_6.save
+puts "YOU saved :)"
 
 puts "now generating 25 events (past and future)"
 sleep 0.5
@@ -127,9 +130,9 @@ event_10 = Event.new(category: "spiritual", description: "Let's pray together fo
 event_11 = Event.new(category: "political", description: "Never forget what happened in Hanau! We cannot let racism and fascism win. Let's show society that we will never forget and never accept such acts of terrorism!", location: "Alexanderplatz", date: "2020-08-24", user: user_6, title: "Never Forget!")
 event_12 = Event.new(category: "sports", description: "Me and a friend would like to play some frisbee. We are easygoing guys and wouldn't mind going for a beer afterwards", location: "Tempelhofer Feld", date: "2020-08-25", user: user_6, title: "techno fitness")
 
-event_13 = Event.new(category: "board games", description: "Let's plat Doppelkopf at Laidak, preferably without 9s though!", location: "Boddinstr. 8", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Doppelkopf!")
+event_13 = Event.new(category: "party", description: "Let's plat Doppelkopf at Laidak, preferably without 9s though!", location: "Boddinstr. 8", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Doppelkopf!")
 
-event_14 = Event.new(category: "board games", description: "Betrayal on the House of the Hill is probably the best game ever invented. If you like strategy/group games this is perfect for you! Let's play!", location: "Hermannplatz", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Let's play Betrayal!")
+event_14 = Event.new(category: "party", description: "Betrayal on the House of the Hill is probably the best game ever invented. If you like strategy/group games this is perfect for you! Let's play!", location: "Hermannplatz", date: (DateTime.now + (score.sample).hours), user: user_3, title: "Let's play Betrayal!")
 
 event_15 = Event.new(category: "misc", description: "I love how to knit and am looking for likeminded people or those who would like to learn how to knit. Winter is comimg and I think we could all use some warm woolen socks soon :) ", location: "Checkpoint Charlie", date: (DateTime.now + (score.sample).hours), user: user_5, title: "Let's knit socks")
 
