@@ -91,7 +91,7 @@ user_3 = User.new(email: Faker::Internet.email , username: Faker::Internet.usern
 user_4 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
 user_5 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "female", location: "berlin", password: "123456")
 
-user_6 = User.new(email: "joseph@example.com" , username: Faker::Internet.username, first_name: "Joseph" , last_name: "Welling The Boss" , gender: "male", location: "berlin", password: "123456")
+user_6 = User.new(email: "joseph@example.com" , username: "jsphWllng", first_name: "Joseph" , last_name: "Welling The Boss" , gender: "male", location: "berlin", password: "123456")
 
 user_7 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "female", location: "berlin", password: "123456")
 user_8 = User.new(email: Faker::Internet.email , username: Faker::Internet.username, first_name: Faker::Name.first_name , last_name: Faker::Name.last_name , gender: "male", location: "berlin", password: "123456")
@@ -328,7 +328,6 @@ participation_18 = Participation.new(event: event_20, user: user_9)
 participation_19 = Participation.new(event: event_1, user: user_8)
 participation_20 = Participation.new(event: event_2, user: user_4)
 participation_21 = Participation.new(event: event_2, user: user_4)
-participation_22 = Participation.new(event: event_24, user: user_6)
 participation_23 = Participation.new(event: event_9, user: user_6)
 
 participation_1.save
@@ -373,8 +372,6 @@ participation_20.save
 puts "now saving #{participation_20.id}"
 participation_21.save
 puts "now saving #{participation_21.id}"
-participation_22.save
-puts "now saving #{participation_22.id}"
 participation_23.save
 puts "now saving #{participation_23.id}"
 
@@ -592,4 +589,3 @@ random.sample.times do |l|
 	hello.save
 
 end
-
